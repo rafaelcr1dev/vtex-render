@@ -1,0 +1,231 @@
+<div id="vtexIdContainer" class="ng-scope">
+    <div class="vtexIdUI ng-scope vtexIdUI-show-app" ng-class="{'vtexIdUI-shake': userError}" ng-controller="MainController"
+        style="height: 321px;">
+        <div class="vtexIdUI-loading-modal" id="vtexIdUI-loading-modal"></div>
+        <div class="vtexIdUI-main-content" id="vtexIdUI-main-content">
+            <div class="vtexIdUI-auth-code vtexIdUI-page ng-scope vtexIdUI-page-inactive" ng-controller="AccessKeyConfirmationController"
+                id="vtexIdUI-confirm-access-code">
+                <div class="modal-header">
+                    <h4 ng-show="isLoginAccessKey" class="ng-hide"><span class="vtexIdUI-heading" data-i18n="vtexid.accessTokenTitle">Informar
+                            chave de acesso</span></h4>
+                    <h4 ng-show="isLinkOAuthFlow" class="ng-hide"><span class="vtexIdUI-heading" data-i18n="vtexid.confirmationAccount">Confirmação
+                            de conta</span></h4>
+                    <h4 ng-show="isChangePswdAccessKey" class="ng-hide"><span class="vtexIdUI-heading" data-i18n="vtexid.changePswdTitle">Alterar
+                            senha</span></h4>
+                    <div class="vtexIdUI-loading" ng-class="{'vtexIdUI-loading-show': isValidatingAccessKey}"></div>
+                </div>
+                <form ng-submit="confirmAccessKey()" ng-disabled="isValidatingAccessKey" class="ng-pristine ng-valid">
+                    <div class="modal-body"> <label class="info-code text-center" for="access-code">
+                            <div class="connect-alert ng-hide" ng-show="isLinkOAuthFlow"> <span data-i18n="vtexid.linkOAuthMsgPT1">Vamos
+                                    conectar seu registro de</span> <strong class="ng-binding"></strong> <span
+                                    data-i18n="vtexid.linkOAuthMsgPT2">ao seu email cadastrado</span>
+                                <div class="emails-join"> <i class="vtexid-icon-switch center-icon"></i>
+                                    <div class="email-join-address muted ng-binding"> <i ng-class="vtexid-icon-empty"></i>
+                                    </div>
+                                    <div class="email-join-address muted ng-binding"> <i class="vtexid-icon-mail"></i>
+                                    </div>
+                                </div>
+                            </div> <span data-i18n="vtexid.insertAccessToken">Agora é só informar o código recebido em:</span><br>
+                            <strong class="ng-binding"></strong>
+                        </label>
+                        <div class="vtexIdUI-code-field"> <input autofocus="" autocomplete="off" id="access-code" class="input-fit input-block-level ng-pristine ng-valid"
+                                ng-model="accessKey" type="text" tabindex="1"> </div>
+                        <!-- Usuário informou uma chave de acesso inválida.  -->
+                        <div class="alert ng-hide" ng-show="invalidAccessToken" data-i18n="vtexid.invalidAccessToken">Chave
+                            de acesso inválida. Verifique a digitação.</div>
+                        <!-- Usuário informou uma chave de acesso inválida 3 vezes.  -->
+                        <div class="alert alert-wrong-access-key ng-hide" ng-show="tooMuchWrongPswds"> <span data-i18n="vtexid.tooMuchWrongPswds">Você
+                                errou quatro vezes. Enviaremos uma nova chave para o email: </span> <strong class="ng-binding"></strong>
+                        </div>
+                    </div>
+                    <div class="modal-footer"> <a class="vtexIdUI-back-link pull-left dead-link" tabindex="3" href="#"
+                            ng-click="updatePage('auth-selector', false, true)"> <i class="vtexid-icon-arrow-left"></i>
+                            <span data-i18n="vtexid.backLink">Voltar</span> </a> <!-- ngIf: isLoginAccessKey -->
+                        <!-- ngIf: isChangePswdAccessKey -->
+                        <!-- ngIf: isLinkOAuthFlow -->
+                    </div>
+                </form>
+            </div>
+            <div class="vtexIdUI-page ng-scope vtexIdUI-page-active" id="vtexIdUI-auth-selector" ng-controller="SelectAuthController">
+                <div class="modal-header"> <button type="button" class="close vtexIdUI-close ng-hide" ng-show="canClose"
+                        data-dismiss="modal">×</button>
+                    <div class="vtexIdUI-header row-fluid">
+                        <div class="vtexIdUI-user ng-hide" ng-show="auth.email &amp;&amp; auth.systemProvidedEmail">
+                            <div class="vtexIdUI-user-email pull-left muted"> <i class="vtexid-icon-user muted"></i>
+                                <span class="ng-binding"></span> </div>
+                        </div>
+                    </div>
+                    <h4 class="vtexIdUI-heading"> <span data-i18n="vtexid.selectAuthOption" ng-show="!auth.title" class="">Use
+                            uma das opções para confirmar sua identidade</span> <span ng-show="auth.title" class="ng-binding ng-hide"></span>
+                    </h4>
+                    <div class="vtexIdUI-loading" ng-class="{'vtexIdUI-loading-show': isSendingEmailConfirmation}"></div>
+                </div>
+                <div class="modal-body">
+                    <ul class="vtexIdUI-providers-list">
+                        <li ng-show="auth.showAccessKeyAuthentication" class=""> <button ng-disabled="isSendingEmailConfirmation"
+                                class="btn btn-block btn-large btn-success vtexIdUI-send-email" id="loginWithAccessKeyBtn"
+                                tabindex="1" ng-click="emailAuth()"> <i class="vtexid-icon-mail"></i> <span data-i18n="vtexid.getEmailAccessToken">Receber
+                                    chave de acesso rápido por email</span> </button> </li>
+                        <!-- ngRepeat: provider in auth.oAuthProviders -->
+                        <li ng-repeat="provider in auth.oAuthProviders" repeat-done="updateI18n()" class="ng-scope">
+                            <button id="vtexIdUI-facebook" tabindex="2" class="btn btn-block btn-large vtexIdUI-providers-btn"
+                                ng-click="oAuthMethod(provider)">
+                                <!-- classe do icone --> <i class="vtexid-icon-facebook vtexIdUI-providers-i"></i>
+                                <p> <span data-i18n="vtexid.enterWith">Entrar com</span> <span class="vtexIdUI-providers-name ng-binding">Facebook</span>
+                                </p>
+                            </button> </li><!-- end ngRepeat: provider in auth.oAuthProviders -->
+                        <li ng-repeat="provider in auth.oAuthProviders" repeat-done="updateI18n()" class="ng-scope">
+                            <button id="vtexIdUI-google-plus" tabindex="2" class="btn btn-block btn-large vtexIdUI-providers-btn"
+                                ng-click="oAuthMethod(provider)">
+                                <!-- classe do icone --> <i class="vtexid-icon-google-plus vtexIdUI-providers-i"></i>
+                                <p> <span data-i18n="vtexid.enterWith">Entrar com</span> <span class="vtexIdUI-providers-name ng-binding">Google</span>
+                                </p>
+                            </button> </li><!-- end ngRepeat: provider in auth.oAuthProviders -->
+                        <li ng-show="auth.showClassicAuthentication" class=""> <button class="btn btn-block btn-large vtexIdUI-others-send-email"
+                                tabindex="3" id="loginWithUserAndPasswordBtn" ng-click="classicLogin()"> <span
+                                    data-i18n="vtexid.classicAuthText">Entrar com email e senha</span> </button> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="vtexIdUI-classic-login vtexIdUI-page ng-scope vtexIdUI-page-inactive" id="vtexIdUI-classic-login"
+                ng-controller="ClassicLoginController">
+                <form ng-disabled="isSendingClassicForm" ng-submit="authenticatePswd()" id="vtexIdUI-form-classic-login"
+                    autocomplete="on" form-autofill-fix="" class="ng-pristine ng-invalid ng-invalid-required" method="POST">
+                    <div class="modal-header"> <button type="button" class="close vtexIdUI-close ng-hide" ng-show="canClose"
+                            data-dismiss="modal">×</button>
+                        <div class="vtexIdUI-header row-fluid">
+                            <div class="vtexIdUI-user ng-hide" ng-show="auth.email &amp;&amp; auth.systemProvidedEmail">
+                                <div class="vtexIdUI-user-email pull-left muted"> <i class="vtexid-icon-user muted"></i>
+                                    <span class="ng-binding"></span> </div>
+                            </div>
+                        </div>
+                        <h4> <span class="vtexIdUI-heading" data-i18n="vtexid.classicAuthText">Entrar com email e senha</span>
+                        </h4>
+                        <div class="vtexIdUI-loading" ng-class="{'vtexIdUI-loading-show': isSendingClassicForm}"></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="control-group vtexIdUI-classic-login-control email-model" ng-show="!auth.systemProvidedEmail">
+                            <label for="inputEmail" class="control-label"> <span data-i18n="vtexid.email">Seu email</span>
+                            </label>
+                            <div class="controls"> <input autofocus="" type="email" tabindex="1" id="inputEmail"
+                                    ng-model="auth.email" data-i18n="[placeholder]vtexid.egEmail" class="ng-pristine ng-valid ng-valid-email"
+                                    placeholder="Ex: jose@email.com"> </div>
+                        </div>
+                        <div class="control-group vtexIdUI-classic-login-control"> <label for="inputPassword" class="control-label">
+                                <span data-i18n="vtexid.password">Senha</span> <a href="#" data-i18n="vtexid.forgotPswd"
+                                    class="dead-link pull-right" tabindex="4" ng-click="changePswd()">Esqueci minha
+                                    senha</a> </label>
+                            <div class="controls"> <input type="password" tabindex="2" autocomplete="off" required=""
+                                    id="inputPassword" ng-model="password" class="ng-pristine ng-invalid ng-invalid-required">
+                            </div> <a data-i18n="vtexid.forgotPswdHelper" href="#" tabindex="5" class="dead-link pull-right"
+                                ng-click="changePswd()">Não tem uma senha? Cadastre agora</a>
+                        </div>
+                        <p class="alert alert-warning alert-wrong-pswd ng-hide" ng-show="classicAuthError"> <i class="icon-warning-sign"></i>
+                            <span data-i18n="vtexid.invalidAuth">Usuário e/ou senha errada</span> </p>       
+                    </div>
+                    <div class="modal-footer"> <a class="vtexIdUI-back-link pull-left dead-link" tabindex="6" href="#"
+                            ng-show="auth.flow !== 'classicLogin'" ng-click="updatePage('auth-selector', false, true)">
+                            <i class="vtexid-icon-arrow-left"></i> <span data-i18n="vtexid.backLink">Voltar</span> </a>
+                        <button ng-disabled="isSendingClassicForm" class="btn btn-large btn-success pull-right" type="submit"
+                            tabindex="3" data-i18n="vtexid.enter" id="classicLoginBtn">Entrar</button> </div>
+                </form>
+            </div>
+            <div class="vtexIdUI-confirm-email vtexIdUI-page ng-scope vtexIdUI-page-inactive" ng-controller="ConfirmEmailController"
+                id="vtexIdUI-email-confirmation">
+                <div class="modal-header"> <button type="button" ng-show="canClose" class="close vtexIdUI-close ng-hide"
+                        data-dismiss="modal">×</button>
+                    <h4><span class="vtexIdUI-heading" data-i18n="vtexid.getEmailTitle">Por favor informe seu email</span></h4>
+                    <div class="vtexIdUI-loading" ng-class="{'vtexIdUI-loading-show': isSendingEmailConfirmation}"></div>
+                </div>
+                <form ng-disabled="isSendingEmailConfirmation" ng-submit="validateEmail()" autocomplete="on" class="ng-pristine ng-invalid ng-invalid-required">
+                    <div class="modal-body form-vertical">
+                        <!-- Usuário informou um email que não é um VtexID válido -->
+                        <div class="controls vtexIdUI-email-field"> <input autofocus="" id="appendedInputButton"
+                                ng-model="auth.email" tabindex="1" required="" type="email" data-i18n="[placeholder]vtexid.egEmail"
+                                class="input-block-level ng-pristine ng-invalid ng-invalid-required ng-valid-email"
+                                placeholder="Ex: jose@email.com"> </div>
+                        <p class="alert ng-hide" ng-show="invalidProvidedEmail" data-i18n="vtexid.invalidVtexId">O
+                            email informado não possui histórico de compras. Por favor tente novamente.</p>
+                    </div>
+                    <div class="modal-footer"> <a class="vtexIdUI-back-link pull-left dead-link" tabindex="3" href="#"
+                            ng-click="updatePage('auth-selector', false, true)"> <i class="vtexid-icon-arrow-left"></i>
+                            <span data-i18n="vtexid.backLink">Voltar</span> </a> <button ng-disabled="isSendingEmailConfirmation"
+                            type="submit" tabindex="2" class="btn btn-large btn-success pull-right" data-i18n="vtexid.confirm"
+                            id="sendAccessKeyBtn">Confirmar</button> </div>
+                </form>
+            </div>
+            <div class="vtexIdUI-no-permission vtexIdUI-page ng-scope vtexIdUI-page-inactive" ng-controller="LogoutController"
+                id="vtexIdUI-logout">
+                <div class="modal-header">
+                    <h4 class="vtexIdUI-heading"> <span data-i18n="vtexid.needPermission" ng-show="!auth.title" class="">Você
+                            precisa de permissões</span> <span ng-show="auth.title" class="ng-binding ng-hide"></span>
+                        <small class="pull-right" data-i18n="vtexid.error403">Erro 403</small> </h4>
+                </div>
+                <div class="alert alert-info alert-general alert-modal-body clearfix"> <i class="vtexid-icon-sad logout-icon pull-left"></i>
+                    <p><span data-i18n="vtexid.accDontHaveAccess">Sua conta de email não tem acesso a esta página no
+                            momento.</span><br> <small data-i18n="vtexid.tryAnotherAcc">Tente entrar com outra conta de
+                            email ou falar com o suporte.</small> </p>
+                </div>
+                <div class="modal-footer"> <button class="btn btn-large btn-success pull-right" id="logoutBtn" ng-click="logout()">Sair</button>
+                </div>
+            </div>
+            <div class="vtexIdUI-multiple-link-account vtexIdUI-page ng-scope vtexIdUI-page-inactive" id="vtexIdUI-multiple-link-account"
+                ng-controller="MultipleOAuthController">
+                <div class="modal-header">
+                    <h4><span class="vtexIdUI-heading" data-i18n="vtexid.changeAccount">Escolha uma conta</span></h4>
+                </div>
+                <div class="modal-body">
+                    <p data-i18n="vtexid.changeAccountDescription">Agora você só precisa escolher a conta que deseja
+                        usar:</p>
+                    <ul class="account-list text-center">
+                        <!-- ngRepeat: email in shared.multipleOAuthReturn -->
+                    </ul>
+                    <p class="info-why muted"> <small><i class="vtexid-icon-info"></i> <span data-i18n="vtexid.infoWhyMultipleLinkPtOne">Isto
+                                é necessário, pois você usa seu registro de</span> <strong class="ng-binding"></strong>
+                            <span data-i18n="vtexid.infoWhyMultipleLinkPtTwo">para identificar-se conosco em mais de
+                                uma conta.</span> </small> </p>
+                </div>
+            </div>
+            <div ng-controller="ChangePswdController" class="vtexIdUI-change-pswd vtexIdUI-page ng-scope vtexIdUI-page-inactive"
+                id="vtexIdUI-change-pswd">
+                <div class="modal-header"> <button type="button" class="close vtexIdUI-close ng-hide" ng-show="canClose"
+                        data-dismiss="modal">×</button>
+                    <div class="vtexIdUI-header row-fluid">
+                        <div class="vtexIdUI-user ng-hide" ng-show="auth.email">
+                            <div class="vtexIdUI-user-email pull-left muted"> <i class="vtexid-icon-user muted"></i>
+                                <span class="ng-binding"></span> </div>
+                        </div>
+                    </div>
+                    <h4><span class="vtexIdUI-heading" data-i18n="vtexid.changePswd">Cadastrar nova senha</span></h4>
+                    <div class="vtexIdUI-loading" ng-class="{'vtexIdUI-loading-show': isRecoveringPswd}"></div>
+                </div>
+                <form ng-submit="tryChangePswd()" ng-disabled="isRecoveringPswd" class="ng-pristine ng-invalid ng-invalid-required">
+                    <div class="modal-body">
+                        <p class="info-why muted"> <small><i class="vtexid-icon-lock muted"></i> <span data-i18n="vtexid.confirmChangePswdText">Enviaremos
+                                    uma chave de validação para seu e-mail</span> </small> </p>
+                        <div class="control-group"> <label class="control-label" for="inputNewPassword"> <span
+                                    data-i18n="vtexid.newPassword">Nova senha</span> </label>
+                            <div class="controls"> <input type="password" autocomplete="off" required="" ngminlength="8"
+                                    id="inputNewPassword" ng-model="newPassword" class="ng-pristine ng-invalid ng-invalid-required">
+                            </div>
+                        </div>
+                        <div class="control-group"> <label class="control-label" for="inputConfirmNewPassword"> <span
+                                    data-i18n="vtexid.confirmNewPassword">Confirmar nova senha</span> </label>
+                            <div class="controls"> <input type="password" autocomplete="off" required="" ngminlength="8"
+                                    id="inputConfirmNewPassword" ng-model="confirmNewPassword" class="ng-pristine ng-invalid ng-invalid-required">
+                            </div>
+                        </div>
+                        <p class="alert ng-hide" ng-show="wrongPatternPswd" data-i18n="vtexid.wrongPatternPswd">Sua
+                            senha precisa ter 8 caracteres, 1 letra e 1 letra maiúscula</p>
+                        <p class="alert ng-hide" ng-show="dontMatchPswd" data-i18n="vtexid.dontMatchPswd">As senhas não
+                            são iguais</p> <!-- ngIf: shared.forceNewPswd -->
+                    </div>
+                    <div class="modal-footer"> <a class="vtexIdUI-back-link pull-left dead-link" href="#" ng-click="updatePage('classic-login', false, true)">
+                            <i class="vtexid-icon-arrow-left"></i> <span data-i18n="vtexid.backLink">Voltar</span> </a>
+                        <button class="btn btn-large btn-success pull-right" type="submit" data-i18n="vtexid.changePswd"
+                            id="tryChangePswdBtn" ng-disabled="isRecoveringPswd">Cadastrar nova senha</button> </div>
+                </form>
+            </div> <i class="vtexid-icon-lock bottom-icon"></i>
+        </div>
+    </div>
+</div>

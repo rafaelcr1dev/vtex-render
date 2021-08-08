@@ -1,0 +1,42 @@
+<form id="cart-to-list">
+                <input type="hidden" id="cartGiftListTypeId" value="6">
+                <input type="hidden" id="addtoquantity" value="True">
+                <div id="wrapperForm">
+                    <div class="cart-to-list-form">
+                       
+                    <fieldset class="list-form-box"> 
+                        <label id="lblListCreate" for="txtListName" class="create"> 
+                            Criar uma lista
+                        </label>
+                        <input type="text" class="form-name" name="listname" id="txtListName" maxlength="300">
+                        <button class="bt form-submit" id="btnCreate" text="Criar Lista"> Criar nova Lista </button>
+                    </fieldset>
+                       
+                    </div>
+                    <div class="cart-to-list-sku" style="display:none;">
+                       <!-- validation skucheckcreate: "Ao menos um Produto deve ser selecionado" --> 
+                       <!-- validation skucheckselect: 'Ao menos um Produto deve ser selecionado' --> 
+                        
+        <table class="sku-list" data-bind="visible: ShouldDisplayContent">
+            <thead>
+                <tr><th class="sku-list-checkbox">
+                    <input type="checkbox" class="checkuncheckall" data-bind="checked: true">
+                </th>
+                <th class="sku-list-quantity">Quantidade</th>
+                <th class="sku-list-name">Nome</th>
+            </tr></thead>
+            <tbody data-bind="foreach: Items">
+                <tr class="trSkuList">
+                    <td class="sku-list-checkbox">
+                        <input type="checkbox" class="checkuncheckthis" data-bind="value: Id, checked: true">
+                    </td>
+                    <td class="sku-list-quantity">
+                        <input class="sku-item-amount" data-bind="value: Amount">
+                    </td>
+                    <td class="sku-list-name" data-bind="text: Name"></td>
+                </tr>
+            </tbody>
+        </table>
+                    </div>
+                </div> 
+            </form>

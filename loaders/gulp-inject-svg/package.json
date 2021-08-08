@@ -1,0 +1,56 @@
+{
+  "_from": "gulp-inject-svg",
+  "_id": "gulp-inject-svg@0.1.18",
+  "_inBundle": false,
+  "_integrity": "sha512-axukWlWYQL9zsenR/qpNd2u55XAXtuU3+QdIGAiZFEt3oIhzXeHxgHvGIHsFISRKpBhI+OGiotOj8S4ObxQa5Q==",
+  "_location": "/gulp-inject-svg",
+  "_phantomChildren": {
+    "duplexer": "0.1.1",
+    "from": "0.1.7",
+    "pause-stream": "0.0.11",
+    "safer-buffer": "2.1.2",
+    "through": "2.3.8"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "gulp-inject-svg",
+    "name": "gulp-inject-svg",
+    "escapedName": "gulp-inject-svg",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/gulp-inject-svg/-/gulp-inject-svg-0.1.18.tgz",
+  "_shasum": "78db0ed6d8d64e01c98d6e96e287ef0af7802881",
+  "_spec": "gulp-inject-svg",
+  "_where": "C:\\Users\\Rafael\\Desktop\\projetos\\saraiva",
+  "author": {
+    "name": "Viktor Sarström"
+  },
+  "bugs": {
+    "url": "https://github.com/viktorlarsson/gulp-inject-svg/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "event-stream": "latest",
+    "gulp-util": "^3.0.7",
+    "iconv-lite": "latest"
+  },
+  "deprecated": false,
+  "description": "replaces external svg with inline svg",
+  "homepage": "https://github.com/viktorlarsson/gulp-inject-svg",
+  "license": "BSD-3-Clause",
+  "main": "index.js",
+  "name": "gulp-inject-svg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorlarsson/gulp-inject-svg.git"
+  },
+  "version": "0.1.18"
+}

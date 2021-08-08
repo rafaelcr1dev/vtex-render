@@ -1,0 +1,48 @@
+#set($id = $product.Id)
+#set($uri = $product.Uri)
+#set($escapedName = $product.HtmlEscapedName)
+
+<p class="quickView">$product.QuickView</p>
+
+<center>
+    <a class="productImage" title="$product.Name" alt="$product.Name" href="$uri">
+        $product.GetImageTag(30)
+    </a>
+</center>
+
+<h3><a title="$escapedName" href="$uri">$product.Name</a></h3>
+<div class="categoria-prod">$product.BrandLink</div>
+<div class="more-prod">
+    $product.HightLight
+</div>
+
+#if ($product.IsInStock)
+
+<div class="discount"></div>
+<div class="price">
+    #if ($product.HasBestPrice)
+    <div class="price-old">$product.ListPrice</div>
+    #else
+    <div class="price-old"></div>
+    #end
+    <div class="newPrice">$product.BestPrice</div>
+    <div class="installment-parc">
+        #if ($product.NumbersOfInstallment > 1)
+
+        ${product.NumbersOfInstallment}x de $product.InstallmentValue
+
+        #else
+
+        #end
+    </div>
+    <div class="price-boleto">
+
+        <em>ou <span class="vp">0</span></em> no Boleto Bancário
+
+    </div>
+</div>
+
+#else
+<br/> <br/>
+<div class="box-esgotado">Fora do estoque</div>
+#end

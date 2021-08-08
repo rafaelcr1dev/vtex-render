@@ -1,0 +1,86 @@
+<div class="giftlist giftlist-search">
+                                        <h2 class="glsearch-title">Procurar Lista</h2>
+                                        <fieldset class="glsearch">
+                                        <form name="giftlistsearchform" id="giftlistsearchform" enctype="multipart/form-data">
+                                            <ul class="giftlistsearchul glsearch-ul">
+                                                <li class="glsearch-type">
+                                                <span> <label for="giftlistsearchtype">Tipo de Lista</label></span>
+                                                <select name="giftlistsearchtype" id="giftlistsearchtype">
+<option value="x">Todos</option>
+
+</select>
+
+                                           </li>
+                                                <li class="glsearch-id">
+   <span> <label for="giftlistsearchid">Código da lista</label></span>
+   <input type="text" id="giftlistsearchid" name="giftlistsearchid" placeholder="código da lista">
+</li>
+<li class="glsearch-name">
+   <span> <label for="giftlistsearchname">Nome</label></span>
+   <input type="text" id="giftlistsearchname" name="giftlistsearchname" placeholder="nome">
+</li>
+<li class="glsearch-surname">
+   <span> <label for="giftlistsearchsurname">Sobrenome</label></span>
+   <input type="text" id="giftlistsearchsurname" name="giftlistsearchsurname" placeholder="sobrenome">
+</li>
+<li class="glsearch-eventlocation">
+   <span> <label for="giftlistsearcheventlocation">Local do Evento</label></span>
+   <input type="text" id="giftlistsearcheventlocation" name="giftlistsearcheventlocation" placeholder="local do evento">
+</li>
+<li class="glsearch-eventcity optional">
+   <span> <label for="giftlistsearcheventcity">Cidade do Evento</label></span>
+   <input type="text" id="giftlistsearcheventcity" name="giftlistsearcheventcity" placeholder="cidade do evento">
+</li>
+<li class="glsearch-eventdate optional">
+   <span> <label for="giftlistsearcheventdate">Data do Evento</label></span>
+   <input type="text" id="giftlistsearcheventdate" name="giftlistsearcheventdate" placeholder="data do evento">
+</li>
+
+                                                <li class="glsearch-find">
+                                                    <span>
+                                                        <input type="button" name="giftlistsearchfind" id="giftlistsearchfind" value="Buscar">
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            <input type="hidden" id="giftlistsearchimagetypeid" name="giftlistsearchimagetypeid" value="3">
+                                        </form>
+                                        </fieldset>
+                                        <div class="glsearch-result refresh-off" style="overflow: hidden; display: block;">
+                                          <table class="giftlist-table">
+                                              <thead class="giftlist-header">
+                                                  <tr><th class="giftlist-header-image" style="display: none;">Foto</th>
+                                                  <th class="giftlist-header-codigo">Codigo</th>
+                                                  <th class="giftlist-header-name">Nome</th>
+                                                  <th class="giftlist-header-member">Presenteados</th>
+                                                  <th class="giftlist-header-eventdate">Data do Evento</th>
+                                                  <th class="giftlist-header-eventlocation">Local do Evento</th>
+                                                  <th class="giftlist-header-eventcity">Cidade do Evento</th>
+                                              </tr></thead>
+                                              <tbody class="giftlist-body" style="cursor: pointer">
+                                                  
+                                              <tr onclick="document.location=&quot;/list/minhalistadedesejos&quot;" class="version-2 type-5 public active visitor-has-access member-has-access no-image has-product">
+                                                  <td class="giftlist-body-image no-image" style="display: none;"></td>
+                                                  <td class="giftlist-body-codigo">7</td>
+                                                  <td class="giftlist-body-name">Minha lista de desejos</td>
+                                                  <td class="giftlist-body-member">Rafael Cruz</td>
+                                                  <td class="giftlist-body-eventdate">---</td>
+                                                  <td class="giftlist-body-eventlocation">---</td>
+                                                  <td class="giftlist-body-eventcity">--- </td>
+                                              </tr>
+
+                                              </tbody>
+                                          </table></div>
+                                    </div>
+                                    <div class="glsearch-result refresh-off" style="overflow: hidden; display: block;">
+                                      <ul class="summaryWrapper">
+                                      <li class="giftlist-searchresult-empty">Não foram encontradas listas com os parâmetros informados.<br>
+                                      Verifique se os campos informados estão corretos.<br>
+
+                                      <span class="search-result-info">Para uma busca mais relevante:<br>
+                                      - Código da Lista dispensa o preenchimento dos outros campos e a busca é direta<br>
+                                      - Preencha ao menos um dos campos com no mínimo 3 caracteres ou preencha mais de um campo<br>
+                                      - Nome, Sobrenome e Local do Evento (se aplicável) são mais relevantes para o resultado da busca
+                                      </span></li>
+
+                                      </ul>
+                                      </div>

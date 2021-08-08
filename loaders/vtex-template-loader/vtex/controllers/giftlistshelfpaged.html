@@ -1,0 +1,229 @@
+<div class="collectionWrap"><div class="giftlist-print-wrapper">
+            <script type="text/javascript">
+                GiftListPrint = function (full) {
+                    if ($('.giftlist-print-action').hasClass('clicked')) { return; };
+                    $('.giftlist-print-action').addClass('clicked');
+
+                    $('#ResultItems_15281886').load('/list/minhalistadedesejos?PS=1&sl=1daabf0d-5f18-47a2-8b3f-709dc17dc522&cc=3&sm=0&PageNumber=1&gl=7', function () {
+
+                        $('#PagerTop_15281886').pager({ pagenumber: 1, pagecount: 1, buttonClickCallback: PageClick_15281886 });
+                        $('#PagerBottom_15281886').pager({ pagenumber: 1, pagecount: 1, buttonClickCallback: PageClick_15281886 });
+
+
+                        $('body').addClass('giftlist-print');
+
+                        setTimeout(function () {
+                            window.print();
+
+                            setTimeout(function () {
+                                $('body').removeClass('giftlist-print');
+
+                                if(full) {
+                                    $('#ResultItems_15281886').load('/list/minhalistadedesejos?PageNumber=1',
+                                        function () {
+                                            window.location.hash = '1';
+                                            $('#PagerTop_15281886').pager({ pagenumber: 1, pagecount: 1, buttonClickCallback: PageClick_15281886 });
+                                            $('#PagerBottom_15281886').pager({ pagenumber: 1, pagecount: 1, buttonClickCallback: PageClick_15281886 });
+                                            bindQuickView();
+                                    });
+                                }
+                            $('.giftlist-print-action').removeClass('clicked');
+                            }, 3000);
+
+                        }, 1000);
+                    });
+                }
+            </script><span onclick="GiftListPrint(false);" class="giftlist-print-action" style="cursor: pointer;" title="Imprimir">Imprimir</span></div><div class="main"><p class="searchResultsTime"><span class="resultado-busca-numero"><span class="">Produtos encontrados:</span> <span class="value">1</span></span><span class="resultado-busca-tempo"> <span class="label">em</span> <span class="value">60 ms</span></span></p><div class="sub"><div class="resultado-busca-filtro">
+<fieldset class="orderBy">
+<label>Ordenar por:</label>
+<select id="O" onchange="window.location.href= '/list/minhalistadedesejos?PS=12&amp;' + 'O=' + this.options[this.selectedIndex].value">
+<option value="">Selecione</option>
+<option value="OrderByPriceASC">Menor Preço</option>
+<option value="OrderByPriceDESC">Maior Preço</option>
+<option value="OrderByTopSaleDESC">Mais vendidos</option>
+<option value="OrderByReviewRateDESC">Melhores avaliações</option>
+<option value="OrderByNameASC">A - Z</option>
+<option value="OrderByNameDESC">Z - A</option>
+<option value="OrderByReleaseDateDESC">Data de lançamento</option>
+<option value="OrderByBestDiscountDESC">Melhor Desconto</option>
+</select>
+</fieldset>
+<fieldset class="filterBy">
+Itens por página:
+<select id="PS" onchange="window.location.href= '/list/minhalistadedesejos?' + 'PS=' + this.options[this.selectedIndex].value" class="span4">
+<option selected="selected" value="12">12</option>
+<option value="24">24</option>
+<option value="36">36</option>
+<option value="48">48</option>
+</select>
+</fieldset>
+<p class="compare">Produtos selecionados para comparar: <strong><span class="compare-selection-count" id="NumeroSuperior">0</span></strong><a title="Comparar" class="btn-comparar" href="#">Comparar</a></p></div></div><div class="vitrine resultItemsWrapper">
+            <script type="text/javascript">
+            var pagecount_15281886;
+            $(document).ready(function () {
+                pagecount_15281886 = 1;
+                $('#PagerTop_15281886').pager({ pagenumber: 1, pagecount: pagecount_15281886, buttonClickCallback: PageClick_15281886 });
+                $('#PagerBottom_15281886').pager({ pagenumber: 1, pagecount: pagecount_15281886, buttonClickCallback: PageClick_15281886 });
+                if (window.location.hash != '') PageClick_15281886(window.location.hash.replace(/\#/, ''));
+            });
+            PageClick_15281886 = function(pageclickednumber) {
+            window.location.hash = pageclickednumber;
+            $.get('/list/minhalistadedesejos?PS=12&gl=7&sl=1daabf0d-5f18-47a2-8b3f-709dc17dc522&cc=3&sm=0&PageNumber=' + pageclickednumber, function(data) {
+                var parsed = $(data)
+
+                var newList = parsed.find('div[id^=ResultItems_]');
+                var newListContent = newList.html();
+                $('#ResultItems_15281886').html(newListContent);
+                $('#PagerTop_15281886').pager({ pagenumber: pageclickednumber, pagecount: pagecount_15281886, buttonClickCallback: PageClick_15281886 });
+                $('#PagerBottom_15281886').pager({ pagenumber: pageclickednumber, pagecount: pagecount_15281886, buttonClickCallback: PageClick_15281886 });
+                bindQuickView();
+                    }, 'text');
+            }</script><div class="top pagination" id="PagerTop_15281886"><ul class="pages"><li class="first pgEmpty"><a href="javascript:void(0);"><span>primeiro</span></a></li><li class="previous pgEmpty"><a href="javascript:void(0);"><span>anterior</span></a></li><li class="page-number pgCurrent"><a href="javascript:void(0);"><span>1</span></a></li><li class="next pgEmpty"><a href="javascript:void(0);"><span>próximo</span></a></li><li class="last pgEmpty"><a href="javascript:void(0);"><span>último</span></a></li></ul></div><div id="ResultItems_15281886" class=""><div class=" n1colunas"><ul class="thumbnails"><li layout="1daabf0d-5f18-47a2-8b3f-709dc17dc522" class="moda--exemplo- last span3">
+
+<a title="Produto Variação" class="highlight" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p"><p class="flag tudo">Tudo</p><p class="flag frete-gratis">Frete grátis</p></a>
+<a class="productImage thumbnail" title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p"><img src="http://corebiz.vteximg.com.br/arquivos/ids/156416-130-130/corebiz-vtex-store.jpg" width="130" height="130" alt="Imagem-Corebiz" id=""></a>
+<div class="data">
+    <h3><a title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p">Produto Variação - 32G</a></h3>
+            <p class="price">
+            <a title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p">
+                                <span class="newPrice"><span>Por: </span><em>R$ 109,99</em></span>
+                <em class="installment">
+                                            ou até 12X de R$ 9,16
+                                    </em>
+            </a>
+        </p>
+        <p class="category"><a href="http://corebiz.vtexcommercestable.com.br/list/minhalistadedesejos/moda/celulares">Celulares</a></p>
+    <p class="brand"><a class="texto brand marca-moda" href="http://corebiz.vtexcommercestable.com.br/list/minhalistadedesejos/marca-moda">Marca Moda</a></p>
+                        <p class="gift-list-wished">1 desejado</p>
+                
+            <p class="gift-list-purchased not-purchased">nenhum comprado</p>
+            <div class="giftlist-btns">
+        <div class="product-insertsku">
+<fieldset>
+<ul class="insert-sku-checklist thumbnails">
+<li class="is-checklist-item from-list first last span3">
+<input type="text" size="3" class="insert-sku-quantity" maxlength="3" id="isq-8234b8a4ae12481e834ac33086875c04" value="1" title="32G"><input id="chk-8234b8a4ae12481e834ac33086875c04" type="checkbox" class="insert-sku-checkbox" rel="13" name="13" addedclick="yes"><label for="chk-8234b8a4ae12481e834ac33086875c04" title="32G"><span class="insert-sku-count">Adicionar</span><span class="insert-sku-name"> 32G</span></label></li>
+</ul>
+</fieldset>
+</div>
+         <div class="buy-button-normal buy-button-all bb-count-1" id="13" name="13"><a class="buy-button-normal-a13 buy-button-all-a13" href="https://corebiz.vtexcommercestable.com.br/checkout/cart/add?sku=13&amp;qty=1&amp;seller=1&amp;sc=1&amp;price=10999&amp;cv=da0b1dbba1e42e8bd354a8e404360446_geral:467225D68C45B0DCBF4368FECA3DFB67&amp;sc=1" title="Produto Variação 32G: 1 desejado"><span class="buy-all buy-giftlist">Comprar</span><span class="buy-sku-name"> Produto Variação 32G</span></a><input type="hidden" value="cart" class="buy-button-normal-go-to-cart-13 buy-button-all-go-to-cart-13"></div>
+    </div>
+    </div>
+</li><li layout="1daabf0d-5f18-47a2-8b3f-709dc17dc522" class="moda--exemplo- last span3">
+
+<a title="Produto Variação" class="highlight" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p"><p class="flag tudo">Tudo</p><p class="flag frete-gratis">Frete grátis</p></a>
+<a class="productImage thumbnail" title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p"><img src="http://corebiz.vteximg.com.br/arquivos/ids/156416-130-130/corebiz-vtex-store.jpg" width="130" height="130" alt="Imagem-Corebiz" id=""></a>
+<div class="data">
+    <h3><a title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p">Produto Variação - 32G</a></h3>
+            <p class="price">
+            <a title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p">
+                                <span class="newPrice"><span>Por: </span><em>R$ 109,99</em></span>
+                <em class="installment">
+                                            ou até 12X de R$ 9,16
+                                    </em>
+            </a>
+        </p>
+        <p class="category"><a href="http://corebiz.vtexcommercestable.com.br/list/minhalistadedesejos/moda/celulares">Celulares</a></p>
+    <p class="brand"><a class="texto brand marca-moda" href="http://corebiz.vtexcommercestable.com.br/list/minhalistadedesejos/marca-moda">Marca Moda</a></p>
+                        <p class="gift-list-wished">1 desejado</p>
+                
+            <p class="gift-list-purchased not-purchased">nenhum comprado</p>
+            <div class="giftlist-btns">
+        <div class="product-insertsku">
+<fieldset>
+<ul class="insert-sku-checklist thumbnails">
+<li class="is-checklist-item from-list first last span3">
+<input type="text" size="3" class="insert-sku-quantity" maxlength="3" id="isq-8234b8a4ae12481e834ac33086875c04" value="1" title="32G"><input id="chk-8234b8a4ae12481e834ac33086875c04" type="checkbox" class="insert-sku-checkbox" rel="13" name="13" addedclick="yes"><label for="chk-8234b8a4ae12481e834ac33086875c04" title="32G"><span class="insert-sku-count">Adicionar</span><span class="insert-sku-name"> 32G</span></label></li>
+</ul>
+</fieldset>
+</div>
+         <div class="buy-button-normal buy-button-all bb-count-1" id="13" name="13"><a class="buy-button-normal-a13 buy-button-all-a13" href="https://corebiz.vtexcommercestable.com.br/checkout/cart/add?sku=13&amp;qty=1&amp;seller=1&amp;sc=1&amp;price=10999&amp;cv=da0b1dbba1e42e8bd354a8e404360446_geral:467225D68C45B0DCBF4368FECA3DFB67&amp;sc=1" title="Produto Variação 32G: 1 desejado"><span class="buy-all buy-giftlist">Comprar</span><span class="buy-sku-name"> Produto Variação 32G</span></a><input type="hidden" value="cart" class="buy-button-normal-go-to-cart-13 buy-button-all-go-to-cart-13"></div>
+    </div>
+    </div>
+</li><li layout="1daabf0d-5f18-47a2-8b3f-709dc17dc522" class="moda--exemplo- last span3">
+
+<a title="Produto Variação" class="highlight" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p"><p class="flag tudo">Tudo</p><p class="flag frete-gratis">Frete grátis</p></a>
+<a class="productImage thumbnail" title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p"><img src="http://corebiz.vteximg.com.br/arquivos/ids/156416-130-130/corebiz-vtex-store.jpg" width="130" height="130" alt="Imagem-Corebiz" id=""></a>
+<div class="data">
+    <h3><a title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p">Produto Variação - 32G</a></h3>
+            <p class="price">
+            <a title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p">
+                                <span class="newPrice"><span>Por: </span><em>R$ 109,99</em></span>
+                <em class="installment">
+                                            ou até 12X de R$ 9,16
+                                    </em>
+            </a>
+        </p>
+        <p class="category"><a href="http://corebiz.vtexcommercestable.com.br/list/minhalistadedesejos/moda/celulares">Celulares</a></p>
+    <p class="brand"><a class="texto brand marca-moda" href="http://corebiz.vtexcommercestable.com.br/list/minhalistadedesejos/marca-moda">Marca Moda</a></p>
+                        <p class="gift-list-wished">1 desejado</p>
+                
+            <p class="gift-list-purchased not-purchased">nenhum comprado</p>
+            <div class="giftlist-btns">
+        <div class="product-insertsku">
+<fieldset>
+<ul class="insert-sku-checklist thumbnails">
+<li class="is-checklist-item from-list first last span3">
+<input type="text" size="3" class="insert-sku-quantity" maxlength="3" id="isq-8234b8a4ae12481e834ac33086875c04" value="1" title="32G"><input id="chk-8234b8a4ae12481e834ac33086875c04" type="checkbox" class="insert-sku-checkbox" rel="13" name="13" addedclick="yes"><label for="chk-8234b8a4ae12481e834ac33086875c04" title="32G"><span class="insert-sku-count">Adicionar</span><span class="insert-sku-name"> 32G</span></label></li>
+</ul>
+</fieldset>
+</div>
+         <div class="buy-button-normal buy-button-all bb-count-1" id="13" name="13"><a class="buy-button-normal-a13 buy-button-all-a13" href="https://corebiz.vtexcommercestable.com.br/checkout/cart/add?sku=13&amp;qty=1&amp;seller=1&amp;sc=1&amp;price=10999&amp;cv=da0b1dbba1e42e8bd354a8e404360446_geral:467225D68C45B0DCBF4368FECA3DFB67&amp;sc=1" title="Produto Variação 32G: 1 desejado"><span class="buy-all buy-giftlist">Comprar</span><span class="buy-sku-name"> Produto Variação 32G</span></a><input type="hidden" value="cart" class="buy-button-normal-go-to-cart-13 buy-button-all-go-to-cart-13"></div>
+    </div>
+    </div>
+</li><li layout="1daabf0d-5f18-47a2-8b3f-709dc17dc522" class="moda--exemplo- last span3">
+
+<a title="Produto Variação" class="highlight" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p"><p class="flag tudo">Tudo</p><p class="flag frete-gratis">Frete grátis</p></a>
+<a class="productImage thumbnail" title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p"><img src="http://corebiz.vteximg.com.br/arquivos/ids/156416-130-130/corebiz-vtex-store.jpg" width="130" height="130" alt="Imagem-Corebiz" id=""></a>
+<div class="data">
+    <h3><a title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p">Produto Variação - 32G</a></h3>
+            <p class="price">
+            <a title="Produto Variação" href="http://corebiz.vtexcommercestable.com.br/produto-variacao/p">
+                                <span class="newPrice"><span>Por: </span><em>R$ 109,99</em></span>
+                <em class="installment">
+                                            ou até 12X de R$ 9,16
+                                    </em>
+            </a>
+        </p>
+        <p class="category"><a href="http://corebiz.vtexcommercestable.com.br/list/minhalistadedesejos/moda/celulares">Celulares</a></p>
+    <p class="brand"><a class="texto brand marca-moda" href="http://corebiz.vtexcommercestable.com.br/list/minhalistadedesejos/marca-moda">Marca Moda</a></p>
+                        <p class="gift-list-wished">1 desejado</p>
+                
+            <p class="gift-list-purchased not-purchased">nenhum comprado</p>
+            <div class="giftlist-btns">
+        <div class="product-insertsku">
+<fieldset>
+<ul class="insert-sku-checklist thumbnails">
+<li class="is-checklist-item from-list first last span3">
+<input type="text" size="3" class="insert-sku-quantity" maxlength="3" id="isq-8234b8a4ae12481e834ac33086875c04" value="1" title="32G"><input id="chk-8234b8a4ae12481e834ac33086875c04" type="checkbox" class="insert-sku-checkbox" rel="13" name="13" addedclick="yes"><label for="chk-8234b8a4ae12481e834ac33086875c04" title="32G"><span class="insert-sku-count">Adicionar</span><span class="insert-sku-name"> 32G</span></label></li>
+</ul>
+</fieldset>
+</div>
+         <div class="buy-button-normal buy-button-all bb-count-1" id="13" name="13"><a class="buy-button-normal-a13 buy-button-all-a13" href="https://corebiz.vtexcommercestable.com.br/checkout/cart/add?sku=13&amp;qty=1&amp;seller=1&amp;sc=1&amp;price=10999&amp;cv=da0b1dbba1e42e8bd354a8e404360446_geral:467225D68C45B0DCBF4368FECA3DFB67&amp;sc=1" title="Produto Variação 32G: 1 desejado"><span class="buy-all buy-giftlist">Comprar</span><span class="buy-sku-name"> Produto Variação 32G</span></a><input type="hidden" value="cart" class="buy-button-normal-go-to-cart-13 buy-button-all-go-to-cart-13"></div>
+    </div>
+    </div>
+</li><li id="helperComplement_2" style="display:none" class="helperComplement span3"></li></ul></div></div><div class="bottom pagination" id="PagerBottom_15281886"><ul class="pages"><li class="first pgEmpty"><a href="javascript:void(0);"><span>primeiro</span></a></li><li class="previous pgEmpty"><a href="javascript:void(0);"><span>anterior</span></a></li><li class="page-number pgCurrent"><a href="javascript:void(0);"><span>1</span></a></li><li class="next pgEmpty"><a href="javascript:void(0);"><span>próximo</span></a></li><li class="last pgEmpty"><a href="javascript:void(0);"><span>último</span></a></li></ul></div></div><p class="searchResultsTime"><span class="resultado-busca-numero"><span class="">Produtos encontrados:</span> <span class="value">1</span></span><span class="resultado-busca-tempo"> <span class="label">em</span> <span class="value">60 ms</span></span></p><div class="sub"><div class="resultado-busca-filtro">
+<fieldset class="orderBy">
+<label>Ordenar por:</label>
+<select id="O" onchange="window.location.href= '/list/minhalistadedesejos?PS=12&amp;' + 'O=' + this.options[this.selectedIndex].value">
+<option value="">Selecione</option>
+<option value="OrderByPriceASC">Menor Preço</option>
+<option value="OrderByPriceDESC">Maior Preço</option>
+<option value="OrderByTopSaleDESC">Mais vendidos</option>
+<option value="OrderByReviewRateDESC">Melhores avaliações</option>
+<option value="OrderByNameASC">A - Z</option>
+<option value="OrderByNameDESC">Z - A</option>
+<option value="OrderByReleaseDateDESC">Data de lançamento</option>
+<option value="OrderByBestDiscountDESC">Melhor Desconto</option>
+</select>
+</fieldset>
+<fieldset class="filterBy">
+Itens por página:
+<select id="PS" onchange="window.location.href= '/list/minhalistadedesejos?' + 'PS=' + this.options[this.selectedIndex].value" class="span4">
+<option selected="selected" value="12">12</option>
+<option value="24">24</option>
+<option value="36">36</option>
+<option value="48">48</option>
+</select>
+</fieldset>
+<p class="compare">Produtos selecionados para comparar: <strong><span class="compare-selection-count" id="NumeroSuperior">0</span></strong><a title="Comparar" class="btn-comparar" href="#">Comparar</a></p></div></div></div></div>

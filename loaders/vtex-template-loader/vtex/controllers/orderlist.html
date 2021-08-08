@@ -1,0 +1,394 @@
+<link rel="stylesheet" href="https://corebiz.vteximg.com.br/arquivos/e-tachyons.min.css">
+<link rel="stylesheet" href="https://corebiz.vteximg.com.br/arquivos/bootstrap.min.css?v=636262253974100000">
+<link rel="stylesheet" type="text/css" href="https://corebiz.vteximg.com.br/arquivos/e-bootstrap2.min.css">
+<link rel="stylesheet" type="text/css" href="https://corebiz.vteximg.com.br/arquivos/e-bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css" href="https://corebiz.vteximg.com.br/arquivos/e-index.min.css">
+
+<style>
+    .myo-order-product .w-20 {
+        width: 18%;
+    }
+</style>
+
+<div class="render-container render-route-my-orders-portal">
+        <div class="render-provider">
+            <div class="container vtex-bootstrap ">
+                <div class="page-header">
+                <h1 class="title">Meus Pedidos</h1>
+                <ul class="nav nav-pills">
+                    <li class="active "><a href="#/">Meus Pedidos</a></li>
+                    <li class=" "><a href="#/subscriptions">Minhas Recorrências</a></li>
+                </ul>
+                </div>
+                <div class="helvetica myo-orders-listing">
+                <section class="ph0">
+                    <div>
+                        <article class="myo-order-card myo-order-status-handling w-100 mv4 ba br3 overflow-hidden b--black-20">
+                            <div class="myo-order-header cf w-100 pa3 ph4-ns bb b--black-20 bg-black-10 o-100">
+                            <div class="fl db w-75 w-25-l w-third-m">
+                                <div class="w-100 f7 f6-l fw4 mid-gray ttu"><span>Data do Pedido</span></div>
+                                <div class="db db-l pv0 f6 fw5 mid-gray f5-l"><span>25 de março de 2017</span></div>
+                            </div>
+                            <div class="fr fl-ns w-25 w-third-m">
+                                <div class="db w-100 f7 f6-l fw4 mid-gray ttu tr tl-ns"><span>Total</span></div>
+                                <div class="db w-100 f6 fw5 mid-gray tr tl-ns f5-l">
+                                    <span>R$ 109,99</span>
+                                    <div class="absolute dn dib-ns ml2"></div>
+                                </div>
+                            </div>
+                            <div class="fl mt2 mt0-ns w-50-ns w-third-m">
+                                <div class="myo-order-id mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 720132282806-01</div>
+                                <div class="myo-seller-order-id dn mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 00-720132282806-01</div>
+                                <div class="tr-ns mt1-ns">
+                                    <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-blue"><span class=""><span>Preparando Entrega</span></span></div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="cf pa3 pa4-l bg-white bt-0">
+                            <div class="fl w-100 w-70-ns">
+                                <div class="myo-order-product w-100 pb2 pt2 overflow-y-hidden ">
+                                    <div class="v-top dib w-20 h-auto"><img src="https://corebiz.vteximg.com.br/arquivos/ids/156416-50-50" alt="Produto Variação 32G"></div>
+                                    <div class="dib w-80 pl3 mid-gray f6 fw4">
+                                        <h4 class="db mb1 mt0"><a href="/produto-variacao/p" class="heavier-blue fw4 f6 f5-l link" target="_blank">Produto Variação 32G</a></h4>
+                                        <p class="db mt1 f6">Entrega até 11/04/2017</p>
+                                        <span class="db mt0 mb2 f6 fw6">1 un.  <span>R$ 109,99</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cf fr db w-100 w-30-ns pt0-l pt3">
+                                <button class="myo-reorder-btn blue hover-blue pa0 bg-transparent bn cf db link tl w5 f6 fw4 flex items-center mb3">
+                                    <svg class="" fill="#357edd" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 16 16" width="16" height="16">
+                                        <title><span>Pedir novamente</span></title>
+                                        <g>
+                                        <circle cx="3.5" cy="12.5" r="2.5"></circle>
+                                        <path d="M8,1C6.127,1,4.35,1.758,3.052,3.052L0.9,0.9L0.2,7.3l6.4-0.7L4.465,4.465C5.393,3.542,6.662,3,8,3 c2.757,0,5,2.243,5,5s-2.243,5-5,5v2c3.859,0,7-3.14,7-7S11.859,1,8,1z"></path>
+                                        </g>
+                                    </svg>
+                                    <span class="ml2 no-underline"><span>Pedir novamente</span></span>
+                                </button>
+                                <a class="myo-cancel-btn light-red hover-red pa0 bg-transparent bn cf db link tl w5 f6 fw4 flex items-center mb3" href="#/720132282806-01/cancel">
+                                    <svg class="" fill="#FF725C" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 16 16" width="16" height="16">
+                                        <title><span>Solicitar cancelamento</span></title>
+                                        <path d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M11.5,10.1l-1.4,1.4L8,9.4l-2.1,2.1l-1.4-1.4L6.6,8 L4.5,5.9l1.4-1.4L8,6.6l2.1-2.1l1.4,1.4L9.4,8L11.5,10.1z"></path>
+                                    </svg>
+                                    <span class="ml2 no-underline"><span>Solicitar cancelamento</span></span>
+                                </a>
+                                <a class="myo-details-btn db ba tc pv2 ph3 br2 w-100 f6 fw4 mid-gray link bg-near-white hover-blue b--light-silver mt3" href="#/720132282806-01"><span class="db pv1"><span>Ver detalhes do pedido</span></span></a>
+                            </div>
+                            </div>
+                        </article>
+                        <article class="myo-order-card myo-order-status-canceled w-100 mv4 ba br3 overflow-hidden b--black-20">
+                            <div class="myo-order-header cf w-100 pa3 ph4-ns bb b--black-20 bg-black-10 o-100">
+                            <div class="fl db w-75 w-25-l w-third-m">
+                                <div class="w-100 f7 f6-l fw4 mid-gray ttu"><span>Data do Pedido</span></div>
+                                <div class="db db-l pv0 f6 fw5 mid-gray f5-l"><span>24 de março de 2017</span></div>
+                            </div>
+                            <div class="fr fl-ns w-25 w-third-m">
+                                <div class="db w-100 f7 f6-l fw4 mid-gray ttu tr tl-ns"><span>Total</span></div>
+                                <div class="db w-100 f6 fw5 mid-gray tr tl-ns f5-l">
+                                    <span>R$ 109,99</span>
+                                    <div class="absolute dn dib-ns ml2"></div>
+                                </div>
+                            </div>
+                            <div class="fl mt2 mt0-ns w-50-ns w-third-m">
+                                <div class="myo-order-id mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 719953439551-01</div>
+                                <div class="myo-seller-order-id dn mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 00-719953439551-01</div>
+                                <div class="tr-ns mt1-ns">
+                                    <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-red"><span class="white"><span>Cancelado</span></span></div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="cf pa3 pa4-l bg-white bt-0">
+                            <div class="fl w-100 w-70-ns">
+                                <div class="myo-order-product w-100 pb2 pt2 overflow-y-hidden ">
+                                    <div class="v-top dib w-20 h-auto"><img src="https://corebiz.vteximg.com.br/arquivos/ids/156416-50-50" alt="Produto Variação 32G"></div>
+                                    <div class="dib w-80 pl3 mid-gray f6 fw4">
+                                        <h4 class="db mb1 mt0"><a href="/produto-variacao/p" class="heavier-blue fw4 f6 f5-l link" target="_blank">Produto Variação 32G</a></h4>
+                                        <p class="db mt1 f6"><span>Entrega até 10 dias úteis</span></p>
+                                        <span class="db mt0 mb2 f6 fw6">1 un.  <span>R$ 109,99</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cf fr db w-100 w-30-ns pt0-l pt3">
+                                <button class="myo-reorder-btn blue hover-blue pa0 bg-transparent bn cf db link tl w5 f6 fw4 flex items-center mb3">
+                                    <svg class="" fill="#357edd" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 16 16" width="16" height="16">
+                                        <title><span>Pedir novamente</span></title>
+                                        <g>
+                                        <circle cx="3.5" cy="12.5" r="2.5"></circle>
+                                        <path d="M8,1C6.127,1,4.35,1.758,3.052,3.052L0.9,0.9L0.2,7.3l6.4-0.7L4.465,4.465C5.393,3.542,6.662,3,8,3 c2.757,0,5,2.243,5,5s-2.243,5-5,5v2c3.859,0,7-3.14,7-7S11.859,1,8,1z"></path>
+                                        </g>
+                                    </svg>
+                                    <span class="ml2 no-underline"><span>Pedir novamente</span></span>
+                                </button>
+                                <a class="myo-details-btn db ba tc pv2 ph3 br2 w-100 f6 fw4 mid-gray link bg-near-white hover-blue b--light-silver mt3" href="#/719953439551-01"><span class="db pv1"><span>Ver detalhes do pedido</span></span></a>
+                            </div>
+                            </div>
+                        </article>
+                        <article class="myo-order-card myo-order-status-canceled w-100 mv4 ba br3 overflow-hidden b--black-20">
+                            <div class="myo-order-header cf w-100 pa3 ph4-ns bb b--black-20 bg-black-10 o-100">
+                            <div class="fl db w-75 w-25-l w-third-m">
+                                <div class="w-100 f7 f6-l fw4 mid-gray ttu"><span>Data do Pedido</span></div>
+                                <div class="db db-l pv0 f6 fw5 mid-gray f5-l"><span>13 de outubro de 2016</span></div>
+                            </div>
+                            <div class="fr fl-ns w-25 w-third-m">
+                                <div class="db w-100 f7 f6-l fw4 mid-gray ttu tr tl-ns"><span>Total</span></div>
+                                <div class="db w-100 f6 fw5 mid-gray tr tl-ns f5-l">
+                                    <span>R$ 100,00</span>
+                                    <div class="absolute dn dib-ns ml2"></div>
+                                </div>
+                            </div>
+                            <div class="fl mt2 mt0-ns w-50-ns w-third-m">
+                                <div class="myo-order-id mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 668821850024-01</div>
+                                <div class="myo-seller-order-id dn mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 00-668821850024-01</div>
+                                <div class="tr-ns mt1-ns">
+                                    <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-red"><span class="white"><span>Cancelado</span></span></div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="cf pa3 pa4-l bg-white bt-0">
+                            <div class="fl w-100 w-70-ns">
+                                <div class="myo-order-product w-100 pb2 pt2 overflow-y-hidden ">
+                                    <div class="v-top dib w-20 h-auto"><img src="https://corebiz.vteximg.com.br/arquivos/ids/155398-50-50" alt="Produto Variação Cor e Tam SKU Variação Cor1 e Tam 1"></div>
+                                    <div class="dib w-80 pl3 mid-gray f6 fw4">
+                                        <h4 class="db mb1 mt0"><a href="/produto-variacao-cor-e-tam/p" class="heavier-blue fw4 f6 f5-l link" target="_blank">Produto Variação Cor e Tam SKU Variação Cor1 e Tam 1</a></h4>
+                                        <p class="db mt1 f6"><span>Em menos de um dia</span></p>
+                                        <span class="db mt0 mb2 f6 fw6">1 un.  <span>R$ 100,00</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cf fr db w-100 w-30-ns pt0-l pt3">
+                                <button class="myo-reorder-btn blue hover-blue pa0 bg-transparent bn cf db link tl w5 f6 fw4 flex items-center mb3">
+                                    <svg class="" fill="#357edd" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 16 16" width="16" height="16">
+                                        <title><span>Pedir novamente</span></title>
+                                        <g>
+                                        <circle cx="3.5" cy="12.5" r="2.5"></circle>
+                                        <path d="M8,1C6.127,1,4.35,1.758,3.052,3.052L0.9,0.9L0.2,7.3l6.4-0.7L4.465,4.465C5.393,3.542,6.662,3,8,3 c2.757,0,5,2.243,5,5s-2.243,5-5,5v2c3.859,0,7-3.14,7-7S11.859,1,8,1z"></path>
+                                        </g>
+                                    </svg>
+                                    <span class="ml2 no-underline"><span>Pedir novamente</span></span>
+                                </button>
+                                <a class="myo-details-btn db ba tc pv2 ph3 br2 w-100 f6 fw4 mid-gray link bg-near-white hover-blue b--light-silver mt3" href="#/668821850024-01"><span class="db pv1"><span>Ver detalhes do pedido</span></span></a>
+                            </div>
+                            </div>
+                        </article>
+                        <a class="myo-collapsed-order db cf w-100 pa3 ph4-ns ba b--black-10 bg-near-white br3 mb2 pointer grow o-100" href="#/668811707886-01">
+                            <div class="fl-ns w-50-ns">
+                            <div class="w-100 f7 f6-l fw4 mid-gray ttu"><span>Data do Pedido</span></div>
+                            <div class="db db-l pv0 f6 fw5 mid-gray f5-l"><span>13 de outubro de 2016</span></div>
+                            </div>
+                            <div class="fl-ns mt2 mt0-ns w-50-ns">
+                            <div class="myo-order-id mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 668811707886-01</div>
+                            <div class="myo-seller-order-id dn mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># </div>
+                            <div class="tr-ns mt1-ns">
+                                <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-red"><span class="white"><span>Cancelado</span></span></div>
+                            </div>
+                            </div>
+                        </a>
+                        <a class="myo-collapsed-order db cf w-100 pa3 ph4-ns ba b--black-10 bg-near-white br3 mb2 pointer grow o-100" href="#/668811308534-01">
+                            <div class="fl-ns w-50-ns">
+                            <div class="w-100 f7 f6-l fw4 mid-gray ttu"><span>Data do Pedido</span></div>
+                            <div class="db db-l pv0 f6 fw5 mid-gray f5-l"><span>13 de outubro de 2016</span></div>
+                            </div>
+                            <div class="fl-ns mt2 mt0-ns w-50-ns">
+                            <div class="myo-order-id mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 668811308534-01</div>
+                            <div class="myo-seller-order-id dn mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># </div>
+                            <div class="tr-ns mt1-ns">
+                                <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-red"><span class="white"><span>Cancelado</span></span></div>
+                            </div>
+                            </div>
+                        </a>
+                        <a class="myo-collapsed-order db cf w-100 pa3 ph4-ns ba b--black-10 bg-near-white br3 mb2 pointer grow o-100" href="#/668810751325-01">
+                            <div class="fl-ns w-50-ns">
+                            <div class="w-100 f7 f6-l fw4 mid-gray ttu"><span>Data do Pedido</span></div>
+                            <div class="db db-l pv0 f6 fw5 mid-gray f5-l"><span>13 de outubro de 2016</span></div>
+                            </div>
+                            <div class="fl-ns mt2 mt0-ns w-50-ns">
+                            <div class="myo-order-id mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 668810751325-01</div>
+                            <div class="myo-seller-order-id dn mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># </div>
+                            <div class="tr-ns mt1-ns">
+                                <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-red"><span class="white"><span>Cancelado</span></span></div>
+                            </div>
+                            </div>
+                        </a>
+                        <a class="myo-collapsed-order db cf w-100 pa3 ph4-ns ba b--black-10 bg-near-white br3 mb2 pointer grow o-100" href="#/668812854145-01">
+                            <div class="fl-ns w-50-ns">
+                            <div class="w-100 f7 f6-l fw4 mid-gray ttu"><span>Data do Pedido</span></div>
+                            <div class="db db-l pv0 f6 fw5 mid-gray f5-l"><span>13 de outubro de 2016</span></div>
+                            </div>
+                            <div class="fl-ns mt2 mt0-ns w-50-ns">
+                            <div class="myo-order-id mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 668812854145-01</div>
+                            <div class="myo-seller-order-id dn mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># </div>
+                            <div class="tr-ns mt1-ns">
+                                <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-red"><span class="white"><span>Cancelado</span></span></div>
+                            </div>
+                            </div>
+                        </a>
+                        <a class="myo-collapsed-order db cf w-100 pa3 ph4-ns ba b--black-10 bg-near-white br3 mb2 pointer grow o-100" href="#/668123215798-01">
+                            <div class="fl-ns w-50-ns">
+                            <div class="w-100 f7 f6-l fw4 mid-gray ttu"><span>Data do Pedido</span></div>
+                            <div class="db db-l pv0 f6 fw5 mid-gray f5-l"><span>10 de outubro de 2016</span></div>
+                            </div>
+                            <div class="fl-ns mt2 mt0-ns w-50-ns">
+                            <div class="myo-order-id mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># 668123215798-01</div>
+                            <div class="myo-seller-order-id dn mb2 mb0-l tl tr-ns f7 f6-l fw4 mid-gray"># </div>
+                            <div class="tr-ns mt1-ns">
+                                <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-red"><span class="white"><span>Cancelado</span></span></div>
+                            </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="render-container render-route-my-orders-portal">
+            <div class="render-provider">
+               <div class="container vtex-bootstrap ">
+                  <div class="page-header">
+                     <h1 class="title">Meus Pedidos</h1>
+                     <ul class="nav nav-pills">
+                        <li class="active "><a href="#/">Meus Pedidos</a></li>
+                        <li class=" "><a href="#/subscriptions">Minhas Recorrências</a></li>
+                     </ul>
+                  </div>
+                  <div class="myo-view-order">
+                     <a class="db mb4 link f5 fw5 heavier-blue" href="#/">
+                        <svg class="dib hh1 w1 lh-solid pt1 mr2" viewBox="0 0 12 18" xmlns="http://www.w3.org/2000/svg">
+                           <title><span>Seta de retorno</span></title>
+                           <path fill="#357EDD" d="M12 1.362c0-.763-.936-1.18-1.558-.696L.844 8.158c-.714.557-.714 1.593 0 2.15l9.6 7.484c.62.485 1.556.067 1.556-.696V1.362z" fill-rule="evenodd"></path>
+                        </svg>
+                        <span class="dib lh-solid"><span>voltar para Meus Pedidos</span></span>
+                     </a>
+                     <div class="w-100 fl w-40-ns pa2 pl0">
+                        <h2 class="fw4 f3 ma0 lh-copy"><span>Pedido</span> nº 720132282806-01</h2>
+                        <time class="mid-gray">
+                           <span>25 de março de 2017</span> 
+                           <div class="dib br2 pv1 ph2 f7 fw5 black-70 tc bg-light-blue"><span class=""><span>Preparando Entrega</span></span></div>
+                        </time>
+                     </div>
+                     <div class="w-100 fl w-60-ns pa0 pa2-ns pr0">
+                        <ul class="list tl tr-ns mt3 ma0">
+                           <li class="db dib-ns mr4-ns mb3 mb0-ns">
+                              <a href="javascript:void(0)" class="myo-reorder-btn f6 link underline heavier-blue relative">
+                                 <svg class="hh1 w1 absolute top-0" fill="#0070D1" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.01 1.467V.32c0-.263-.304-.414-.515-.255L2.98 2.71c-.32.238-.32.714-.002.954l3.516 2.654c.212.16.515.01.515-.256V5.006c0-.375.34-.656.71-.6 2.56.395 4.44 2.862 3.85 5.632-.37 1.756-1.793 3.174-3.554 3.544-3.03.638-5.704-1.65-5.704-4.562 0-.955.293-1.84.79-2.575.346-.513.21-1.208-.298-1.563l-.02-.014c-.516-.36-1.246-.255-1.598.265C.196 6.607-.258 8.48.146 10.466c.548 2.705 2.74 4.877 5.46 5.4C10.084 16.726 14 13.33 14 9.02c0-3.658-2.822-6.658-6.414-6.955-.322-.027-.577-.277-.577-.598" fill-rule="evenodd"></path>
+                                 </svg>
+                                 <span class="dib" style="margin-left: 20px;"><span>Pedir novamente</span></span>
+                              </a>
+                           </li>
+                           <li class="db dib-ns mb3 mb0-ns"><a href="#/720132282806-01/cancel"><span class="db pv1 link light-red no-underline"><span>Solicitar cancelamento</span></span></a></li>
+                        </ul>
+                     </div>
+                     <section class="w-100 fl mt3 mb1-l mb1-xl mb5-s mb3-m">
+                        <article class="w-100 fl w-third-l pr2-l pr2-xl mb3">
+                           <section class="pa3 ba b--black-10 br2 h4-plus overflow-y-scroll bg-white">
+                              <h3 class="mid-gray mt1 mb3 tracked-mega lh-solid ttu f6"><span>Endereço</span></h3>
+                              <div>
+                                 <p class="lh-solid"><strong>Rafael Cruz</strong></p>
+                                 <p class="lh-solid">Rua Major Álvaro Fontes, 54 - </p>
+                                 <p class="lh-solid">Vila Engenho Novo</p>
+                                 <p class="lh-solid">Barueri - SP</p>
+                                 <p class="lh-solid">06416-070 - BRA</p>
+                              </div>
+                              <p class="mt3">+5511952542354</p>
+                           </section>
+                        </article>
+                        <article class="w-100 fl w-third-l pr2-l pr2-xl mb3">
+                           <section class="pa3 ba b--black-10 br2 overflow-y-scroll bg-white h4-plus">
+                              <h3 class="mid-gray mt1 mb3 tracked-mega lh-solid ttu f6"><span>Forma de Pagamento</span></h3>
+                              <div class="mb3">
+                                 <div class="dib ma0 pa0">
+                                    <span><span>Promissória</span></span>  
+                                    <div class="dib"><span>R$ 109,99</span> <span class="fw5">(1x)</span></div>
+                                 </div>
+                              </div>
+                           </section>
+                        </article>
+                        <article class="w-100 fl w-third-l">
+                           <section class="pa3 ba b--black-10 br2 overflow-y-scroll bg-white h4-plus">
+                              <h3 class="mid-gray mt1 mb3 tracked-mega lh-solid ttu f6"><span>Resumo</span></h3>
+                              <div class="cf w-100">
+                                 <div class="dib f6 fw4 mid-gray w-60">Total dos Itens</div>
+                                 <div class="dib f6 fw4 mid-gray w-40 tr"><span>R$ 109,99</span></div>
+                                 <hr class="bt-0 bb b--light-gray w-100 mb1 mt1">
+                              </div>
+                              <div class="cf w-100 mb4">
+                                 <div class="dib fl f6 fw5 mid-gray w-50"><span>Total</span></div>
+                                 <div class="dib fr f6 fw5 mid-gray w-50 tr"><span>R$ 109,99</span></div>
+                              </div>
+                           </section>
+                        </article>
+                     </section>
+                     <div>
+                        <div class="myo-progress-bar w-100 h4-plus pb5 pr3 pl3 fl b--black-10 br2 ba">
+                           <div class="myo-progress-bar__title-font mid-gray mt1 mb3 tracked-mega lh-solid ttu f6 pt3"><span>Status do pedido</span></div>
+                           <div class="pt4">
+                              <span class="b blue myo-progress-bar__mobile-text">Preparando pedido</span>
+                              <div class="flex justify-center">
+                                 <div class="relative flex items-center flex-column br-100 myo-progress-bar__height1 myo-progress-bar__circle mh1 w1 myo-progress-bar__blue-circle-color ba b--white bw1 mv2 ">
+                                    <div class="myo-progress-bar__subtitle mt3 pa2 tc"><span class="mid-gray myo-progress-bar__text">Pedido confirmado</span></div>
+                                 </div>
+                                 <div class="myo-progress-bar__line w-20 myo-progress-bar__height1 bg-white bt bw1 myo-progress-bar__blue-line-color mt3"></div>
+                                 <div class="relative flex items-center flex-column br-100 myo-progress-bar__height1 myo-progress-bar__circle mh1 w1 myo-progress-bar__blue-circle-color ba b--white bw1 mv2 ">
+                                    <div class="myo-progress-bar__subtitle mt3 pa2 tc"><span class="mid-gray myo-progress-bar__text">Pagamento aprovado</span></div>
+                                 </div>
+                                 <div class="myo-progress-bar__line w-20 myo-progress-bar__height1 bg-white bt bw1 myo-progress-bar__blue-line-color mt3"></div>
+                                 <div class="relative z-0 myo-progress-bar__margin flex items-center flex-column ma2 br-100">
+                                    <div class="br-100 mb1 myo-progress-bar__height1 w1 relative ba b--white bw1 myo-progress-bar__ma-inner-circle"></div>
+                                    <div class="absolute myo-progress-bar__highlighted-circle myo-progress-bar__subtitle mt3 pa2 tc"><span class="myo-progress-bar__text mid-gray b">Preparando pedido</span></div>
+                                 </div>
+                                 <div class="myo-progress-bar__line w-20 myo-progress-bar__height1 bg-white bt bw1 myo-progress-bar__grey-line-color mt3"></div>
+                                 <div class="relative flex items-center flex-column br-100 myo-progress-bar__height1 w1 myo-progress-bar__circle myo-progress-bar__grey-circle-color ba b--white bw1 mv2 mh1">
+                                    <div class="myo-progress-bar__subtitle mt3 pa2 tc"><span class="light-gray myo-progress-bar__text">Entregar à transportadora</span></div>
+                                 </div>
+                                 <div class="myo-progress-bar__line w-20 myo-progress-bar__height1 bg-white bt bw1 myo-progress-bar__grey-line-color mt3"></div>
+                                 <div class="relative flex items-center flex-column br-100 myo-progress-bar__height1 w1 myo-progress-bar__circle myo-progress-bar__grey-circle-color ba b--white bw1 mv2 mh1">
+                                    <div class="myo-progress-bar__subtitle mt3 pa2 tc"><span class="light-gray myo-progress-bar__text">Entregar pedido</span></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="w-100 pv4 fl">
+                        <div class="flex flex-column">
+                           <div class="mw-100 myo-margin-right">
+                              <h2 class="f4 mb0 lh-copy"><span>Pacote</span></h2>
+                           </div>
+                           <div class="flex flex-column flex-row-l">
+                              <div><span class="mr2">Entrega até 11/04/2017</span><span class="dib br2 pv1 mt1 ph2 f7 f6-l fw5 black-70 nowrap bg-light-blue">Retirada</span></div>
+                              <div class="w-40-l w-100-m w-100-s myo__padding">
+                                 <div></div>
+                              </div>
+                           </div>
+                        </div>
+                        <table class="myo-product-table table w-100 mt4">
+                           <thead>
+                              <tr class="tl">
+                                 <th class="pa0 w-60 w-50-ns pb2"><span>Produto</span></th>
+                                 <th class="pa0 w-20 pl1 pr1 pb2 dn dtc-ns"><span>Preço</span></th>
+                                 <th class="pa0 w-20 pl1 pr1 pb2"><span>Qtd</span></th>
+                                 <th class="pa0 w-30 w-20-ns pb2"><span>Subtotal</span></th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr class="myo-product-row bt b--light-gray">
+                                 <td class="myo-product-info pa0 pv3 v-mid overflow-hidden">
+                                    <img class="myo-product-image mw4-ns fl mr3" src="https://corebiz.vteximg.com.br/arquivos/ids/156416-50-50" alt="Produto Variação 32G">
+                                    <div class="fl overflow-hidden w-80-ns">
+                                       <p href="/produto-variacao/p" class="myo-product-name fw7 f6 mb0" target="_blank">Produto Variação 32G</p>
+                                       <span class="myo-seller-name f7 mid-gray db">corebiz</span>
+                                    </div>
+                                 </td>
+                                 <td class="myo-product-price pa0 pv3 v-mid dn dtc-ns"><span>R$ 109,99</span></td>
+                                 <td class="myo-product-quantity pa0 pv3 v-mid">1 un</td>
+                                 <td class="myo-product-total-price pa0 pv3 v-mid"><span>R$ 109,99</span></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>

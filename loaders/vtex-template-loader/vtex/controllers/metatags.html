@@ -1,0 +1,155 @@
+<meta charset="UTF-8" />
+<meta name="description" content="Free Web tutorials" />
+<meta name="keywords" content="HTML,CSS,XML,JavaScript" />
+<meta name="author" content="John Doe" />
+<script type="text/javascript" src="https://io.vtex.com.br/front-libs/jquery/1.8.3/jquery-1.8.3.min.js?v=1.4.1076.1813" language="javascript"></script>
+
+<script>
+    $(document).ready(function() {
+
+    /***********************************************************avise-me-----------------------------------------------------------------------*/
+
+    $("#bx-valor").prepend('<!--avise-me--><div id="avise-me-vtex" style="display:none;"><a target="_top" class="buy-buttonbuy-button-ref" href="/checkout/cart/add?sku=2000116&amp;qty=1&amp;seller=1&amp;redirect=true&amp;sc=1" style="display: none;">Comprar</a><p class="unavailable-button" style="display:none">Produto Esgotado</p><input type="hidden" class="buy-button-amount" value="1"><div    class="portal-notify-me-ref"><div class="notifyme sku-notifyme" style=""><div class="notifyme-title-div" style=""><h3 class="notifymetitle notifyme-title">Avise-Me</h3></div><form  action="/no-cache/AviseMe.aspx" style=""><fieldset class="sku-notifyme-form notifyme-form"><p>Para ser avisado da disponibilidade deste Produto, basta preencher os campos abaixo.</p><input class="sku-notifyme-client-name notifyme-client-name" placeholder="Digite seu nome..." size="20" type="text" name="notifymeClientName" id="notifymeClientName" style="display: block;"><input class="sku-notifyme-client-email notifyme-client-email" placeholder="Digite seu e-mail..." size="20" type="text" name="notifymeClientEmail" id="notifymeClientEmail" style="display: block;"><input class="btn-ok sku-notifyme-button-ok notifyme-button-ok" value="ok" type="button" name="notifymeButtonOK" id="notifymeButtonOK" style="display: inline-block;"><input type="hidden" class="sku-notifyme-skuid notifyme-skuid" name="notifymeIdSku" value="2000116" style="display: none;"></fieldset></form><p class="notifyme-loading-message" style="display: none;"><span class="sku-notifyme-loading notifyme-loading">Carregando...</span></p><fieldset class="success" style="display: none;"><label><em><span class="sku-notifyme-success notifyme-success">Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.</span></em></label></fieldset><fieldset class="error" style="display: none;"><label><span class="sku-notifyme-error   notifyme-error"></span></label></fieldset></div></div></div><!--avise-me-->');
+
+    /***********************************************************avise-me-----------------------------------------------------------------------*/
+
+    $("#btnReferAFriend").dblclick(function() {
+        $("#div-referAFriend").next("#TB_overlay").show();
+        $("#div-referAFriend").next("#TB_overlay").next("#TB_window").show();
+    });
+
+
+    $("#TB_closeWindowButton").click(function() {
+        $("#div-referAFriend").next("#TB_overlay").hide();
+        $("#div-referAFriend").next("#TB_overlay").next("#TB_window").hide();
+    });
+
+    $("#popupCalculoFreteWrapper").click(function() {
+
+        $("#calculoFrete").show();
+
+    });
+
+    var url_current = window.location.pathname;
+    var urlBase = location.href.substring(0, location.href.lastIndexOf("/") + 1)
+    var file;
+    var href;
+
+    if (url_current != "") {
+
+        var file = url_current.split("/")[1];
+        var dir = "";
+
+        if (file == "" || file == null) {
+            file = "index.html";
+        }
+
+        if (file.indexOf(".html") == -1) {
+            file = url_current.split("/")[2];
+            dir = url_current.split("/")[1];
+        }
+
+        $("#atualizar").click(function() {
+            file = $(this).attr("rel");
+
+            if (file == "" || file == null) {
+                file = "index.html";
+            }
+
+            if (file) {
+
+                $.post("/system/core.php", {
+                        file: file,
+                        dir: dir,
+                        action: "ajax",
+                    },
+                    function(valor) {
+
+                        //alert("A página "+file+" foi atualizada com sucesso!");
+                        window.location.reload();
+                        //$(location).attr('href', ir_para);
+
+                    })
+
+            }
+
+            return false;
+
+        });
+
+    }
+
+    $(".address-update").click(function() {
+        $("#address-edit").show();
+        $("#address-edit").css("opacity", "100");
+    });
+
+    $("#form-address .btn-link").click(function() {
+        $("#address-edit").hide();
+    });
+
+    $("#edit-data-link").click(function() {
+        $("#editar-perfil").show();
+        $("#editar-perfil").css("opacity", "100");
+    });
+
+    $("#editar-perfil-conteudo .btn-link").click(function() {
+        $("#editar-perfil").hide();
+        $("#editar-perfil").fadeOut();
+    });
+
+
+    //****************************************************avaliação************************************************************//
+
+    $("#lnkPubliqueResenha").click(function() {
+        $("#publishUserReview .header, #publishUserReview .footer").show();
+        return false;
+    });
+
+    $(".close .btn-thickbox").click(function() {
+        $("#publishUserReview .header, #publishUserReview .footer").hide();
+        return false;
+    });
+
+    //**************************************************newslatter**********************************************************//
+
+    $("#newsletterButtonOK").click(function() {
+        if ($("#newsletterClientName").val() != "Digite seu nome" && $("#newsletterClientEmail").val() != "Digite seu e-mail") {
+            $("#bx-newslatter .success").show("slow");
+            $("#bx-newslatter fieldset").eq(0).hide();
+        } else {
+            $("#bx-newslatter .error").show("slow");
+            $("#bx-newslatter fieldset").eq(0).hide();
+        }
+        return false;
+    });
+
+    /************************************************ Giftlist ************************************************************/
+    $(".glis-thickbox.tb-added").click(function(e) {
+
+        e.preventDefault();
+
+        $("body").append('<div id="TB_overlay" style="position:fixed;z-index:10000;top:0px;left:0px;height:100%;width:100%"></div><div id="TB_window" style="position: fixed; z-index: 10002; display: block; top: 50%; left: 50%; margin-left: -315px; width: 630px; margin-top: -220px;"><div id="TB_title"><div id="TB_ajaxWindowTitle" style="float:left;padding:7px 0 5px 10px;margin-bottom:1px"></div><div id="TB_closeAjaxWindow" style="float:right;padding:7px 10px 5px 0"><a href="#" id="TB_closeWindowButton" title="Fechar">Fechar</a></div></div><div id="TB_ajaxContent" style="width:600px;height:395px;clear:both;overflow:auto;padding:2px 15px 15px 15px"><div id="7264e7a991b54c5f8de67f8b1fd80e42" class="giftlist-insertsku"><span class="glis-title">Adicionar produtos às suas Listas</span><div class="glis-selected"><span class="glis-selected-amount">1</span> produtos selecionados <span class="glis-flash-quantity-added" style="display: none;">+1</span></div><div class="glis-save" style="display: none;"></div><div class="glis-mylist mode-list"><span class="glis-existing-title">Selecionar uma lista</span><ul class="glis-ul"><li class="glis-li version-2 type-4 private active visitor-has-access member-has-access has-image no-product"><a href="javascript:void(0);" id="bt_0c8ef0c73f144ae8a83a6024ca9cd159" class="glis-submit glis-submit-list" rel="6" title="Minha lista de casamento">Minha ista</a></li><li class="glis-li version-2 type-5 private active visitor-has-access member-has-access no-image has-product"><a href="javascript:void(0);" id="bt_45d9c6e28ddd4b9b96adf99a9b66a93b" class="glis-submit glis-submit-list" rel="7" title="Minha lista de desejos">Minha lista de desejos</a></li></ul></div></div></div></div>');
+        return false;
+
+    });
+
+    $("body").on("click", "#TB_closeWindowButton", function(e) {
+
+        e.preventDefault();
+
+        $('#TB_overlay, #TB_window').remove();
+        return false;
+
+    });
+
+    $(".refresh-off").hide();
+
+    $("#giftlistsearchform #giftlistsearchfind").click(function() {
+
+        $(".refresh-off").show();
+
+    });
+
+});
+</script>

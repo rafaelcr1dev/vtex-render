@@ -1,0 +1,910 @@
+<html lang="pt-BR" class=" js opacity csstransforms csstransitions">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title data-i18n="title">Finalizar compra</title>
+
+    <link rel="shortcut icon" href="/arquivos/favicon.ico">
+    <link rel="stylesheet" href="//io.vtex.com.br/front-libs/bootstrap/2.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//io.vtex.com.br/front-libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="//io.vtex.com.br/front-libs/onda/1.0.0/onda.min.css">
+    <link rel="stylesheet" href="//io.vtex.com.br/front-libs/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//io.vtex.com.br/checkout-ui/6.17.5/lib/front-messages-ui/vtex-message.min.css">
+    <link rel="stylesheet" href="//io.vtex.com.br/checkout-ui/6.17.5/style/style.css">
+    <link rel="stylesheet" type="text/css" href="/files/checkout-custom.css" />
+    <link rel="stylesheet" type="text/css" href="/files/checkout5-custom.css" />
+    <link rel="stylesheet" type="text/css" href="/files/checkout6-custom.css" />
+    <script type="text/javascript" src="https://io.vtex.com.br/front-libs/jquery/1.8.3/jquery-1.8.3.min.js?v=1.4.1076.1813" language="javascript"></script>
+
+</link></link></link></link></link></meta></meta></meta></head>
+
+<body class="loja-vtexcommercestable-com-br body-order-form">
+
+    <vtex:template id="checkout-header"/>
+
+    <div class="container container-main container-order-form">
+        <h1 class="hide" id="orderform-title" data-i18n="title" data-bind="fadeVisible: inOrderForm" style="display: block;">Finalizar compra</h1>
+        <div class="checkout-container row-fluid orderform-active">
+            <!-- CART -->
+            <div class="cart-template full-cart span12 inactive">
+                <div class="cart-template-holder" id="cartLoadedDiv" data-bind="template: 'cart-template'">
+                    <div class="empty-cart-content" data-bind="fadeVisible: !hasItems() &amp;&amp; !loading()" style="display: none;">
+                        <h2 class="empty-cart-title" data-i18n="cart.emptyTitle">Seu carrinho está vazio.</h2>
+                        <div class="empty-cart-message">
+                            <p data-i18n="cart.emptyMessage">Para continuar comprando, navegue pelas categorias do site ou faça uma busca pelo seu produto.</p>
+                        </div>
+                        <div class="clearfix empty-cart-links">
+                            <a href="/" id="cart-choose-products" class="btn btn-large btn-success link-choose-products" data-i18n="cart.chooseProducts">Escolher produtos</a>
+                        </div>
+                    </div>
+                    <div class="cart" data-bind="visible: hasItems() &amp;&amp; !loading()">
+                        <table class="table cart-items">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" class="product" data-i18n="global.product">Produto</th>
+                                    <th class="shipping-date" data-i18n="global.delivery">Entrega</th>
+                                    <th class="product-price" data-i18n="global.price">Preço</th>
+                                    <th class="quantity" data-i18n="global.quantity">Quantidade</th>
+                                    <th class="quantity-price" data-i18n="global.total">Total</th>
+                                    <th class="item-remove"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- ko template: { name: 'cart-item-template', foreach: items, afterRender: vtex.i18n.translateHtml } -->
+                                <tr class="product-item" data-bind="attr: {'data-sku': id}, availableCSS: available()" rowspan="2" data-sku="29">
+                                    <td data-bind="css: { 'product-image': imageUrl }" class="product-image">
+                                        <a href="http://tbb.vtexcommercestable.com.br/desodorante-teste/p" data-bind="attr: {'href': ('http://' + location.host + detailUrl())}">
+                                            <img height="45" width="45" data-bind="attr: {'src': imageUrl, 'alt': name, 'id': 'product-image-' + id()}" src="https://via.placeholder.com/55" alt="Desodorante Teste Copy" id="product-image-29"></img></a>
+                                    </td>
+                                    <td class="product-name">
+                                        <a href="http://tbb.vtexcommercestable.com.br/desodorante-teste/p" data-bind="text: name, attr: {'href': ('http://' + location.host + detailUrl()), 'id': 'product-name' + id() }" id="product-name29">Desodorante Teste Copy</a>
+                                        <div class="brand">
+                                            <span class="brand-label" data-i18n="cart.seller.brand">Marca</span>
+                                            <span class="brand-name" data-bind="text: brand">Marca Teste</span>
+                                        </div>
+                                        <small class="seller muted" data-bind="if: sellerName">
+                                            <span data-i18n="cart.soldBy">Produto fornecido e entregue por</span>
+                                            <span data-bind="text: sellerName">The Beauty Box</span>
+                                        </small>
+                                        <ul class="item-discount-descriptions" data-bind="foreach: priceTags">
+                                            <li data-bind="if: ratesAndBenefitsIdentifier &amp;&amp; ratesAndBenefitsIdentifier.featured">
+                                                <strong class="discount-name" data-bind="text: ratesAndBenefitsIdentifier.name">Desconto todo o site 10</strong>
+                                                <span class="discount-description" data-bind="text: ratesAndBenefitsIdentifier.description"></span>
+                                            </li>
+                                        </ul>
+                                        <!-- ko if: router.inCart() == true  && availableOfferings() -->
+                                        <!-- /ko -->
+                                    </td>
+                                    <td class="shipping-date empty" data-bind="css: { 'empty': estimateLabel() == 'a calcular' }">
+                                        <!-- ko if: available() -->
+                                        <span class="shipping-estimate-date" data-bind="text: estimateLabel">a calcular</span>
+                                        <span class="shipping-estimate-date shipping-estimate-detail" data-bind="text: estimateDetailLabel"></span>
+                                        <div class="sla-info hide">
+                                            <div class="sla-price" data-bind="text: shippingPriceLabel"></div>
+                                            <div class="sla-name">
+                                                <small data-bind="text: shippingName"></small>
+                                            </div>
+                                        </div>
+                                        <!-- /ko -->
+                                        <!-- ko ifnot: available() -->
+                                        <!-- /ko -->
+                                    </td>
+                                    <td class="product-price">
+                                        <!-- ko if: isPriceVisible -->
+                                        <span class="list-price" data-bind="css: { 'hide' : !isListPriceVisible() }, visible: manualPrice() == null || (isManualPriceActive() &amp;&amp; manualPrice() == null)">
+                                            <span class="old-product-price-label" data-i18n="cart.oldPrice">De</span>
+                                            <del class="old-product-price muted" data-bind="text: listPriceLabel">R$ 880,99</del>
+                                        </span>
+                                        <br data-bind="css: { 'hide' : !isListPriceVisible() }" class="">
+                                        <span class="best-price">
+                                            <span class="new-product-price-label" data-i18n="cart.newPrice" data-bind="css: { 'hide' : !isListPriceVisible() }, visible: manualPrice() == null || (isManualPriceActive() &amp;&amp; manualPrice() == null)">Por</span>
+                                            <!-- ko ifnot: isManualPriceActive() -->
+                                            <span class="new-product-real-price hide" data-bind="text: priceLabel">R$ 800,00</span>
+                                            <!-- ko if: $parent.allowManualPrice() -->
+                                            <!-- /ko -->
+                                            <!-- ko ifnot: $parent.allowManualPrice() -->
+                                            <span class="new-product-price" data-bind="text: sellingPriceLabel">R$ 720,00</span>
+                                            <!-- /ko -->
+                                            <a class="manualprice-link-remove" href="javascript:void(0);" data-bind="click: removeManualPrice, visible: manualPrice() != null" data-i18n="[title]global.remove" title="remover" style="display: none;">
+                                                <i class="icon icon-remove item-remove-ico"></i>
+                                                <span class="hide manualprice-remove-text" data-i18n="global.remove">remover</span>
+                                            </a>
+                                            <!-- /ko -->
+                                            <!-- ko if: isManualPriceActive() -->
+                                            <!-- /ko -->
+                                            <small class="new-product-real-price-per-unit" data-bind="text: priceLabelPerUnit"></small>
+                                            <a class="discount" href="javascript:void(0);" data-bind="fadeVisible: showDiscountButton">
+                                                <span class="how-much-discount" data-bind="event: { 'mouseover': toggleDiscount, 'mouseout': toggleDiscount }">
+                                                    <i class="icon-question-sign"></i>
+                                                </span>
+                                            </a>
+                                            <span class="field-help" data-bind="fadeVisible: showDiscount" style="display: none;">
+                                                <span class="help-arrow top-arrow"></span>
+                                                <span class="fast-shopping-help-message help-message">
+                                                    <strong class="fast-shopping-help-message-title help-message-title">
+                                                        <i class="icon-info-sign"></i>
+                                                        <span data-i18n="totalizers.Discounts">Descontos</span>
+                                                    </strong>
+                                                    <br>
+                                                    <!-- ko if: price() > sellingPrice() -->
+                                                    <span class="fast-shopping-help-message-body help-message-body" data-bind="text: discount">R$ 80,00</span>
+                                                    <!-- /ko -->
+                                                </br></span>
+                                            </span>
+                                        </span>
+                                        <!-- /ko -->
+                                    </br></td>
+                                    <td class="quantity" data-bind="css: {'cant-change-qty': !canChangeQty(), 'quantity-large': quantity() > 999},                   attr: { 'disabled': window.cart.loadingItem }">
+                                        <!-- ko if: router.inCart -->
+                                        <!-- /ko -->
+                                        <!-- ko if: router.inOrderForm -->
+                                        <span data-bind="text: quantity">1</span>
+                                        <!-- /ko -->
+                                        <small class="item-multiplier-label" data-bind="text: multiplierLabel"></small>
+                                        <small class="item-unit-label" data-bind="text: unitLabel"></small>
+                                    </td>
+                                    <td class="quantity-price">
+                                        <span class="total-price hide" data-bind="text: priceValueLabel, if: isPriceVisible">R$ 800,00</span>
+                                        <span class="total-selling-price" data-bind="text: valueLabel, if: isPriceVisible">R$ 720,00</span>
+                                    </td>
+                                    <td class="item-remove">
+                                        <a class="item-link-remove" href="javascript:void(0);" data-bind="click: remove, fadeVisible: !window.cart.loadingItem(), attr: { 'id': 'item-remove-' + id() }" data-i18n="[title]global.remove" id="item-remove-29" title="remover">
+                                            <i class="icon icon-remove item-remove-ico"></i>
+                                            <span class="hide item-remove-text" data-i18n="global.remove">remover</span>
+                                        </a>
+                                        <i class="loading-text icon-spinner icon-spin hide" data-bind="fadeInlineVisible: window.cart.loadingItem" style="display: none; opacity: 0;">
+                                            <span data-i18n="cart.wait">Por favor, aguarde...</span>
+                                        </i>
+                                    </td>
+                                </tr>
+                                <!-- ko ifnot: available -->
+                                <!-- /ko -->
+                                <!-- ko if: itemAttachments() && itemAttachments().length > 0 -->
+                                <!-- /ko -->
+                                <!-- ko if: bundleItems() && bundleItems().length > 0 -->
+                                <!-- /ko -->
+                                <!-- ko if: components() && components().length > 0 -->
+                                <!-- /ko -->
+                                <!-- /ko -->
+                                <!-- ko if: gifts().length > 0 -->
+                                <!-- /ko -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="cart-select-gift-placeholder"></div>
+
+                <div class="summary-template-holder" data-bind="template: {name: 'summary-template', afterRender: vtex.i18n.translateHtml}">
+                    <div class="row-fluid summary" data-bind="fadeVisible: window.cart.hasItems() &amp;&amp; !loading()" style="display: block;">
+                        <div class="forms coupon-column summary-coupon-wrap span7 pull-left" data-bind="css: { 'span7 pull-left': !window.checkout.hasSelectableGifts(), 'span4 pull-right': window.checkout.hasSelectableGifts() }">
+                            <div class="coupon summary-coupon pull-right" data-bind="with: coupon, visible: hasTotal">
+                                <form class="coupon-form" action="" data-bind="submit: addCoupon">
+                                    <fieldset class="coupon-fieldset">
+                                        <div data-bind="fadeVisible: isUsingCoupon()" style="display: none;">
+                                            <p class="coupon-label">
+                                                <label for="cart-coupon" data-i18n="totalizers.couponCapitalize">Cupom de desconto</label>
+                                            </p>
+                                            <p class="coupon-fields">
+                                                <span data-bind="visible: !isCouponTyped()">
+                                                    <input type="text" id="cart-coupon2" class="coupon-value input-small" data-bind="value: couponCode, valueUpdate:'afterkeydown', disable: loadingCoupon()" placeholder="Código" data-i18n="[placeholder]totalizers.couponCode;">
+                                                    <span class="loading-inline loading-coupon" data-bind="fadeInlineVisible: loadingCoupon" style="display: none; opacity: 0;">
+                                                        <span data-i18n="cart.wait">Por favor, aguarde...</span>
+                                                    </span>
+                                                    <button type="submit" id="cart-coupon-add2" class="btn" data-bind="disable: loadingCoupon" data-i18n="global.add">Adicionar</button>
+                                                </input></span>
+                                                <span class="info" data-bind="visible: isCouponTyped" style="display: none;">
+                                                    <span data-bind="text: value"></span>
+                                                    <small class="delete">
+                                                        <a href="javascript:void(0);" id="cart-coupon-remove2" data-bind="click: removeCoupon" data-i18n="global.delete">excluir</a>
+                                                    </small>
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <p class="coupon-data pull-right" data-bind="fadeVisible: !isUsingCoupon()">
+                                            <a class="link-coupon-add" href="javascript:void(0);" id="cart-link-coupon-add" data-bind="click: isUsingCoupon">
+                                                <span data-i18n="global.add">Adicionar</span>
+                                                <span data-i18n="totalizers.coupon">cupom de desconto</span>
+                                            </a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="span5 totalizers summary-totalizers cart-totalizers pull-right">
+                            <div class="accordion-group" data-bind="fadeVisible: window.cart.hasItems() &amp;&amp; !loading()" style="display: block;">
+                                <div class="accordion-heading">
+                                    <span class="accordion-toggle collapsed" data-i18n="totalizers.summary">Resumo do pedido</span>
+                                </div>
+                                <div class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        <div class="summary-discount-descriptions" data-bind="visible: discounts().length">
+                                            <h3 class="summary-discount-title" data-i18n="totalizers.Discounts">Descontos</h3>
+                                            <ul class="all-discount-descriptions unstyled" data-bind="foreach: discounts()">
+                                                <li class="discount-descriptions-item">
+                                                    <strong class="discount-name" data-bind="text: name">Desconto todo o site 10</strong>
+                                                    <span class="discount-description" data-bind="text: description"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <table class="table">
+                                            <tbody class="totalizers-list" data-bind="foreach: { data: totalizers }">
+                                                <tr data-bind="visible: visible, attr: { 'class': id }" class="Items">
+                                                    <!-- ko if: id() == 'Shipping' -->
+                                                    <!-- /ko -->
+                                                    <!-- ko ifnot: id() == 'Shipping' -->
+                                                    <td class="info" data-bind="attr: {'data-i18n': 'totalizers.' + id()}" data-i18n="totalizers.Items">Subtotal</td>
+                                                    <td class="space"></td>
+                                                    <td class="monetary" data-bind="text: valueLabel">R$ 800,00</td>
+                                                    <td class="empty"></td>
+                                                    <!-- /ko -->
+                                                </tr>
+                                                <tr data-bind="visible: visible, attr: { 'class': id }" class="Discounts">
+                                                    <!-- ko if: id() == 'Shipping' -->
+                                                    <!-- /ko -->
+                                                    <!-- ko ifnot: id() == 'Shipping' -->
+                                                    <td class="info" data-bind="attr: {'data-i18n': 'totalizers.' + id()}" data-i18n="totalizers.Discounts">Descontos</td>
+                                                    <td class="space"></td>
+                                                    <td class="monetary" data-bind="text: valueLabel">R$ -80,00</td>
+                                                    <td class="empty"></td>
+                                                    <!-- /ko -->
+                                                </tr>
+                                            </tbody>
+                                            <tbody class="shipping-reset" data-bind="visible: isShippingKnown()                                                    &amp;&amp; !window.checkout.isNotUsingPostalCode()                                                    &amp;&amp; window.cart.items().length == window.cart.unavailableItems().length" style="display: none;">
+                                                <tr>
+                                                    <td class="info">
+                                                        <span class="postal-code-for-sla">
+                                                            <span class="shipping-name" data-bind="attr: {'data-i18n': 'totalizers.Shipping'}" data-i18n="totalizers.Shipping">Entrega</span>
+                                                            <span class="shipping-name-to" data-i18n="global.to">para</span>
+                                                            <span class="postal-code-value" data-bind="html: window.summary.maskedPostalCode"></span>
+                                                            <a href="javascript:void(0);" class="cart-reset-postal-code" id="cart-reset-postal-code555" data-bind="visible : window.checkout.canEditData, click: summary.resetShipping" data-i18n="[title]global.edit" title="alterar">
+                                                                <i class="icon-remove-sign"></i>
+                                                            </a>
+                                                            <br>
+                                                            <a href="javascript:void(0);" class="cart-reset-postal-code" id="cart-reset-postal-code2" data-bind="visible : window.checkout.canEditData, click: window.summary.resetShipping" data-i18n="cart.resetShipping">Informar outro CEP</a>
+                                                        </br></span>
+                                                    </td>
+                                                    <td class="space"></td>
+                                                    <td class="monetary shipping-unavailable" data-i18n="global.unavailable">indisponível</td>
+                                                </tr>
+                                            </tbody>
+                                            <tbody class="shipping-calculate" data-bind="visible: !isShippingKnown() &amp;&amp; !window.checkout.isNotUsingPostalCode()">
+                                                <tr>
+                                                    <td class="info">
+                                                        <span data-i18n="cart.calculateShipping">Entrega</span>
+                                                    </td>
+                                                    <td class="space" data-bind="visible: !isUsingPostalCode()"></td>
+                                                    <td class="monetary" data-bind="visible: !isUsingPostalCode()">
+                                                        <a id="shipping-calculate-link" class="shipping-calculate-link" href="javascript:void(0)" data-bind="click: usingPostalCode" data-i18n="cart.calculate">Calcular</a>
+                                                    </td>
+                                                    <td class="monetary form-postal-code forms" data-bind="visible: isUsingPostalCode() &amp;&amp; !isShippingKnown()" colspan="3" style="display: none;">
+                                                        <div class="shipping summary-shipping">
+                                                            <form class="shipping-form-inline" action="" data-bind="submit: calculateShipping">
+                                                                <fieldset class="shipping-fieldset">
+                                                                    <div class="shipping-fields">
+                                                                        <input type="tel" id="summary-postal-code" class="postal-code input-mini" data-bind="value: postalCode, valueUpdate:'afterkeydown',                                                               validate: 'postalCode', disable: loadingPostalCode,                                                               maskOnBlur: window.checkout.postalCodeMask,                                                               attr: {'placeholder': postalCodeLabel, 'maxlength': window.checkout.postalCodeMask() ? window.checkout.postalCodeMask().length : 9},                                                               css: {'loading-postal-code': loadingPostalCode}" placeholder="CEP" maxlength="9">
+                                                                        <i class="loading-inline icon-spinner icon-spin" data-bind="fadeInlineVisible: loadingPostalCode" style="display: none; opacity: 0;">
+                                                                            <span data-i18n="cart.wait">Por favor, aguarde...</span>
+                                                                        </i>
+                                                                        <button type="submit" id="cart-shipping-calculate23" class="btn" data-bind="disable: loadingPostalCode" data-i18n="cart.calculate">Calcular</button>
+                                                                    </input></div>
+                                                                    <small class="postal-code-service summary-postal-code-service">
+                                                                        <a id="cart-dont-know-postal-code" data-bind="attr: { 'href': window.checkout.postalCodeForgottenURL }" target="_blank" data-i18n="totalizers.dontKnowPostalCode" href="http://www.buscacep.correios.com.br/servicos/dnec/index.do">Não sei meu CEP</a>
+                                                                    </small>
+                                                                </fieldset>
+                                                            </form>
+                                                        </div>
+                                                    </td>
+                                                    <td class="empty" data-bind="visible: !isUsingPostalCode()"></td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr data-bind="css: {'muted': !hasTotal()}" class="">
+                                                    <td class="info" data-i18n="global.total">Total</td>
+                                                    <td class="space"></td>
+                                                    <td class="monetary" data-bind="text: totalLabel">R$ 720,00</td>
+                                                    <td class="empty"></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix pull-right cart-links cart-links-bottom hide" style="display: none;">
+                    <span class="link-choose-more-products-wrapper">
+                        <a href="/" id="cart-choose-more-products" class="more link-choose-more-products" data-i18n="cart.chooseMoreProducts">Escolher mais produtos</a>
+                    </span>
+                    <span class="link-print-cart-wrapper hide" data-bind="fadeVisible: userType() == 'callCenterOperator'" style="display: none;">
+                        <a id="cart-print" class="btn btn-large link-print-cart" data-i18n="cart.print">Imprimir</a>
+                    </span>
+                    <span class="btn-place-order-wrapper">
+                        <a target="_self" id="masterPass" class="pull-right btn-masterPass" data-bind="visible: isMasterPassVisible, attr: {'href': checkout.masterPassUrl}" href="/api/vtexid/pub/masterpass/checkin?ofid=c77b3c6eacce4d16abea1ed2dcb40d74" style="display: none;"></a>
+                        <a href="#/orderform" target="_self" data-event="cartToOrderform" id="cart-to-orderform" class="btn btn-large btn-success pull-left-margin btn-place-order" data-i18n="cart.finalize" data-bind="visible: hasTotal, click: goToFirstInvalidStep">Fechar pedido</a>
+                        <a href="javascript:void(0);" target="_self" id="cart-to-orderform-disabled" class="btn btn-large btn-success pull-left-margin btn-place-order disable" disabled="disabled" data-i18n="cart.finalize" data-bind="visible: !hasTotal()" style="display: none;">Fechar pedido</a>
+                    </span>
+                </div>
+            </div>
+            <!-- /END CART -->
+
+            <!-- ORDERFORM -->
+            <div class="row-fluid orderform-template span12 active">
+                <div class="orderform-template-holder span8">
+                    <div class="row-fluid">
+                        <div id="client-profile-data" class="span6 client-profile-data" data-bind="template: {name: 'orderForm-clientProfileData-template', afterRender: afterRender}">
+                            <form class="form-page client-pre-email anim-death anim-current" data-bind="event: { 'submit' : submitFirstEmail }, fadeVisible: showEmailForm() &amp;&amp; !checkout.loading()" autocomplete="on" style="display: block;">
+                                <p class="link link-cart pull-right">
+                                    <small>
+                                        <a href="#/cart" id="orderform-to-cart" target="_self" data-i18n="global.backToCart">Voltar para o carrinho</a>
+                                    </small>
+                                </p>
+                                <fieldset class="pre-email row-fluid">
+                                    <h3 class="client-pre-email-h">
+                                        <label for="client-pre-email">
+                                            <span data-i18n="clientProfileData.preemail">Para finalizar a compra, informe seu e-mail.</span>
+                                            <small data-i18n="clientProfileData.preemail_">Rápido. Fácil. Seguro.</small>
+                                        </label>
+                                    </h3>
+                                    <div class="client-email input text required span8 offset2">
+                                        <input type="email" id="client-pre-email" class="input-block-level" data-i18n="[placeholder]clientProfileData.placeholderEmail" data-bind="value: firstEmail, valueUpdate:'afterkeydown', css: { 'not-ready': loadingEmail }, validate: 'email', required: true, disable: loading" autocomplete="on" name="email" placeholder="seu@email.com">
+                                        <i class="loading-inline icon-spinner icon-spin" data-bind="visible: loadingEmail" style="display: none;">
+                                            <span data-i18n="global.loading">Carregando...</span>
+                                        </i>
+                                        <button id="btn-client-pre-email" class="btn btn-success" type="submit">
+                                            <span data-i18n="global.continue_">Continuar</span>
+                                        </button>
+                                    </input></div>
+                                </fieldset>
+                                <div class="emailInfo">
+                                    <h3 data-i18n="clientProfileData.whyPreEmail">Usamos seu e-mail de forma 100% segura para:</h3>
+                                    <ul class="unstyled">
+                                        <li>
+                                            <i class="icon-ok"></i>
+                                            <span data-i18n="clientProfileData.bullet1WhyEmail">Identificar seu perfil</span>
+                                        </li>
+                                        <li>
+                                            <i class="icon-ok"></i>
+                                            <span data-i18n="clientProfileData.bullet2WhyEmail">Notificar sobre o andamento do seu pedido</span>
+                                        </li>
+                                        <li>
+                                            <i class="icon-ok"></i>
+                                            <span data-i18n="clientProfileData.bullet3WhyEmail">Gerenciar seu histórico de compras</span>
+                                        </li>
+                                        <li>
+                                            <i class="icon-ok"></i>
+                                            <span data-i18n="clientProfileData.bullet4WhyEmail">Acelerar o preenchimento de suas informações</span>
+                                        </li>
+                                    </ul>
+                                    <i class="icon-lock"></i>
+                                </div>
+                            </form>
+                            <div class="step accordion-group client-profile-data active" data-bind="css: {active: active, filled: visitedAndNotActive}">
+                                <div class="accordion-heading">
+                                    <span class="accordion-toggle collapsed accordion-toggle-active" data-bind="css: {'accordion-toggle-active': active}">
+                                        <i class="icon-user"></i>
+                                        <span data-i18n="clientProfileData.identification">Dados pessoais</span>
+                                        <!-- ko if: checkout.canEditData() == true -->
+                                        <a href="#/profile" id="edit-profile-data" class="link-box-edit btn btn-small" tabindex="-1" data-bind="visible: visitedAndNotActive" data-i18n="[title]global.edit" title="alterar" style="display: none;">
+                                            <i class="icon-edit"></i>
+                                        </a>
+                                        <!-- /ko -->
+                                        <!-- ko if: checkout.canEditData() == false -->
+                                        <!-- /ko -->
+                                    </span>
+                                </div>
+                                <div class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        <div class="box-step">
+                                            <!--<div class="loading loading-bg" data-bind="fadeVisible: loading">                    <div class="loading-img">                        <i class="icon-spinner icon-spin icon-2x">                            <span data-i18n="global.loading"></span>                        </i>                    </div>                </div>-->
+                                            <!-- INFORMAÇÕES PARA VISUALIZAÇÃO -->
+                                            <div class="form-step box-info" data-bind="fadeVisible: visitedAndNotActive" style="display: none;">
+                                                <p class="client-profile-email">
+                                                    <span class="email" data-bind="text: email"></span>
+                                                    <span class="link-logout-container" data-bind="visible: isUsingExistingAccount" style="display: none;">-
+                                                        <a class="link-logout" id="is-not-me" href="https://tbb.vtexcommercestable.com.br/checkout/changeToAnonymousUser/" data-bind=" attr: { 'href': anonymousURL }" data-i18n="clientProfileData.isNotMe">Não é você? Sair</a>
+                                                    </span>
+                                                </p>
+                                                <p class="client-profile-summary">
+                                                    <span class="name-label" data-i18n="clientProfileData.name_" data-bind="visible: checkout.loggedIn() || (!checkout.loggedIn() &amp;&amp; !checkout.canEditData())" style="display: none;">Nome:</span>
+                                                    <span class="name" data-bind="text: firstName() + ' ' + lastName()">null null</span>
+                                                    <!-- ko if: !checkout.loggedIn() && !checkout.canEditData() -->
+                                                    <!-- /ko -->
+                                                    <br>
+                                                    <span class="tel-label" data-i18n="clientProfileData.phone_" data-bind="visible: checkout.loggedIn() || (!checkout.loggedIn() &amp;&amp; !checkout.canEditData())" style="display: none;">Telefone:</span>
+                                                    <span class="tel" data-bind="text: cleanPhone"></span>
+                                                </br></p>
+                                            </div>
+                                            <!-- FIM INFORMAÇÕES PARA VISUALIZAÇÃO -->
+                                            <!-- INFORMAÇÕES PARA EDIÇÃO -->
+                                            <form action="" class="form-step box-edit" data-bind="fadeVisible: active, submit: next" style="display: block;">
+                                                <div class="box-client-info">
+                                                    <div class="row-fluid">
+                                                        <!-- INFORMAÇÕES PARA PESSOA FÍSICA -->
+                                                        <fieldset class="box-client-info-pf">
+                                                            <p class="client-notice notice" data-i18n="clientProfileData.notice">Solicitamos apenas as informações essenciais para a realização
+                                                                da compra.</p>
+                                                            <!-- ko if: templateOptions.toggleCorporate -->
+                                                            <!-- /ko -->
+                                                            <!-- ko if: checkout.loggedIn() == false -->
+                                                            <p class="client-email input text required">
+                                                                <label for="client-email" data-i18n="clientProfileData.email">E-mail</label>
+                                                                <input type="email" id="client-email" class="input-xlarge" data-bind="value: email, valueUpdate:'afterkeydown', event: { 'blur' : blurEmail }, validate: 'email', required: true, disable: loading" name="email"></input></p>
+                                                            <p data-bind="fadeVisible: emailSuggestionDomain, click: acceptSuggestion" style="display: none;">
+                                                                <span data-i18n="global.didYouMean">Você quis dizer:</span>
+                                                                <span></span>
+                                                                <a href="#" id="email-suggestion-address">
+                                                                    <span data-bind="text: emailSuggestionAddress"></span>
+                                                                    <strong data-bind="text: emailSuggestionDomain"></strong>
+                                                                </a>
+                                                            </p>
+                                                            <!-- /ko -->
+                                                            <!-- ko if: checkout.loggedIn() && email() -->
+                                                            <!-- /ko -->
+                                                            <p class="client-first-name input pull-left text required">
+                                                                <label for="client-first-name" data-i18n="clientProfileData.firstName">Primeiro nome</label>
+                                                                <input type="text" id="client-first-name" class="input-small" data-bind="value: firstName, validate: 'alphaNumericPunctuation', valueUpdate:'afterkeydown', required: true, disable: loading"></input></p>
+                                                            <p class="client-last-name input pull-left text required">
+                                                                <label for="client-last-name" data-i18n="clientProfileData.lastName">Último nome</label>
+                                                                <input type="text" id="client-last-name" class="input-small" data-bind="value: lastName, validate: 'alphaNumericPunctuation', valueUpdate:'afterkeydown', required: true, disable: loading"></input></p>
+                                                            <!-- ko ifnot: showDocumentInCorporate -->
+                                                            <p class="client-document input pull-left text required mask" data-bind="visible: !hasDifferentDocument()">
+                                                                <label for="client-document" data-bind="attr:{ 'data-i18n': documentKey }" data-i18n="clientProfileData.document-BRA">CPF</label>
+                                                                <input type="tel" id="client-document" class="input-small" data-bind="hasfocus: documentFocus, value: document, valueUpdate:'afterkeydown', validate: validateDocument, required: isDocumentRequired, disable: loading, maskOnBlur: checkout.documentMask(), attr: documentAttributeBindings" placeholder="999.999.999-99"></input></p>
+                                                            <p class="client-document input pull-left text required mask" data-bind="visible: hasDifferentDocument()" style="display: none;">
+                                                                <label for="client-document2" data-bind="attr:{ 'data-i18n': documentKey }" data-i18n="clientProfileData.document-BRA">CPF</label>
+                                                                <input type="tel" id="client-document2" class="input-small" disabled="disabled"></input></p>
+                                                            <!-- /ko -->
+                                                            <div data-bind="template: {name: phoneTemplate(), afterRender: window.vtex.i18n.translateHtml }">
+                                                                <p class="client-phone input pull-left text required mask" data-bind="visible: !hasDifferentPhone()">
+                                                                    <label for="client-phone" data-i18n="clientProfileData.phone">Telefone</label>
+                                                                    <!-- ko ifnot: hasDifferentPhone -->
+                                                                    <input type="tel" id="client-phone" class="input-small" data-bind="hasfocus: phoneFocus, value: phone, valueUpdate:'afterkeydown', validate: validatePhone, required: true, disable: loading, maskOnBlur: checkout.phoneMask, attr: {'placeholder': phonePlaceholder}" placeholder="11 99999-9999">
+                                                                    <!-- /ko -->
+                                                                </input></p>
+                                                                <p class="client-phone input pull-left text required mask" data-bind="if: hasDifferentPhone()"></p>
+                                                            </div>
+                                                            <div class="document-box hide">
+                                                                <h5 data-bind="css: { 'visible': hasDifferentDocument }" data-i18n="clientProfileData.documentTitle" class="">Documento</h5>
+                                                                <ul class="links unstyled">
+                                                                    <li class="link cpf" data-bind="visible: !hasDifferentDocument()">
+                                                                        <a href="#" id="no-document-key" tabindex="16" data-bind="click: toggleDifferentDocument, attr:{ 'data-i18n': noDocumentKey }" data-i18n="clientProfileData.noDocument-BRA">Não tenho CPF</a>
+                                                                    </li>
+                                                                    <li class="link cpf" data-bind="visible: hasDifferentDocument()" style="display: none;">
+                                                                        <a href="#" id="has-document-key" data-bind="click: toggleDifferentDocument, attr:{ 'data-i18n': hasDocumentKey }" data-i18n="clientProfileData.hasDocument-BRA">Tenho CPF</a>
+                                                                    </li>
+                                                                </ul>
+                                                                <div>
+                                                                    <p class="client-document-type input pull-left text required mask" data-bind="fadeVisible: hasDifferentDocument" style="display: none;">
+                                                                        <label for="client-document-type" data-i18n="clientProfileData.documentType">Nome do documento</label>
+                                                                        <input type="text" id="client-document-type" class="input-small success" data-bind="value: documentType, valueUpdate:'afterkeydown',                                                    required: isNotCorporate, disable: loading"></input></p>
+                                                                    <p class="client-new-document input pull-left text required mask" data-bind="fadeVisible: hasDifferentDocument" style="display: none;">
+                                                                        <label for="client-new-document" data-i18n="clientProfileData.document">Documento</label>
+                                                                        <!-- ko if: hasDifferentDocument -->
+                                                                        <!-- /ko -->
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="phone-box" data-bind="css: {'visible': hasDifferentPhone() || differentPhoneFlag}">
+                                                                <ul class="links unstyled">
+                                                                    <li class="link" data-bind="visible: !hasDifferentPhone()">
+                                                                        <a href="#" id="no-phone-key" tabindex="16" data-bind="click: toggleDifferentPhone, attr:{ 'data-i18n': noPhoneKey }" data-i18n="clientProfileData.noPhone-BRA">Não tenho telefone do Brasil</a>
+                                                                    </li>
+                                                                    <li class="link" data-bind="visible: hasDifferentPhone()" style="display: none;">
+                                                                        <a href="#" id="has-phone-key" data-bind="click: toggleDifferentPhone, attr:{ 'data-i18n': hasPhoneKey }" data-i18n="clientProfileData.hasPhone-BRA">Tenho telefone do Brasil</a>
+                                                                    </li>
+                                                                </ul>
+                                                                <div>
+                                                                    <p class="client-new-phone input pull-left text required mask" data-bind="fadeVisible: hasDifferentPhone" style="display: none;">
+                                                                        <label for="client-new-phone" data-i18n="clientProfileData.phoneInternational">Telefone Internacional</label>
+                                                                        <!-- ko if: hasDifferentPhone -->
+                                                                        <!-- /ko -->
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <!-- FIM INFORMAÇÕES PARA PESSOA FÍSICA -->
+                                                        <!-- INFORMAÇÕES PARA PESSOA JURÍDICA -->
+                                                        <fieldset class="box-client-info-pj">
+                                                            <h5 class="corporate-title" data-bind="css: { 'visible': isCorporate }" data-i18n="clientProfileData.corporateTitle">Dados da pessoa jurídica</h5>
+                                                            <ul class="links unstyled">
+                                                                <li class="link pf-pj corporate-hide-link">
+                                                                    <a href="#" id="is-corporate-client" data-bind="visible: !isCorporate(), click: toggleCorporate" tabindex="17" data-i18n="clientProfileData.includeCo">Incluir dados de pessoa jurídica</a>
+                                                                    <a href="#" id="not-corporate-client" data-bind="visible: isCorporate, click: toggleCorporate" data-i18n="clientProfileData.excludeCo" style="display: none;">Descartar</a>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="corporate-info-box" data-bind="fadeVisible: isCorporate" style="display: none;">
+                                                                <p class="client-company-name input text required">
+                                                                    <label for="client-company-name" data-i18n="clientProfileData.companyName">Razão Social</label>
+                                                                    <input type="text" id="client-company-name" class="input-xlarge" data-bind="value: corporateName, valueUpdate:'afterkeydown', required: true, disable: loading"></input></p>
+                                                                <!-- ko if: showCorporateTradingName -->
+                                                                <p class="client-company-nickname input text required">
+                                                                    <label for="client-company-nickname" data-i18n="clientProfileData.tradingName">Nome Fantasia</label>
+                                                                    <input type="text" id="client-company-nickname" class="input-xlarge" data-bind="value: tradeName, valueUpdate:'afterkeydown', required: requirementTradingName, disable: loading"></input></p>
+                                                                <!-- /ko -->
+                                                                <!-- ko if: showCorporateStateInscription -->
+                                                                <!-- ko if: !exempt() -->
+                                                                <p class="client-company-ie input text required">
+                                                                    <label for="client-company-ie" data-bind="text: stateInscriptionLabel">Inscrição Estadual</label>
+                                                                    <input type="text" id="client-company-ie" class="input-small" data-bind="value: stateInscription, validate: 'numericPunctuation', valueUpdate:'afterkeydown', required: requirementStateInscription"></input></p>
+                                                                <!-- /ko -->
+                                                                <!-- ko if: exempt() -->
+                                                                <!-- /ko -->
+                                                                <!-- /ko -->
+                                                                <!-- ko if: showCorporateDocument -->
+                                                                <p class="client-company-document input text required mask">
+                                                                    <label for="client-company-document" data-bind="attr:{ 'data-i18n': coDocumentKey }" data-i18n="clientProfileData.coDocument-BRA">CNPJ</label>
+                                                                    <input type="text" id="client-company-document" class="input-small" data-bind="value: corporateDocument, valueUpdate:'afterkeydown',                                                    validate: validateCorporateDocument, required: true, disable: loading,                                                    maskOnBlur: checkout.corporateDocumentMask, attr: {'placeholder': companyDocumentPlaceholder}" placeholder="99.999.999/9999-99"></input></p>
+                                                                <!-- /ko -->
+                                                                <!-- ko if: showDocumentInCorporate -->
+                                                                <!-- /ko -->
+                                                                <div class="clearfix"></div>
+                                                                <div class="state-inscription-box" data-bind="visible: showCorporateExempt()">
+                                                                    <label class="checkbox exempt-si-label">
+                                                                        <input type="checkbox" id="state-inscription" data-bind="checked: exempt">
+                                                                        <span class="exempt-si-text" data-bind="attr:{ 'data-i18n': noStateInscriptionKey }" data-i18n="clientProfileData.noStateInscription-BRA">Isento de Inscrição Estadual</span>
+                                                                    </input></label>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <!-- FIM DE INFORMAÇÕES PARA PESSOA JURÍDICA -->
+                                                    </div>
+                                                    <p class="newsletter">
+                                                        <label class="checkbox newsletter-label" data-bind="fadeVisible: checkout.canEditData">
+                                                            <input type="checkbox" id="opt-in-newsletter" data-bind="checked: checkout.optinNewsLetter, enable: checkout.saveData">
+                                                            <span class="newsletter-text" data-i18n="global.optinNewsLetter">Quero receber e-mails com promoções.</span>
+                                                        </input></label>
+                                                    </p>
+                                                </div>
+                                                <p class="submit btn-submit-wrapper">
+                                                    <!-- ko if: !router.view.shippingDataVisited() -->
+                                                    <button type="submit" id="go-to-shipping" class="submit btn btn-large btn-success" data-bind="disable: loadingEmail" data-i18n="global.goToShipping">Ir para a Entrega</button>
+                                                    <!-- /ko -->
+                                                    <!-- ko if: router.view.shippingDataVisited() -->
+                                                    <!-- /ko -->
+                                                </p>
+                                            </form>
+                                            <!-- FIM INFORMAÇÕES PARA EDIÇÃO -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="shipping-data" class="span6 pull-right shipping-data">
+                            <div class="step accordion-group shipping-data">
+                                <!-- TITLE -->
+                                <div class="accordion-heading">
+                                    <span class="accordion-toggle collapsed accordion-shipping-title">
+                                        <i class="icon-home"></i>
+                                        <span data-i18n="shipping.title">Entrega</span>
+                                        <a href="#/shipping" id="edit-shipping-data" class="link-box-edit btn btn-small hide" tabindex="-1" data-i18n="[title]global.edit" title="alterar">
+                                            <i class="icon-edit"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="accordion-inner">
+                                    <!-- MENSAGEM DE NÃO ATIVO E SEM ENDEREÇO -->
+                                    <p class="notification address-not-filled-verification" data-i18n="global.waiting" style="display: block;">Aguardando o preenchimento dos dados</p>
+                                    <!-- RESUMO DE SHIPPING DATA -->
+                                    <div class="box-step box-info shipping-summary-placeholder"></div>
+                                    <!-- FIM DO RESUMO DE SHIPPING DATA -->
+                                    <div class="box-step">
+                                        <!-- CONTAINER DOS COMPONENTES FILHOS -->
+                                        <div class="country-select-placeholder"></div>
+                                        <div class="address-search-placeholder"></div>
+                                        <div class="address-form-placeholder"></div>
+                                        <div class="address-list-placeholder"></div>
+                                        <div class="address-shipping-options"></div>
+                                        <!-- FIM CONTAINER DOS COMPONENTES FILHOS -->
+                                        <!-- NEXT STEP BUTTON -->
+                                        <p class="submit btn-submit-wrapper btn-go-to-payment-wrapper" style="display: none;">
+                                            <button type="submit" class="submit btn btn-large btn-success btn-go-to-payment" data-i18n="shipping.goToPayment">Ir para o Pagamento</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="payment-data" class="span6 pull-right payment-data" data-bind="template: {name: 'orderForm-paymentData-template', afterRender: afterRender}, css: { 'span6': !active(), 'span12': active }">
+                            <div class="step accordion-group filled" data-bind="css: {active: active, filled: visitedAndNotActive}">
+                                <div class="accordion-heading">
+                                    <span class="accordion-toggle collapsed" data-bind="css: {'accordion-toggle-active': active}">
+                                        <i class="icon-credit-card"></i>
+                                        <span data-i18n="paymentData.payment">Pagamento </span>
+                                        <a href="#/payment" class="link-box-edit btn btn-small" tabindex="-1" data-bind="visible: visitedAndNotActive" data-i18n="[title]global.edit" title="alterar">
+                                            <i class="icon-edit"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="accordion-body collapse in payment-body">
+                                    <div class="accordion-inner">
+                                        <p class="notification" data-bind="visible: !active()" data-i18n="global.waiting">Aguardando o preenchimento dos dados</p>
+                                        <!-- ko if: isArgentina -->
+                                        <!-- /ko -->
+                                        <div class="box-step">
+                                            <p data-bind="visible: active() &amp;&amp; totalIsFree()" data-i18n="paymentData.totalIsFree" style="display: none;">O total da sua compra é grátis. Finalize a compra e obrigado!</p>
+                                            <div data-bind="fadeVisible: active() &amp;&amp; validationError()" class="alert alert-block payment-alert-error fade in" style="display: none;">
+                                                <button type="button" class="close" data-bind="click: clearValidationError">×</button>
+                                                <p data-i18n="global.validationErrorInThisForm">Encontramos um problema no preenchimento. Por favor, verifique os campos
+                                                    em destaque e tente novamente.</p>
+                                            </div>
+                                            <div data-bind="fadeVisible: active() &amp;&amp; giftCardMessages().length > 0" class="alert alert-block gift-card-message-container fade in" style="display: none;">
+                                                <!-- ko foreach: giftCardMessages -->
+                                                <!-- /ko -->
+                                            </div>
+                                            <div class="loading loading-bg" data-bind="fadeVisible: loading" style="display: none;">
+                                                <div class="loading-img">
+                                                    <i class="icon-spinner icon-spin icon-2x">
+                                                        <span data-i18n="global.loading">Carregando...</span>
+                                                    </i>
+                                                </div>
+                                            </div>
+                                            <div class="box-step-content" data-bind="fadeVisible: active() || visited()" style="display: block;">
+                                                <form action="" data-event="finishPayment" class="form-step box-new row-fluid" data-bind="fadeVisible: active(), submit: submit" style="display: none;">
+                                                    <!-- ko if: paymentGroups.giftCardPaymentGroup                                && paymentGroups.giftCardPaymentGroup.specialGiftCards().length > 0                                && !totalIsFree() -->
+                                                    <!-- /ko -->
+                                                    <!-- ko if: paymentGroups.giftCardPaymentGroup -->
+                                                    <!-- /ko -->
+                                                    <!-- ko if: paymentGroups.giftCardPaymentGroup && showGiftCard() -->
+                                                    <!-- /ko -->
+                                                    <fieldset class="payment-group" data-bind="visible: showPaymentOptions" style="display: none;">
+                                                        <h3 class="hide" data-i18n="paymentData.paymentMethod">Forma de pagamento</h3>
+                                                        <p class="link show-credits hide">
+                                                            <a href="javascript:void(0);" data-i18n="paymentData.showCredits">Exibir créditos da Lista de casamento e do Programa de Fidelidade</a>
+                                                        </p>
+                                                        <!-- para ser usado COM radio button -->
+                                                        <div class="payment-group-list required button-list inline-list hide" data-bind="foreach: paymentGroupArray"></div>
+                                                        <!-- /para ser usado COM radio button -->
+                                                        <!-- para ser usado SEM radio button -->
+                                                        <div class="required payment-group-list-btn" data-bind="foreach: paymentGroupArray"></div>
+                                                        <!-- /para ser usado SEM radio button -->
+                                                    </fieldset>
+                                                    <div class="steps-view" data-bind="visible: showPaymentOptions" style="display: none;">
+                                                        <!-- ko foreach: paymentGroupArray -->
+                                                        <!-- /ko -->
+                                                        <p class="button submit payment-submit-hide">
+                                                            <button type="submit" class="submit btn btn-success btn-large" data-bind="click: submit, disable: checkout.disablePaymentButton">
+                                                                <i class="icon-lock"></i>
+                                                                <span data-i18n="paymentData.confirm">Finalizar compra</span>
+                                                            </button>
+                                                        </p>
+                                                    </div>
+                                                </form>
+                                                <form id="sendPayments" data-event="sendPayments" method="post" name="sendPayments" action="">
+                                                    <input id="paymentsArray" name="paymentsArray" type="hidden">
+                                                    <input id="callbackURL" name="callbackUrl" type="hidden" data-bind="value: gatewayCallbackURL" value="https://tbb.vtexcommercestable.com.br/checkout/gatewayCallback/{0}/{1}/{2}"></input></input></form>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <p class="link back hide">
+                                        <a href="#/shipping">
+                                            <span data-i18n="global.backTo">Voltar para </span>
+                                            <span data-i18n="shippingData.shippingAddressTitle">Entrega</span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-template mini-cart span4">
+                    <div class="cart-fixed cart-fixed-transition affix-top" style="height: 406px;">
+                        <h2 data-i18n="totalizers.summary">Resumo do pedido</h2>
+
+                        <!-- TODO remove window.router -->
+                        <div class="summary-cart-template-holder" data-bind="fadeVisible: window.router.inOrderForm, template: { name: 'orderForm-summary-cart-template', afterRender: vtex.i18n.translateHtml }" style="display: block; height: auto;">
+                            <div class="cart">
+                                <ul class="cart-items unstyled clearfix">
+                                    <!-- ko foreach: { data: items, afterRender: vtex.i18n.translateHtml } -->
+                                    <li class="hproduct item muted" data-bind="attr: {'data-sku': id}" data-sku="29">
+                                        <a href="http://tbb.vtexcommercestable.com.br/desodorante-teste/p" class="url" data-bind="attr: {'href': ('http://' + location.host + detailUrl())}">
+                                            <img height="45" width="45" class="photo" data-bind="attr: {'src': imageUrl, 'alt': name, 'id': 'hproduct-item-' + id()}" src="https://via.placeholder.com/55" alt="Desodorante Teste Copy" id="hproduct-item-29"></img></a>
+                                        <span class="fn product-name" data-bind="text: name, attr: {'href': ('http://' + location.host + detailUrl())}" href="http://tbb.vtexcommercestable.com.br/desodorante-teste/p">Desodorante Teste Copy</span>
+                                        <span class="quantity badge" data-bind="text: quantity">1</span>
+                                        <div class="description">
+                                            <span class="shipping-date pull-left empty" data-bind="text: estimateLabel, css: { 'empty': estimateLabel() == 'a calcular' }">a calcular</span>
+                                            <strong class="item-price pull-right hide" data-bind="text: priceLabel">R$ 800,00</strong>
+                                            <strong class="price pull-right" data-bind="text: sellingPriceLabel">R$ 720,00</strong>
+                                        </div>
+                                        <!-- ko if: bundleItems() && bundleItems().length > 0 -->
+                                        <!-- /ko -->
+                                        <!-- ko if: components() && components().length > 0 -->
+                                        <!-- /ko -->
+                                        <!-- ko ifnot: available -->
+                                        <!-- /ko -->
+                                    </li>
+                                    <!-- /ko -->
+                                    <!-- ko if: gifts() && gifts().length > 0 -->
+                                    <!-- /ko -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="link link-cart pull-right">
+                            <small>
+                                <a href="#/cart" id="orderform-minicart-to-cart" target="_self" data-event="orderformToCart" data-i18n="global.backToCart">Voltar para o carrinho</a>
+                            </small>
+                        </p>
+                        <div class="summary-template-holder" data-bind="template: 'summary-template'">
+                            <div class="row-fluid summary" data-bind="fadeVisible: window.cart.hasItems() &amp;&amp; !loading()" style="display: block;">
+                                <div class="forms coupon-column summary-coupon-wrap span7 pull-left" data-bind="css: { 'span7 pull-left': !window.checkout.hasSelectableGifts(), 'span4 pull-right': window.checkout.hasSelectableGifts() }">
+                                    <div class="coupon summary-coupon pull-right" data-bind="with: coupon, visible: hasTotal">
+                                        <form class="coupon-form" action="" data-bind="submit: addCoupon">
+                                            <fieldset class="coupon-fieldset">
+                                                <div data-bind="fadeVisible: isUsingCoupon()" style="display: none;">
+                                                    <p class="coupon-label">
+                                                        <label for="cart-coupon" data-i18n="totalizers.couponCapitalize">Cupom de desconto</label>
+                                                    </p>
+                                                    <p class="coupon-fields">
+                                                        <span data-bind="visible: !isCouponTyped()">
+                                                            <input type="text" id="cart-coupon" class="coupon-value input-small" data-bind="value: couponCode, valueUpdate:'afterkeydown', disable: loadingCoupon()" placeholder="Código" data-i18n="[placeholder]totalizers.couponCode;">
+                                                            <span class="loading-inline loading-coupon" data-bind="fadeInlineVisible: loadingCoupon" style="display: none; opacity: 0;">
+                                                                <span data-i18n="cart.wait">Por favor, aguarde...</span>
+                                                            </span>
+                                                            <button type="submit" id="cart-coupon-add" class="btn" data-bind="disable: loadingCoupon" data-i18n="global.add">Adicionar</button>
+                                                        </input></span>
+                                                        <span class="info" data-bind="visible: isCouponTyped" style="display: none;">
+                                                            <span data-bind="text: value"></span>
+                                                            <small class="delete">
+                                                                <a href="javascript:void(0);" id="cart-coupon-remove" data-bind="click: removeCoupon" data-i18n="global.delete">excluir</a>
+                                                            </small>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <p class="coupon-data pull-right" data-bind="fadeVisible: !isUsingCoupon()">
+                                                    <a class="link-coupon-add" href="javascript:void(0);" id="cart-link-coupon-add2" data-bind="click: isUsingCoupon">
+                                                        <span data-i18n="global.add">Adicionar</span>
+                                                        <span data-i18n="totalizers.coupon">cupom de desconto</span>
+                                                    </a>
+                                                </p>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="span5 totalizers summary-totalizers cart-totalizers pull-right">
+                                    <div class="accordion-group" data-bind="fadeVisible: window.cart.hasItems() &amp;&amp; !loading()" style="display: block;">
+                                        <div class="accordion-heading">
+                                            <span class="accordion-toggle collapsed" data-i18n="totalizers.summary">Resumo do pedido</span>
+                                        </div>
+                                        <div class="accordion-body collapse in">
+                                            <div class="accordion-inner">
+                                                <div class="summary-discount-descriptions" data-bind="visible: discounts().length">
+                                                    <h3 class="summary-discount-title" data-i18n="totalizers.Discounts">Descontos</h3>
+                                                    <ul class="all-discount-descriptions unstyled" data-bind="foreach: discounts()">
+                                                        <li class="discount-descriptions-item">
+                                                            <strong class="discount-name" data-bind="text: name">Desconto todo o site 10</strong>
+                                                            <span class="discount-description" data-bind="text: description"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <table class="table">
+                                                    <tbody class="totalizers-list" data-bind="foreach: { data: totalizers }">
+                                                        <tr data-bind="visible: visible, attr: { 'class': id }" class="Items">
+                                                            <!-- ko if: id() == 'Shipping' -->
+                                                            <!-- /ko -->
+                                                            <!-- ko ifnot: id() == 'Shipping' -->
+                                                            <td class="info" data-bind="attr: {'data-i18n': 'totalizers.' + id()}" data-i18n="totalizers.Items">Subtotal</td>
+                                                            <td class="space"></td>
+                                                            <td class="monetary" data-bind="text: valueLabel">R$ 800,00</td>
+                                                            <td class="empty"></td>
+                                                            <!-- /ko -->
+                                                        </tr>
+                                                        <tr data-bind="visible: visible, attr: { 'class': id }" class="Discounts">
+                                                            <!-- ko if: id() == 'Shipping' -->
+                                                            <!-- /ko -->
+                                                            <!-- ko ifnot: id() == 'Shipping' -->
+                                                            <td class="info" data-bind="attr: {'data-i18n': 'totalizers.' + id()}" data-i18n="totalizers.Discounts">Descontos</td>
+                                                            <td class="space"></td>
+                                                            <td class="monetary" data-bind="text: valueLabel">R$ -80,00</td>
+                                                            <td class="empty"></td>
+                                                            <!-- /ko -->
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody class="shipping-reset" data-bind="visible: isShippingKnown()                                                    &amp;&amp; !window.checkout.isNotUsingPostalCode()                                                    &amp;&amp; window.cart.items().length == window.cart.unavailableItems().length" style="display: none;">
+                                                        <tr>
+                                                            <td class="info">
+                                                                <span class="postal-code-for-sla">
+                                                                    <span class="shipping-name" data-bind="attr: {'data-i18n': 'totalizers.Shipping'}" data-i18n="totalizers.Shipping">Entrega</span>
+                                                                    <span class="shipping-name-to" data-i18n="global.to">para</span>
+                                                                    <span class="postal-code-value" data-bind="html: window.summary.maskedPostalCode"></span>
+                                                                    <a href="javascript:void(0);" class="cart-reset-postal-code" id="cart-reset-postal-code555656" data-bind="visible : window.checkout.canEditData, click: summary.resetShipping" data-i18n="[title]global.edit" title="alterar">
+                                                                        <i class="icon-remove-sign"></i>
+                                                                    </a>
+                                                                    <br>
+                                                                    <a href="javascript:void(0);" class="cart-reset-postal-code" id="cart-reset-postal-code8886565" data-bind="visible : window.checkout.canEditData, click: window.summary.resetShipping" data-i18n="cart.resetShipping">Informar outro CEP</a>
+                                                                </br></span>
+                                                            </td>
+                                                            <td class="space"></td>
+                                                            <td class="monetary shipping-unavailable" data-i18n="global.unavailable">indisponível</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody class="shipping-calculate" data-bind="visible: !isShippingKnown() &amp;&amp; !window.checkout.isNotUsingPostalCode()">
+                                                        <tr>
+                                                            <td class="info">
+                                                                <span data-i18n="cart.calculateShipping">Entrega</span>
+                                                            </td>
+                                                            <td class="space" data-bind="visible: !isUsingPostalCode()"></td>
+                                                            <td class="monetary" data-bind="visible: !isUsingPostalCode()">
+                                                                <a id="shipping-calculate-link2" class="shipping-calculate-link" href="javascript:void(0)" data-bind="click: usingPostalCode" data-i18n="cart.calculate">Calcular</a>
+                                                            </td>
+                                                            <td class="monetary form-postal-code forms" data-bind="visible: isUsingPostalCode() &amp;&amp; !isShippingKnown()" colspan="3" style="display: none;">
+                                                                <div class="shipping summary-shipping">
+                                                                    <form class="shipping-form-inline" action="" data-bind="submit: calculateShipping">
+                                                                        <fieldset class="shipping-fieldset">
+                                                                            <div class="shipping-fields">
+                                                                                <input type="tel" id="summary-postal-code2" class="postal-code input-mini" data-bind="value: postalCode, valueUpdate:'afterkeydown',                                                               validate: 'postalCode', disable: loadingPostalCode,                                                               maskOnBlur: window.checkout.postalCodeMask,                                                               attr: {'placeholder': postalCodeLabel, 'maxlength': window.checkout.postalCodeMask() ? window.checkout.postalCodeMask().length : 9},                                                               css: {'loading-postal-code': loadingPostalCode}" placeholder="CEP" maxlength="9">
+                                                                                <i class="loading-inline icon-spinner icon-spin" data-bind="fadeInlineVisible: loadingPostalCode" style="display: none; opacity: 0;">
+                                                                                    <span data-i18n="cart.wait">Por favor, aguarde...</span>
+                                                                                </i>
+                                                                                <button type="submit" id="cart-shipping-calculate" class="btn" data-bind="disable: loadingPostalCode" data-i18n="cart.calculate">Calcular</button>
+                                                                            </input></div>
+                                                                            <small class="postal-code-service summary-postal-code-service">
+                                                                                <a id="cart-dont-know-postal-code2" data-bind="attr: { 'href': window.checkout.postalCodeForgottenURL }" target="_blank" data-i18n="totalizers.dontKnowPostalCode" href="http://www.buscacep.correios.com.br/servicos/dnec/index.do">Não sei meu CEP</a>
+                                                                            </small>
+                                                                        </fieldset>
+                                                                    </form>
+                                                                </div>
+                                                            </td>
+                                                            <td class="empty" data-bind="visible: !isUsingPostalCode()"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr data-bind="css: {'muted': !hasTotal()}" class="">
+                                                            <td class="info" data-i18n="global.total">Total</td>
+                                                            <td class="space"></td>
+                                                            <td class="monetary" data-bind="text: totalLabel">R$ 720,00</td>
+                                                            <td class="empty"></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-confirmation-wrap">
+                            <div class="note summary-note hide" data-bind="template: 'note-template', css: { hide: !window.cart.allowManualPrice() }">
+                                <p class="note-data" data-bind="fadeVisible: !isUsingNote()">
+                                    <a class="link-note-add" href="javascript:void(0);" id="cart-link-note-add" data-bind="click: setUsingNote">
+                                        <span data-i18n="global.addNote">Adicionar observação</span>
+                                    </a>
+                                </p>
+                                <div data-bind="fadeVisible: isUsingNote()" style="display: none;">
+                                    <p class="note-label">
+                                        <label for="cart-note" data-i18n="global.note">Observação</label>
+                                    </p>
+                                    <textarea id="cart-note" class="note-textarea" row="3" data-bind="value: note, valueUpdate:'blur'" maxlength="1000"></textarea>
+                                </div>
+                            </div>
+
+                            <p class="payment-submit-wrap">
+                                <button id="payment-data-submit" class="submit btn btn-success btn-large btn-block" data-bind="click: submit, disable: window.checkout.disablePaymentButton" tabindex="200">
+                                    <i class="icon-lock" data-bind="visible: !window.checkout.disablePaymentButton()"></i>
+                                    <i class="icon-spinner icon-spin" data-bind="visible: window.checkout.disablePaymentButton()" style="display: none;"></i>
+                                    <span data-i18n="paymentData.confirm">Finalizar compra</span>
+                                </button>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /END ORDERFORM -->
+        </div>
+    </div>
+
+    <!-- View Part Instance: Copyright -->
+    <!-- FOOTER -->
+    <vtex:template id="checkout-footer"/>
+
+    <script src="/files/checkout6-custom.js"></script>
+
+    </body>
+
+</html>

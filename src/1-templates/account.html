@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR">
+
+<head>
+    <title>Minha conta</title>
+    <vtex:metaTags />
+    <vtex:template id="NAMESTORE-head" />
+    <link href="/arquivos/NAMESTORE-account.min.css" rel="stylesheet" />
+</head>
+
+<body class="account">
+
+    <div class="wrapper" id="app">
+
+        <vtex:template id="NAMESTORE-header" />
+
+        <div class="grid">
+            <div class="col-1-1">
+                <div class="container-account">
+                    <div class="row">
+                        <div class="section-body">
+                            
+                            <div class="section-paging">
+                                <div class="shell">
+                                    <div class="bread-crumb">
+                                       <ul>
+                                          <li typeof="v:Breadcrumb">
+                                            <a href="/" rel="v:url" property="v:title">Home</a>
+                                          </li>
+                                          <li class="last">
+                                            <a href="#">Minha conta</a>
+                                          </li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /.shell -->
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="center-container">
+                            
+                                <div id="center-column">
+                                        <h1>
+                                            <i class="fa fa-user" aria-hidden="true"></i> Minha Conta</h1>
+                                        <vtex.cmc:accountUserProfile />
+                                        <vtex.cmc:accountAddress/>
+                                        <div class="clearfix"></div>
+    
+                                        <div id="ACCOUNT_Pedidos">
+                                            <h4>Meus Pedidos</h4>
+                                            <a class="link-order" href="/account/orders">Ver Meus Pedidos</a>
+                                        </div>
+                                        <div id="ACCOUNT_exit">
+                                            <h4>Sair da sua conta</h4>
+                                            <a class="link-out" href="/no-cache/user/logout">Sair</a>
+                                        </div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <vtex:template id="NAMESTORE-footer" />
+
+    </div>
+
+    <script type="text/javascript" src="https://corebiz.vteximg.com.br/arquivos/bootstrap.min.js?v=4444"></script>
+    <vtex:template id="NAMESTORE-scripts" />
+
+    <script type="text/javascript" src="/arquivos/NAMESTORE-account.min.js"></script>
+</body>
+
+</html>

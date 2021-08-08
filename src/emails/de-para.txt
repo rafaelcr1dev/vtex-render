@@ -1,0 +1,14 @@
+Let me know = Avise-me
+carrinho-abandonado = precisa editar o template da forma padr�o
+Access key = Chave de Acesso
+Order confirmation = confirmacao-de-pedidos
+Subscriptions Payment Not Approved = pagamento n�o autorizado
+Change of information order = pedido alterado
+Payment approved = pedido aprovado
+Order cancelled = pedido cancelado
+Order delivered = pedido entregue
+Order shipped = pedido enviado
+Order invoiced = pedido faturado
+Payment pending = pedido pendente
+Password recovery = recuperacao de senha
+Shipping update = status-de-entrega

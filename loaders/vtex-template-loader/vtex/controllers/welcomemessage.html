@@ -1,0 +1,25 @@
+<!-- welcomeMessage --><script>
+                                    $(document).ready(function () {
+                                        vtexid.setScope("296eafab-1a1e-43db-9212-f96e924aa593");
+                                        $("body").on("click", "#login", function () {
+                                            vtexid.start(
+                                                    {
+                                                        returnUrl: "/login?ReturnUrl=%2f",
+                                                        userEmail: "",
+                                                        locale: "pt-BR",
+                                                        forceReload: false
+                                                    });
+                                        });
+                                    });
+                                   </script><div class="ajax-content-loader" rel="/no-cache/user/welcome">
+        <p class="welcome">
+        Seja Bem Vindo à Loja Exemplo
+        <em><a id="login">Já é cadastrado?
+        </a></em>
+        </p>
+        <p class="welcome logado hidden">
+        Olá Rafael Cruz<em><a href="/no-cache/user/logout">
+        Novo Usuário?
+        </a></em>
+        </p>
+</div><!-- /welcomeMessage -->

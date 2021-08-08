@@ -1,0 +1,6 @@
+{
+    "editor.rulers": [120],
+    "prettier.printWidth": 120,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+}

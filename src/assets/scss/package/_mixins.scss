@@ -1,0 +1,247 @@
+@import './variables';
+
+// --- Mixin Effects --- //
+
+// Fonts
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+@function font-family($mode) {
+  $family: "Arial";
+  @if ($mode == 'title') {
+    $family: 'Roboto', Arial, Helvetica, sans-serif;
+  } @else if ($mode == 'body') {
+    $family: 'Roboto', Arial, Helvetica, sans-serif;
+  }
+
+  @return $family;
+}
+
+// Centering
+
+@mixin center($position) {
+  position: absolute;
+  
+  @if $position == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @else if $position == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  }
+  @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Truncate text
+
+@mixin limit-text($lines: 2, $line-height: 1.286rem) {
+  display: -webkit-box;
+  line-height: $line-height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+ -webkit-line-clamp: $lines;
+ -webkit-box-orient: vertical; // se não funcionar, essa propriedade deve ser colocada INLINE no elemento
+}
+
+// Transition
+
+@mixin transition($prop...) {
+  transition-property: $prop;
+  transition-duration: .4s; 
+  transition-timing-function: ease-in-out; 
+  will-change: $prop;
+}
+
+// Fade Effect
+
+@mixin fade($mode: 'inactive', $mheight: 100vh) {
+  @if ($mode == 'inactive') {
+    max-height: 0;
+    opacity: 0;
+    @include transition(opacity, max-height);
+  } @else if ($mode == 'active') {
+    max-height: $mheight;
+    opacity: 1;
+  }
+}
+
+// --- Mixin Creational --- //
+
+// Buttons
+
+@mixin button($type: 'primary') {
+  border-radius: $border-radius-input;
+  box-shadow: 0 10px 10px -6px rgba(0, 0, 0, .75);
+  cursor: pointer;
+  display: flex;
+  font-family: font-family('body');
+  font-size: 2rem;
+  font-weight: bold;
+  height: 45px;
+  margin: auto;
+  place-content: center;
+  text-transform: uppercase;
+  width: 265px;
+  
+  @include transition(background-color);
+
+  @if ($type == 'primary') {
+    background-color: $button-primary-bg;
+    color: $button-primary-text;
+
+    &:hover {
+      background-color: $button-primary-bg-hover;
+    }
+  } @else if ($type == 'secondary') {
+    background-color: $button-secondary-bg;
+    color: $button-secondary-text;
+
+    &:hover {
+      background-color: $button-secondary-bg-hover;
+    }
+  } @else if ($type == 'tertiary') {
+    background-color: $button-tertiary-bg;
+    color: $button-tertiary-text;
+
+    &:hover {
+      background-color: $button-tertiary-bg-hover;
+    }
+  }
+}
+
+// Before & After
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin divisory($position: 'bottom') {
+
+  @if ($position != 'bottom') {
+    border-#{$position}: 1px solid $secondary-grey;
+  } @else {
+    border-bottom: 1px solid $secondary-grey;
+  }
+
+}
+
+// Triangles, Arrows, etc.
+
+@mixin triangle($direction: down, $size: 5px, $color: #555) {
+  width: 0;
+  height: 0;
+  @if ($direction == left) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent; 
+    border-right: $size solid $color;
+  }
+  @else if ($direction == right) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent; 
+    border-left: $size solid $color;
+  }
+  @else if ($direction == down) {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  }
+  @else {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+}
+
+// --- Mixin Functions --- //
+
+// Media Queries
+
+@mixin mq($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+  @if $width == 'desk' {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+  @if $width == 'tb' {
+    @media only screen and (max-width: 1023px) {
+      @content;
+    }
+  }
+  @if $width == 't' {
+    @media only screen and (max-width: 960px) {
+      @content;
+    }
+  }
+  @if $width == 'mob' {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $width == 'small-mob' {
+    @media only screen and (max-width: 490px) {
+      @content;
+    }
+  }
+  @if $width == 'only-tab' {
+    @media (min-width: 768px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if $width == 'only-mob' {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  }
+}
+
+// Animations
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;    
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

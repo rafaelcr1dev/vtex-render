@@ -1,0 +1,7 @@
+{
+  "no_confirm": false,
+  "release_message": false,
+  "pre_commit_commands": [],
+  "post_commit_commands": [],
+  "post_complete_commands": []
+}

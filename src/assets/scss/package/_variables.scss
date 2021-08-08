@@ -1,0 +1,49 @@
+// Colors
+
+$primary-color: #FFF;
+$secondary-color: #FFFCF8;
+$tertiary-color: #FF7D00;
+$quaternary-color: #44D7B6;
+
+$primary-grey: #585858;
+$secondary-grey: #9B9B9B;
+
+$primary-black: #000000;
+$secondary-black: #121212;
+
+$primary-white: #FFFFFF;
+$secondary-white: #F2F2F2;
+
+$error: #FFDBDB;
+$success: #E6FFDB;
+
+// Texts
+
+$text-color: #333333;
+$title-primary-color: $tertiary-color;
+$title-secondary-color: $primary-grey;
+$body-primary-color: $primary-grey;
+$body-secondary-color: $secondary-grey;
+
+// Buttons
+
+$button-primary-bg: $tertiary-color;
+$button-secondary-bg: $quaternary-color;
+$button-tertiary-bg: $secondary-white;
+
+$button-primary-bg-hover: darken($tertiary-color, 30%);
+$button-secondary-bg-hover: darken($quaternary-color, 30%);
+$button-tertiary-bg-hover: darken($secondary-white, 30%);
+
+$button-primary-text: $secondary-color;
+$button-secondary-text: $secondary-color;
+$button-tertiary-text: $primary-grey;
+
+// Miscellaneous
+$border-radius-input: 0.286rem; // 4px
+
+// Sizes
+$shell-width: 1240px;
+$font-letter-spacing: 1px;
+$font-size: 14px;
+$font-line-height: 16px;

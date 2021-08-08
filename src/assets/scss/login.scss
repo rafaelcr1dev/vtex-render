@@ -1,0 +1,801 @@
+@import './package/common';
+
+#vtexIdUI-change-pswd {
+  height: 100%;
+}
+
+#vtexIdContainer {
+  position: fixed !important;
+  background-color: rgba(255,255,255, .8);
+
+  body.login {
+    background-size: cover;
+  }
+
+  #vtexIdUI-global-loader {
+    background-color: #e3e3e3 !important;
+    opacity: .8 !important;
+    z-index: 9999999999 !important;
+  }
+
+  .vtexIdUI {
+    top: 10px !important;
+    color: #585858;
+  }
+
+  .vtexIdUI * {
+    font-family: font-family('body');
+  }
+
+  [class*="vtexid-icon-"] {
+    font-family: "icomoon" !important;
+  }
+
+  #vtexIdUI-auth-selector,
+  #vtexIdUI-classic-login {
+    display: block !important;
+  }
+
+  .vtexIdUI .vtexIdUI-confirm-email,
+  .vtexIdUI-auth-code {
+    background: #ffffff !important;
+    height: 100%;
+  }
+
+  button#loginWithUserAndPasswordBtn,
+  #vtexIdUI-auth-selector .modal-header,
+  #vtexIdUI-classic-login .vtexIdUI-back-link.dead-link,
+  #vtexIdUI-auth-selector .modal-footer,
+  #vtexIdUI-multiple-link-account .modal-header {
+    display: none !important;
+  }
+
+  #vtexIdUI-classic-login,
+  #vtexIdUI-auth-selector {
+    z-index: 99999 !important;
+  }
+
+  .vtexIdUI-confirm-email.vtexIdUI-page-active,
+  .vtexIdUI-confirm-email.vtexIdUI-page-active,
+  .vtexIdUI-change-pswd.vtexIdUI-page-active,
+  .vtexIdUI-auth-code.vtexIdUI-page-active {
+    z-index: 999999 !important;
+  }
+
+  #vtexIdUI-auth-selector {
+    -webkit-transition: none !important;
+    transition: none !important;
+    -webkit-transform: none !important;
+            transform: none !important;
+  }
+
+  #vtexIdUI-auth-selector.vtexIdUI-leave-left,
+  #vtexIdUI-auth-selector.vtexIdUI-leave-right {
+    -webkit-animation: none !important;
+            animation: none !important;
+  }
+
+  #vtexIdUI-form-classic-login .modal-footer {
+    padding: 0px !important;
+  }
+
+  #vtexIdUI-auth-selector .modal-body {
+    text-align: center;
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+    height: 210px;
+    overflow: hidden;
+  }
+
+  #vtexIdUI-auth-selector .vtexIdUI-providers-list {
+    position: relative;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  #vtexIdUI-auth-selector .modal-body::before {
+    content: "Se preferir você pode:" !important;
+    font-family: font-family('body');
+    color: #727272 !important;
+    font-size: 1.07rem !important;
+    text-align: left;
+    display: block;
+    padding: 0px 0px;
+    z-index: 2;
+  }
+
+  .vtexIdUI .vtexid-icon-lock.bottom-icon {
+    background-color: transparent;
+    color: #585858;
+    text-shadow: none;
+    &::before {
+      color: #999999;
+    }
+  }
+
+  #vtexIdUI-auth-selector {
+    bottom: 0px !important;
+  }
+
+  .vtexIdUI {
+    border-radius: 0px !important;
+  }
+
+  .vtexIdUI h4 {
+    margin: 0px !important;
+  }
+
+  .vtexIdUI .modal-body {
+    padding: 10px 14px !important;
+    background: transparent;
+  }
+
+  .vtexIdUI label {
+    font-size: 1.07rem;
+
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .vtexIdUI .vtexIdUI-page {
+    min-height: auto !important;
+    margin: 0px !important;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li:first-child {
+    margin-bottom: 10px !important;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li:first-child,
+  .vtexIdUI .vtexIdUI-providers-list li #loginWithAccessKeyBtn {
+    width: 266px !important;
+    margin: 0 auto;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li #loginWithAccessKeyBtn {
+    font-size: 1rem !important;
+    font-weight: 100;
+    color: #ffffff !important;
+    background: $button-primary-bg !important;
+    border: none !important;
+    text-transform: initial;
+    font-family: font-family('body');
+    line-height: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px !important;
+    padding: 5px 40px;
+    height: 45px;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li #loginWithAccessKeyBtn span {
+    text-shadow: none;
+    font-family: font-family('body');
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li #loginWithAccessKeyBtn:hover {
+    color: #fff !important;
+    background: darken($button-primary-bg, 10) !important;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li:nth-child(4) {
+    display: none;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li button {
+    font-weight: bold;
+    border-radius: 0px !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list *,
+  .vtexIdUI .vtexIdUI-classic-login-control * {
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li button i {
+    display: none;
+  }
+
+  .vtexIdUI #vtexIdUI-facebook {
+    color: #ffffff !important;
+    border: none !important;
+    background: #476DDD !important;
+    text-transform: initial !important;
+    border-radius: 5px !important;
+    text-shadow: none !important;
+    font-family: font-family('body');
+    height: 45px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    width: 182px;
+    font-size: 1rem !important;
+    margin: 0 auto 10px auto;
+
+    span:first-child {
+      padding-left: 0px;
+
+      &::before {
+        content: "";
+        background: url('/arquivos/i-con-fb.png') no-repeat center center;
+        width: 16px;
+        height: 16px;
+        display: block;
+        position: absolute;
+        left: 0;
+        text-shadow: none !important;
+      }
+    }
+
+    span {
+      position: relative;
+      font-size: 1rem !important;
+      text-shadow: none !important;
+      font-weight: 100 !important;
+      font-family: font-family('body');
+    }
+  }
+
+  .vtexIdUI #vtexIdUI-facebook:hover {
+    color: #fff !important;
+    background: darken(#4960a5, 5%) !important;
+  }
+
+  .vtexIdUI #vtexIdUI-google-plus {
+    color: #585858 !important;
+    width: 182px;
+    height: 45px;
+    border: none !important;
+    background: #ffffff !important;
+    text-transform: initial !important;
+    margin: 0 auto 10px auto;
+    border-radius: 5px !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-family: font-family('body');
+    font-size: 1rem !important;
+    text-shadow: none !important;
+    span:first-child {
+      padding-left: 0px;
+
+      &::before {
+        content: "";
+        background: url('/arquivos/i-icon-gmail.png') no-repeat center center;
+        width: 16px;
+        height: 16px;
+        display: block;
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    span {
+      font-size: 1rem !important;
+      position: relative;
+      font-family: font-family('body');
+      text-shadow: none !important;
+    }
+  }
+
+  .vtexIdUI #vtexIdUI-google-plus:hover {
+    color: #fff !important;
+    background: #da573b !important;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li {
+    width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+
+  .vtexIdUI .vtexIdUI-providers-list li:nth-child(3) {
+    margin-left: 0% !important;
+  }
+
+  .vtexIdUI .alert {
+    font-size: 14px !important;
+  }
+
+  .vtexIdUI-show-app {
+    background-color: #ffffff;
+    box-shadow: none !important;
+    border: 1px solid #e5e5e5 !important;
+
+    @media screen and (min-width: 1024px) {
+      height: 600px !important;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      height: 600px !important;
+    }
+
+    @media screen and (max-width: 767px) {
+      height: 650px !important;
+    }
+
+  }
+
+  .vtexIdUI .modal-footer {
+    border: none !important;
+  }
+
+  .vtexIdUI .modal-header {
+    background: url(/arquivos/i-logo.png) no-repeat 23px 22px !important;
+    border: none !important;
+    color: #999;
+    padding-top: 48px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .vtexIdUI #sendAccessKeyBtn {
+    width: 182px !important;
+    float: none;
+    margin-top: 60px;
+    border: none;
+    font-size: 1.17rem;
+    line-height: 1.8rem;
+    height: 45px;
+    font-family: font-family('body');
+    text-shadow: none !important;
+  }
+
+  .vtexIdUI a.vtexIdUI-back-link {
+    color: $tertiary-color !important;
+  }
+
+  #vtexIdUI-classic-login .modal-header::before,
+  #vtexIdUI-email-confirmation .modal-header::before {
+    content: "Faça Login";
+    font-size: 1.07rem;
+    margin-bottom: 0px;
+    display: block;
+    padding: 0px 14px;
+    background-color: #ffffff;
+    font-family: font-family('body');
+  }
+
+  #vtexIdUI-classic-login .modal-header {
+    h4 {
+      display: none;
+    }
+  }
+
+  .modal-header {
+    display: block;
+  }
+
+  #vtexIdUI-classic-login .modal-header::after {
+    content: "";
+    background-image: url("/arquivos/final-savegnago-sprite.png");
+    background-position: 36.15676359039191% 82.57016248153619%;
+    background-size: 3264% 2808%;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    top: 72px;
+    left: 40px;
+    position: absolute;
+  }
+
+  #vtexIdUI-classic-login .modal-header h4 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    color: #585858;
+  }
+
+  .vtexIdUI input[type="text"], 
+  .vtexIdUI input[type="password"], 
+  .vtexIdUI input[type="email"] {
+    border: 1px solid #585858;
+    border-radius: 4px;
+    line-height: 17px;
+
+    &::placeholder {
+      font-size: 1.07rem;
+      color: #585858;
+    }
+  }
+
+  .vtexIdUI input,
+  .vtexIdUI .vtexIdUI-change-pswd input {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    border-radius: 4px !important;
+    padding: 13px !important;
+  }
+
+  .vtexIdUI .muted {
+    color: #585858;
+    text-transform: uppercase;
+  }
+
+  .info-why {
+    margin-bottom: 16px;
+  }
+
+  .vtexIdUI .vtexIdUI-change-pswd.vtexIdUI-page-active {
+
+    .info-why {
+      display: none;
+    }
+
+    .vtexIdUI-header {
+      display: none;
+      margin-bottom: 26px;
+      padding: 10px 23px;
+      background-color: #ffffff;
+      font-size: 16px;
+
+      .vtexIdUI-user {
+        margin-bottom: 0px;
+      }
+
+      & + h4 {
+        padding: 0px 14px;
+        color: #585858;
+      }
+    }
+  }
+
+  .vtexIdUI .btn-success {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+
+  #vtexIdUI-classic-login .btn-success {
+    margin-top: -115px;
+    margin-right: -90px;
+    width: 182px !important;
+    position: absolute;
+    right: 50%;
+    z-index: 999;
+    border-radius: 5px !important;
+    text-transform: uppercase;
+    font-weight: 100;
+    background-color: $tertiary-color !important;
+    border: none;
+    font-size: 1.17rem;
+    line-height: 1.8rem;
+    height: 45px;
+    font-family: font-family('body');
+    text-shadow: none;
+  }
+
+  #vtexIdUI-classic-login .btn-success:hover {
+    background-color: darken($tertiary-color, 5%) !important;
+  }
+
+  .vtexIdUI .modal-footer {
+    position: relative;
+    overflow: visible !important;
+  }
+
+  .control-group > .dead-link,
+  .control-group > .dead-link-custom {
+    display: block !important;
+    width: 182px;
+    float: none !important;
+    font-size: 0px;
+    overflow: hidden;
+    padding: 12px 12px;
+    height: 45px;
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff;
+    background: $button-secondary-bg !important;
+    border: none;
+    position: relative;
+    text-decoration: none !important;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: font-family('body');
+    margin: 65px auto 0 auto;
+  }
+
+  .modal-header .close {
+    margin: 0px;
+    right: 0px !important;
+    display: block !important;
+    font-size: 70px !important;
+    cursor: pointer;
+  }
+
+  .vtexIdUI .vtexIdUI-page,
+  .vtexIdUI form {
+    background: #ffffff;
+  }
+
+  .body-order-form #vtexIdUI-classic-login .btn-success {
+    position: relative !important;
+    margin: 0px !important;
+  }
+
+  .body-order-form .control-group > .dead-link {
+    display: none !important;
+  }
+
+  .body-order-form .vtexIdUI {
+    height: 520px !important;
+  }
+
+  .body-order-form .vtexIdUI .vtexIdUI-classic-login-control input {
+    margin-bottom: 0px !important;
+  }
+
+  .body-order-form .vtexIdUI .vtexIdUI-user {
+    margin-bottom: 0px;
+  }
+
+  .body-order-form .vtexIdUI .vtexIdUI-classic-login-control input,
+  .body-order-form .vtexIdUI .vtexIdUI-change-pswd input {
+    margin-bottom: 0px;
+  }
+
+  .control-group > .dead-link:hover,
+  .control-group > .dead-link-custom:hover {
+    color: #333333 !important;
+    background: #fff !important;
+  }
+
+  #vtexIdUI-email-confirmation .modal-footer,
+  #vtexIdUI-change-pswd .modal-footer,
+  #vtexIdUI-confirm-access-code .modal-footer {
+    padding: 0px 14px;
+
+    .vtexIdUI-back-link {
+      color: #585858 !important;
+      padding-left: 40px;
+      position: relative;
+      line-height: 30px;
+      margin-left: 15px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      span {
+        font-size: 1.07rem;
+      }
+
+      i {
+        position: absolute;
+        left: 0;
+        top: 2px;
+      }
+    }
+
+    .vtexid-icon-arrow-left:before {
+      font-size: 0rem;
+      width: 26px;
+      height: 21px;
+      display: block;
+      background: url('/arquivos/hilo-arrow-back.svg') no-repeat center center;
+    }
+  }
+
+  #vtexIdUI-change-pswd .modal-footer .btn-success,
+  #vtexIdUI-confirm-access-code .btn-success {
+    width: 70% !important;
+    text-align: center;
+    font-size: 1.17rem;
+    line-height: 1.8rem;
+    height: 45px;
+    float: none !important;
+    border: none;
+    text-shadow: none !important;
+    margin: 60px auto 0px auto;
+    display: block;
+    font-family: font-family('body');
+  }
+
+  .vtexIdUI .vtexIdUI-auth-code .vtexIdUI-code-field {
+    width: 100% !important;
+  }
+
+  #vtexIdUI-confirm-access-code input {
+    font-size: 34px !important;
+    height: 45px;
+    background: #ffffff;
+    color: #585858;
+    font-weight: bold;
+    border: 1px solid #585858;
+
+    @include mq('small-mob') {
+      font-size: 25px !important;
+      height: 55px;
+    }
+  }
+
+  #vtexIdUI-confirm-access-code .modal-header {
+    color: $tertiary-color;
+  }
+
+  .vtexIdUI .vtexIdUI-auth-code .btn {
+    font-size: 16px;
+    height: auto !important;
+  }
+
+  .vtexIdUI .vtexIdUI-auth-code h4 {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 20px;
+    display: none;
+  }
+
+  .vtexIdUI .vtexIdUI-auth-code .info-code.text-center {
+    text-align: left;
+
+    strong {
+      font-weight: 100;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  .vtexIdUI .vtexIdUI-auth-code .info-code.text-center span {
+    font-size: 1.07rem;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .vtexIdUI .vtexIdUI-auth-code .info-code {
+    margin-bottom: 14px !important;
+  }
+
+  .vtexid-password-requirements {
+    margin: 10px 0px 0px 10px;
+    color: #585858 !important;
+  }
+
+  .vtexid-password-requirements-description {
+    width: 100%;
+    color: #585858;
+    font-size: 1.07rem;
+    font-weight: 100;
+  }
+
+  .vtexid-password-requirements-list {
+    margin: 0px 0px !important;
+
+    & * {
+      font-size: 16px;
+    }
+  }
+
+  .vtexid-password-requirements-list li {
+    margin-bottom: 0px;
+    width: 100%;
+    display: inline-block;
+    font-size: 11px;
+  }
+
+  .vtexIdUI .alert {
+    margin: 5px 0px !important;
+    font-size: 11px;
+  }
+
+  .vtexIdUI .alert .alert-info span {
+    position: relative;
+    top: 15px;
+  }
+
+  p.alert.alert-info {
+    top: 18px !important;
+  }
+
+  .vtexIdUI .vtexIdUI-email-field input {
+    margin-bottom: 0px !important;
+    height: 45px;
+  }
+
+  .vtexIdUI .btn-success {
+    background: $tertiary-color !important;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .vtexIdUI .btn-success:hover {
+    background: darken($tertiary-color, 5%) !important;
+  }
+
+  .control-group > .dead-link::before,
+  .control-group > .dead-link-custom::before {
+    content: "Cadastre-se";
+    font-size: 1.17rem;
+    line-height: 1.8rem;
+  }
+
+  .control-group > label .dead-link {
+    font-size: 11px !important;
+    color: #fafafa;
+  }
+
+  .modal-footer {
+    padding-top: 0px !important;
+  }
+
+  #vtexIdUI-email-confirmation .modal-header::before {
+    content: "Email";
+    margin-bottom: 10px;
+    display: none;
+  }
+
+  .vtexIdUI-confirm-email,
+  .vtexIdUI-auth-code {
+    .modal-header {
+      h4 {
+        padding: 0px 14px;
+        margin-bottom: 0px;
+        color: #585858;
+      }
+
+      padding-bottom: 0px !important;
+    }
+  }
+
+  .vtexIdUI-auth-code {
+    h4 {
+      background-color: #ffffff;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+      color: #585858 !important;
+      span {
+        font-weight: 900 !important;
+      }
+    }
+  }
+  
+  .vtexIdUI .modal-footer {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .vtexIdUI .modal-header::before {
+    color: #585858 !important;
+  }
+
+  #vtexIdUI-email-confirmation .modal-header h4 {
+    margin-top: 0px;
+    margin-bottom: 5px !important;
+  }
+
+  #vtexIdUI-email-confirmation .modal-header span {
+    color: #585858;
+  }
+
+  .vtexIdUI .modal-header .close {
+    background: url('/arquivos/hilo-x-icon.svg') no-repeat center center !important;
+    color: #585858 !important;
+    font-size: 0px !important;
+    right: 25px !important;
+    top: 25px !important;
+    font-family: auto;
+    font-weight: 100 !important;
+    line-height: 30px;
+    display: block;
+    width: 28px;
+    height: 28px;
+  }
+
+}
+
+@media screen and (max-width: 760px) {
+  #vtexIdContainer {
+    background: #ffffff;
+    .vtexIdUI {
+      margin: 0px !important;
+      width: 100% !important;
+      position: relative !important;
+      top: 0px !important;
+      left: 0% !important;
+    }
+  }
+}

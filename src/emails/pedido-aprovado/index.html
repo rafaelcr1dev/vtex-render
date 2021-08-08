@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="initial-scale=1.0" />
+    <title>{{_accountInfo.TradingName}}</title>
+    <style type="text/css">
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td {
+            vertical-align: middle;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        table tr th {
+            text-align: left;
+            font-weight: 900;
+            padding: 10px;
+        }
+
+        table table tr th,
+        table table tr td {
+            padding: 5px;
+        }
+
+        .email-items .table tr {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        img {
+            display: block
+        }
+
+        html {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            line-height: 20px;
+            padding: 20px 0px;
+            margin: 0px;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        html * {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        #email-body {
+            max-width: 600px;
+            width: 100%;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .title-h1,
+        .title-h2,
+        .title-h3,
+        .title-h4 {
+            font-weight: 900;
+        }
+
+        strong {
+            font-weight: 900;
+        }
+
+        .title-h1 {
+            font-size: 24px;
+        }
+
+        .title-h2 {
+            font-size: 20px;
+        }
+
+        .title-h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .email-items-values {
+            text-align: right;
+        }
+
+        .email-header {
+            padding: 30px 20px;
+        }
+
+        .email-content {
+            padding: 20px;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #1976d2;
+            color: #fff;
+            font-weight: bold;
+            display: block;
+            width: 160px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .margin-top-10 {
+            margin-top: 10px;
+        }
+
+        .margin-top-20 {
+            margin-top: 20px;
+        }
+
+        .margin-top-30 {
+            margin-top: 30px;
+        }
+
+        .margin-top-40 {
+            margin-top: 40px;
+        }
+
+        .margin-bottom-10 {
+            margin-bottom: 10px;
+        }
+
+        .margin-bottom-20 {
+            margin-bottom: 20px;
+        }
+
+        .margin-bottom-30 {
+            margin-bottom: 30px;
+        }
+
+        .margin-bottom-40 {
+            margin-bottom: 40px;
+        }
+
+        .text {
+            margin-bottom: 10px;
+        }
+
+        .text.text--small {
+            font-size: 11px;
+        }
+
+        .block {
+            background-color: #e5e5e5;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .block-featured {
+            background-color: #f5f5f5;
+        }
+
+        .block-featured-secundary {
+            background-color: #1976d2;
+            padding: 20px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .color-featured {
+            color: #1976d2;
+        }
+
+        a.link {
+            color: #1976d2;
+        }
+
+        .text--gray {
+            color: #999;
+        }
+
+        center {
+            display: block;
+            width: 100%;
+        }
+
+        .email-items table+table tr td {
+            width: 50%;
+        }
+
+        @media (max-width: 767px) {
+            .email-items table+table td table {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script id="results-template" type="text/x-handlebars-template">
+    <center>
+            <table id="email-body" align="center" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <div class="email-header">
+                                <div class="email-logo">
+        
+                                    <a href="http://{{_accountInfo.HostName}}.com.br" title="{{_accountInfo.HostName}}">
+                                        <img width="auto" height="auto" alt="{{_accountInfo.TradingName}}" src="http://{{_accountInfo.HostName}}.vteximg.com.br/arquivos/{{_accountInfo.HostName}}-logo-email.jpg?v=1" border="0" />
+                                    </a>
+        
+                                </div>
+                            </div>
+                            <div class="email-content">
+                                <div class="title-h1 margin-bottom-40">
+                                    Pagamento aprovado
+                                </div>
+                                <div class="subtitle margin-bottom-20">
+                                    <div class="text">
+                                        <strong class="title-h3">Olá, <span class="color-featured">{{clientProfileData.firstName}}</span></strong> <br />
+                                        O pagamento da sua compra foi efetuado com sucesso. Agora, já podemos enviar o produto para o endereço de entrega.
+                                    </div>
+                                    <div class="text">
+                                        Você continuará a receber no seu e-mail as mensagens sobre o andamento do pedido.
+                                    </div>
+                                    <div class="text">
+                                        Se preferir, acompanhe o passo-a-passo da sua compra <br />
+                                        no nosso site.
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="email-status">
+                                <div>
+                                    <center>
+                                        <img src="http://{{_accountInfo.HostName}}.vteximg.com.br/arquivos/status-2.jpg" alt="status" border="0" />
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="email-content-secundary email-content align-center">
+                                <center>
+                                    <div class="actions margin-bottom-20">
+                                        <a href="http://{{_accountInfo.HostName}}.com.br/account/orders" class="btn">Acompanhar pedido</a>
+                                    </div>
+                                    <div class="text">
+                                        O número do seu pedido é
+                                        <strong>11234561-05</strong><br />
+                                        realizado em {{formatDate creationDate}}
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="email-infos email-content block-featured">
+                                    <div class="info info--address">
+                                        <div class="title-h4">
+                                            Endereço
+                                        </div>
+                                        <div class="text">
+                                            {{shippingData.address.receiverName}}<br>
+                                            {{shippingData.address.street}}, {{shippingData.address.number}} {{shippingData.address.complement}} - CEP {{shippingData.address.postalCode}} <br />
+                                            {{shippingData.address.neighborhood}} {{shippingData.address.city}} - {{shippingData.address.state}}<br />
+                                        </div>
+                                    </div>
+                                    <div class="info info--payment">
+                                            <div class="title-h4">
+                                                Forma de pagamento
+                                            </div>
+        
+                                                <div class="text">
+                                                    {{#eq split false}}
+            
+                                                        {{#each paymentData.transactions}}
+            
+                                                            {{#each payments}}
+            
+                                                                <div class="text">
+                                                                    {{paymentSystemName}} R$ {{formatCurrency value}} 
+            
+                                                                    {{#if installments}}
+                                                                        (Parcelamento: {{installments}}x)
+                                                                    {{/if}}  
+                                                                </div>
+            
+                                                                {{#eq paymentSystemName 'Boleto bancário'}}
+            
+                                                                    <a href="{{replace url '{Installment}' installments}}" target="_blank" class="btn">Imprimir boleto</a>
+            
+                                                                {{/eq}}
+            
+                                                            {{/each}}
+            
+                                                        {{/each}}  
+            
+                                                    {{/eq}} 
+            
+                                                    {{#eq split undefined}}
+            
+                                                        {{#each paymentData.transactions}}
+            
+                                                            {{#each payments}}
+            
+                                                                <div class="text">
+                                                                    {{paymentSystemName}} R$ {{formatCurrency value}}
+            
+                                                                    {{#if installments}}
+                                                                        (Parcelamento: {{installments}}x)
+                                                                    {{/if}}  
+                                                                </div>
+            
+                                                                {{#eq paymentSystemName 'Boleto bancário'}}
+            
+                                                                    <a href="{{replace url '{Installment}' installments}}" target="_blank" class="btn">Imprimir boleto</a>
+            
+                                                                {{/eq}}
+            
+                                                            {{/each}}
+            
+                                                        {{/each}}  
+            
+                                                    {{/eq}} 
+            
+                                                </div>
+                                    </div>
+                                </div>
+                                <div class="email-items email-content">
+                                        
+                                        <table width="100%" class="table">
+                                            <tr>
+                                                <th colspan="2">
+                                                    Items
+                                                </th>
+                                            </tr>
+                                            {{#each items}}
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <img src="https://via.placeholder.com/80x80" alt="" border="0" />
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <div class="text margin-top-10">
+                                                        <strong>{{name}}</strong> <br />
+                                                        <span>
+                                                            Entrega
+                                                            {{#each ../shippingData.logisticsInfo}}
+                                                                {{#eq itemId ../id}}
+                                                                    {{#each slas}}
+                                                                        {{#eq ../selectedSla id}}
+                                                                           {{#if deliveryWindow}}
+                                                                             Agendada
+                                                                           {{else}}
+                                                                                {{#unless shippingEstimateDate}}
+                                                                                        em até
+                                                                                        {{#hasSubStr shippingEstimate 'bd'}}
+                                                                                            {{replace shippingEstimate 'bd' ' dias Ãºteis.'}}
+                                                                                        {{else}}
+                                                                                            {{replace shippingEstimate 'd' ' dias.'}}
+                                                                                        {{/hasSubStr}}
+                                                                                        {{else}}
+                                                                                        até
+                                                                                    {{formatDate shippingEstimateDate}}
+                                                                                {{/unless}}
+                                                                            {{/if}}
+                                                                        {{/eq}}
+                                                                    {{/each}}
+                                                                {{/eq}}
+                                                            {{/each}}
+                                                        </span> <br />
+                                                        <span>{{quantity}} unidade(s)</span> <br />
+                                                        <strong class="color-featured">R$ {{formatCurrency sellingPrice}}</strong>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </table>
+                                        <table width="100%">
+                                            <tr class="norow">
+                                                <td colspan="2" align="right">
+                                                    <table width="50%" class="table">
+                                                        {{#each totals}}
+                                                            {{#if value}}
+                                                                <tr>
+                                                                    <td valign="top" align="right" width="50%">
+                                                                        {{#eq id "Items"}}<strong>Itens</strong>{{/eq}}
+                                                                        {{#eq id "Shipping"}}<strong>Frete</strong>{{/eq}}
+                                                                        {{#eq id "Discounts"}}Descontos{{/eq}}
+                                                                        {{#eq id "Tax"}}Taxas{{/eq}}
+                                                                    </td>
+                                                                    <td valign="top" align="right" width="50%">
+            
+                                                                        <strong>R$ {{formatCurrency value}}</strong>
+            
+                                                                    </td>
+                                                                </tr>
+                                                            {{/if}} 
+                                                        {{/each}}  
+                                                        {{#if value}}
+                                                            <tr>
+                                                                <td valign="top" align="right" width="50%" class="color-featured">
+                                                                    Valor total
+                                                                </td>
+                                                                <td valign="top" align="right" width="50%" class="color-featured">
+                
+                                                                    <strong class="title-h3">{{formatCurrency value}}</strong>
+                
+                                                                </td>
+                                                            </tr>
+                                                        {{/if}}
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        
+                                </div>
+        
+                            <div class="email-contact-us">
+                                <div class="block-featured-secundary align-center">
+                                    <center>
+                                        Dúvidas? Entre em contato com agente: (11) 99999-9999
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="email-footer email-content">
+                                    <div class="footer--content margin-bottom-20">
+                                        <center>
+                                            <div class="text">
+                                                <strong class="color-featured">Nossas redes sociais</strong>
+                                            </div>
+                                            <table width="320">
+                                                <tr>
+                                                    <td align="center">
+                                                        <a href="" title="Facebook">
+                                                            <img width="32px" heigh="32px" src="http://{{_accountInfo.HostName}}.vteximg.com.br/arquivos/facebook.png" alt="status" border="0" />
+                                                        </a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <a href="" title="Instagram">
+                                                            <img width="32px" heigh="32px" src="http://{{_accountInfo.HostName}}.vteximg.com.br/arquivos/instagram.png" alt="status" border="0" />
+                                                        </a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <a href="" title="Youtube">
+                                                            <img width="32px" heigh="32px" src="http://{{_accountInfo.HostName}}.vteximg.com.br/arquivos/youtube.png" alt="status" border="0" />
+                                                        </a>
+                                                    </td>
+                                                    <td align="center">
+                                                        <a href="" title="Twitter">
+                                                            <img width="32px" heigh="32px" src="http://{{_accountInfo.HostName}}.vteximg.com.br/arquivos/twitter.png" alt="status" border="0" />
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </center>
+                                    </div>
+                                    <div class="footer--content margin-bottom-20">
+                                        <center>
+                                            <div class="text">
+                                                <strong class="color-featured">Nossas formas de pagamento</strong>
+                                            </div>
+        
+                                            <img src="http://{{_accountInfo.HostName}}.vteximg.com.br/arquivos/payments-email.jpg" alt="status" border="0" />
+                                        </center>
+                                    </div>
+                                    <div class="footer--content">
+                                        <div class="text text--small text--gray">
+                                            <center>
+                                                @2019 {{_accountInfo.HostName}}<br />
+                                                Obrigado por comprar com agente :)
+                                            </center>
+                                        </div>
+                                    </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+    </center>
+    <div class="text text--small text--gray align-center">
+        <center>
+            <div class="email-content">
+                Atenção: Esta é uma mensagem automática, não é necessário respondê-la.
+            </div>
+        </center>
+    </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="../handlebars.js"></script>
+    <script src="../handlebars-utils.js"></script>
+    <script src="pedido-aprovado.js"></script>
+</body>
+
+</html>

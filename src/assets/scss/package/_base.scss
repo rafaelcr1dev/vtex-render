@@ -1,0 +1,43 @@
+@import './common';
+
+* {
+  box-sizing: border-box;
+  border: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: baseline;
+  outline: 0;
+}
+
+html, body, #root {
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  font-size: $font-size;
+  line-height: $font-line-height;
+  letter-spacing: $font-letter-spacing;
+
+  @include mq('mob') {
+    font-size: $font-size;
+  }
+}
+
+body {
+  background-color: $primary-color;
+  font-family: font-family('body');
+  color: $text-color;
+}
+
+.shell {
+  margin: 0 auto;
+  max-width: $shell-width;
+  width: 100%;
+}
+
+#ajaxBusy, .ajax-content-loader {
+  display: none !important;
+}

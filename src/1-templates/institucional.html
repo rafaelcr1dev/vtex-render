@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-BR">
+
+<head>
+    <title>CMS</title>
+    <vtex:metaTags />
+    <vtex:template id="NAMESTORE-head" />
+    <script>
+        document.title = '<vtex:contentPlaceHolder id="title" />';
+    </script>
+    <link href="/arquivos/NAMESTORE-institucional.min.css?v=0018" rel="stylesheet" />
+</head>
+
+<body class="cms">
+    <div class="wrapper" id="app">
+        <vtex:template id="NAMESTORE-header" />
+
+        <div class="container container--gray">
+
+            <div class="section-paging">
+                <div class="shell">
+                    <div class="bread-crumb">
+                       <ul>
+                          <li typeof="v:Breadcrumb">
+                          <a href="/" rel="v:url" property="v:title">savegnago</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div><!-- /.shell -->
+            </div>
+
+            <div class="section-products">
+                <div class="shell">
+                    <div class="section__content-sec">
+
+                        <!--<h1>Institucional</h1>-->
+                        <!--<p>Em construção</p>-->
+                        
+                        <div class="conteudo">
+                            <vtex:contentPlaceHolder id="conteudo" />
+                        </div>           
+                    
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <vtex:template id="NAMESTORE-footer" />
+        <!-- templateHeader -->
+    </div>
+    <vtex:template id="NAMESTORE-scripts" />
+    <!-- / templateHeader -->
+    <script type="text/javascript" src="/arquivos/NAMESTORE-institucional.min.js?v=0018"></script>
+</body>
+
+</html>

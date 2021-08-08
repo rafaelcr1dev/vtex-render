@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoResponder LastSave="2019-03-09T13:24:21.948923-03:00" FiddlerVersion="5.0.20181.14850">
+  <State Enabled="true" Fallthrough="true" UseLatency="false">
+    <ResponseRule Match="NAMESTORE-search-empty.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-search-empty.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-giftlist.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-giftlist.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-hotiste.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-hotiste.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-page-error.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-page-error.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-departament.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-departament.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-product.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-product.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-login.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-login.min.css" Enabled="true" />
+    <ResponseRule Match="/checkout5-custom.css" Action="http://localhost:8000/arquivos/NAMESTORE-checkout.min.css" Enabled="true" />
+    <ResponseRule Match="/checkout6-custom.css" Action="http://localhost:8000/arquivos/NAMESTORE-checkout.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-home.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-home.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-cms.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-cms.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-account.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-account.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-order.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-order.min.css" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-main.min.css" Action="http://localhost:8000/arquivos/NAMESTORE-main.min.css" Enabled="true" />
+    
+    <ResponseRule Match="NAMESTORE-home.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-home.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-cms.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-cms.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-account.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-account.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-order.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-order.min.js" Enabled="true" />
+    <ResponseRule Match="checkout5-custom.js" Action="http://localhost:8000/arquivos/NAMESTORE-checkout.min.js" Enabled="true" />
+    <ResponseRule Match="checkout6-custom.js" Action="http://localhost:8000/arquivos/NAMESTORE-checkout.min.js" Enabled="true" />
+    <ResponseRule Match="checkout-confirmation-custom.js" Action="http://localhost:8000/arquivos/checkout-confirmation-custom.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-departament.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-departament.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-product.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-product.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-cms.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-cms.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-search-empty.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-search-empty.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-giftlist.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-giftlist.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-hotsite.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-hotsite.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-page-error.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-page-error.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-quick-view.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-quick-view.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-login.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-login.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-main.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-main.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-nossas-lojas.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-nossas-lojas.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-filmes.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-filmes.min.js" Enabled="true" />
+    <ResponseRule Match="NAMESTORE-cinema.min.js" Action="http://localhost:8000/arquivos/NAMESTORE-cinema.min.js" Enabled="true" />
+
+  </State>
+</AutoResponder>

@@ -1,0 +1,235 @@
+<!-- Controle: Criar uma Lista --><div id="giftlistformwrapper" class="giftlist giftlist-form giftlist-create">
+<input type="hidden" id="type-4" value="#1#1#20#1#11/05/2017#11/05/2017#Noiva,Noivo###Essa é a minha lista de casamentos#0">
+<input type="hidden" id="type-5" value="1#0#1#1#0#06/05/2017#06/05/2017####Essa é a minha lista de desejos#0">
+<input type="hidden" name="giftListMsgErro" id="giftListMsgErro" value="Favor corrigir os campos selecionados.">
+<div id="errormessage" class="errormessage" style="display:none;"></div><form name="giftlistform" id="giftlistform" enctype="multipart/form-data">
+<div class="basic">
+<fieldset>
+<input type="hidden" name="giftlistredirectpath" id="giftlistredirectpath" value="/giftlist/manage">
+<input type="hidden" name="giftlistid" id="giftlistid" value="">
+<input type="hidden" name="giftlistfileid" id="giftlistfileid" value="">
+<input type="hidden" name="giftlistfilepath" id="giftlistfilepath" value="">
+<input type="hidden" name="giftlistisactive" id="giftlistisactive" value="True">
+<input type="hidden" name="giftlistaddress" id="giftlistaddress" value="">
+<ul class="giftlistul">
+<li class="giftlisttype chose">
+<label for="giftlisttype">Tipo de Lista</label><select name="giftlisttype" id="giftlisttype" previous="4">
+<option selected="selected" value="4">Minha lista de casamento</option><option value="5">Minha lista de desejos</option></select>
+</li>
+<li class="description" style="display:none;">
+<label for="typedescription">Descrição</label><div id="typedescription" name="typedescription" class="type-description" style="overflow: hidden; display: block;">Essa é a minha lista de casamentos</div></li><li class="giftlistname">
+<label for="giftlistname">Nome da lista</label><input type="text" name="giftlistname" maxlength="300" id="giftlistname" value="" placeholder="nome da lista">
+<span name="giftlistname-obr" id="giftlistname-obr" class="obr">*</span></li>
+<li class="giftlisturl">
+<label for="giftlisturl">Url da lista</label><span name="giftlisturl-site" id="giftlisturl-site" class="url-site">http://corebiz.vtexcommercestable.com.br/list/</span><input type="text" maxlength="100" name="giftlisturl" id="giftlisturl" placeholder="url da lista" title="http://corebiz.vtexcommercestable.com.br/list/[url da lista]">
+<span name="giftlisturl-obr" id="giftlisturl-obr" class="obr">*</span></li>
+<li class="visibility">
+<label for="visibility-wrapper">Quem pode ver esta Lista?</label>
+<span id="visibility-wrapper">
+<input type="radio" name="giftlistispublic" id="giftlistispublic-no" value="False" style="display: inline-block;">
+<label for="giftlistispublic-no" style="display: inline-block;">somente os participantes desta Lista</label>
+<br><input type="radio" name="giftlistispublic" id="giftlistispublic-yes" value="True" checked="checked">
+<label for="giftlistispublic-yes">qualquer pessoa</label>
+</span>
+</li>
+</ul>
+</fieldset>
+</div>
+<div class="image">
+<fieldset>
+<ul class="giftlistul">
+<li id="giftlistimageupload" class="imageupload" style="overflow: hidden;">
+<label for="giftlistimage">Upload de foto</label><div class="photo noimage" name="noimagewrapper" id="noimagewrapper">
+<input type="file" name="giftlistimage" id="giftlistimage" accept="image/gif, image/jpeg, image/jpg, image/png">
+<span class="image-upload"><input type="button" name="giftlistupload" id="giftlistupload" value="Enviar Foto" title="Enviar Foto"></span></div>
+</li>
+<li id="giftlistimageview" class="imageview" style="display: none; overflow: hidden;"><label for="giftlistimageload">Foto</label><div class="photo hasimage" name="hasimagewrapper" id="hasimagewrapper">
+<img name="giftlistimageload" id="giftlistimageload" alt="giftlistimageload" src=""><span class="image-remove"><input type="button" name="giftlistremoveimage" id="giftlistremoveimage" value="Remover Foto" title="Remover Foto">
+</span>
+</div>
+</li>
+<li class="giftlistmessage">
+<label for="giftlistmessage">Mensagem</label><textarea type="text" name="giftlistmessage" id="giftlistmessage"></textarea><span id="messagecharcounter" class="msg-char-counter">1000/1000</span>
+</li>
+</ul>
+</fieldset>
+</div>
+<div class="event" style="overflow: hidden; display: block;"><h2>Evento</h2>
+<fieldset>
+<p class="eventdate-range">de <label class="event-range-min">11/05/2017</label> até <label class="event-range-max">11/05/2017</label></p>
+<ul class="giftlistul">
+<li class="giftlisteventdate">
+<label for="giftlisteventdate">Data do evento</label><input type="text" name="giftlisteventdate" id="giftlisteventdate" onblur="dateValidatorOnBlur();" class="giftlisteventdate" value="" title="de  11/05/2017  até  11/05/2017"><span class="obr">*</span></li><li class="giftlisteventlocation">
+<label for="giftlisteventlocation">Local do Evento</label><input type="text" name="giftlisteventlocation" id="giftlisteventlocation" value="" placeholder="local do evento"></li>
+<li class="giftlisteventcity giftlisteventstate">
+<label for="giftlisteventcity">Cidade do Evento</label><input type="text" name="giftlisteventcity" id="giftlisteventcity" placeholder="cidade do evento">&nbsp;-&nbsp;<select name="giftlisteventstate" id="giftlisteventstate"><option value="AC">AC</option><option value="AL">AL</option><option value="AM">AM</option><option value="AP">AP</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MG">MG</option><option value="MS">MS</option><option value="MT">MT</option><option value="PA">PA</option><option value="PB">PB</option><option value="PE">PE</option><option value="PI">PI</option><option value="PR">PR</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RO">RO</option><option value="RR">RR</option><option value="RS">RS</option><option value="SC">SC</option><option value="SE">SE</option><option value="SP">SP</option><option value="TO">TO</option></select></li>
+</ul>
+</fieldset>
+</div>
+<div id="members-box" class="members-box" style="overflow: hidden; display: block;">
+<h2>Membros</h2>
+<p class="member-range">de <label class="member-range-min">1</label> até <label class="member-range-max">20</label></p>
+<fieldset>
+<ul id="gl-members" class="gl-members">
+
+    <li id="member-li-1" class="giftlismember member-1 gender-undefined title-undefined member-admin member-owner">
+        <input type="hidden" value="1" id="membernumber1" name="membernumber1">
+        <input type="hidden" value="" id="memberid1" name="memberid1">
+        <input type="hidden" value="" id="memberclientid1" name="memberclientid1">
+        <input type="hidden" value="196e8914-b4a8-4a38-94e2-303a2ec6a5ea" id="memberuserid1" name="memberuserid1">
+        <ul class="giftlistul">
+            <li id="title1" class="undefined" style="display: list-item;">
+                <label for="membertitle1">
+                    Titulo
+                </label>
+                <select id="membertitle1" name="membertitle1">
+                    
+
+
+                <option selected="selected" value="Noiva">Noiva</option><option selected="" value="Noivo">Noivo</option></select>
+            </li>
+            <li class="membername1">
+                <label for="membername1">
+                    Nome
+                </label>
+                <input type="text" onblur="checkNamesOnBlur(1);" maxlength="100" value="Rafael" id="membername1" name="membername1" placeholder="nome">
+                <span name="membernameobr1" id="membernameobr1" class="obr">
+                    *</span> </li>
+            <li class="membersurname1">
+                <label for="membersurname1">
+                    Sobrenome
+                </label>
+                <input type="text" onblur="checkNamesOnBlur(1);" maxlength="100" value="Cruz" id="membersurname1" name="membersurname1" placeholder="sobrenome">
+                <span name="membersurnameobr1" id="membersurnameobr1" class="obr">
+                    *</span> </li>
+            <li class="membermail1">
+                <label for="membermail1">
+                    E-mail
+                </label>
+                <input type="text" maxlength="200" onblur="validateMailOnBlur();" value="rafaelcruz1@hotmail.com" id="membermail1" name="membermail1" placeholder="e-mail">
+                <span name="membermailadmin1" id="membermailadmin1" class="obr">
+                    *</span> </li>
+            <li style="display:none;" id="text1member1" class="text1member1 ">
+                <label for="inputtext1member1"></label>
+                <input type="text" maxlength="200" value="" id="inputtext1member1" name="text1member1" placeholder="">
+            </li>
+            <li style="display:none;" id="text2member1" class="text2member1 ">
+                <label for="inputtext2member1"></label>
+                <input type="text" maxlength="200" value="" id="inputtext2member1" name="text2member1" placeholder="">
+            </li>
+            <li style="display:none;" id="isadmin1" class="memberisadmin">
+                <label for="adminwrapper">
+                    Pode administrar a lista? <span class="memberisadmin-info" onmouseover="AdminInfoOver(false);" onmouseout="AdminInfoOut(true);">[?]</span>
+                </label>
+                <div id="adminwrapper" class="adminwrapper">
+                    <span style="display:none;" id="adminwrapperno" class="adminwrapperno">
+                        <input type="radio" value="False" id="memberisadmin-no1" onclick="checkAdmin(1,false);" name="memberisadmin1">
+                        Não </span><span style="display:none;" id="adminwrapperyes" class="adminwrapperyes">
+                            <input type="radio" checked="" value="True" id="memberisadmin-yes1" onclick="checkAdmin(1,true);" name="memberisadmin1">
+                            Sim </span>
+                    <input type="hidden" name="memberisactive1" id="memberisactive1" value="True">
+                </div>
+            </li>
+        </ul>
+    </li></ul>
+</fieldset>
+<div id="membertemplate" name="membertemplate" style="display:none;" class="do-not-show">
+    <li id="member-li-xmcx" class="giftlismember member-xmcx gender-undefined title-undefined member-new">
+        <input type="hidden" value="xmcx" id="membernumberxmcx" name="membernumberxmcx">
+        <input type="hidden" value="" id="memberidxmcx" name="memberidxmcx">
+        <input type="hidden" value="" id="memberclientidxmcx" name="memberclientidxmcx">
+        <input type="hidden" value="" id="memberuseridxmcx" name="memberuseridxmcx">
+        <ul class="giftlistul">
+            <li id="titlexmcx" class="new">
+                <label for="membertitlexmcx">
+                    Titulo
+                </label>
+                <select id="membertitlexmcx" name="membertitlexmcx">
+                    
+                </select>
+            </li>
+            <li class="membernamexmcx">
+                <label for="membernamexmcx">
+                    Nome
+                </label>
+                <input type="text" onblur="checkNamesOnBlur(xmcx);" maxlength="100" value="" id="membernamexmcx" name="membernamexmcx" placeholder="nome">
+                <span name="membernameobrxmcx" id="membernameobrxmcx" class="obr" style="display:none;">
+                    *</span> </li>
+            <li class="membersurnamexmcx">
+                <label for="membersurnamexmcx">
+                    Sobrenome
+                </label>
+                <input type="text" onblur="checkNamesOnBlur(xmcx);" maxlength="100" value="" id="membersurnamexmcx" name="membersurnamexmcx" placeholder="sobrenome">
+                <span name="membersurnameobrxmcx" id="membersurnameobrxmcx" class="obr" style="display:none;">
+                    *</span> </li>
+            <li class="membermailxmcx">
+                <label for="membermailxmcx">
+                    E-mail
+                </label>
+                <input type="text" maxlength="200" onblur="validateMailOnBlur();" value="" id="membermailxmcx" name="membermailxmcx" placeholder="e-mail">
+                <span name="membermailadminxmcx" id="membermailadminxmcx" class="obr" style="display:none;">
+                    *</span> </li>
+            <li id="text1memberxmcx" class="text1memberxmcx ">
+                <label for="inputtext1memberxmcx">
+                    </label>
+                <input type="text" maxlength="200" value="" id="inputtext1memberxmcx" name="text1memberxmcx" placeholder="">
+            </li>
+            <li id="text2memberxmcx" class="text2memberxmcx ">
+                <label for="inputtext2memberxmcx">
+                    </label>
+                <input type="text" maxlength="200" value="" id="inputtext2memberxmcx" name="text2memberxmcx" placeholder="">
+            </li>
+            <li style="display:none;" id="isadminxmcx" class="memberisadmin">
+                <label for="adminwrapper">
+                    Pode administrar a lista? <span class="memberisadmin-info" onmouseover="AdminInfoOver(false);" onmouseout="AdminInfoOut(true);">[?]</span>
+                </label>
+                <div id="adminwrapper" class="adminwrapper">
+                    <span id="adminwrapperno" class="adminwrapperno">
+                        <input type="radio" checked="" value="False" id="memberisadmin-noxmcx" onclick="checkAdmin(xmcx,false);" name="memberisadminxmcx">
+                        Não </span><span id="adminwrapperyes" class="adminwrapperyes">
+                            <input type="radio" value="True" id="memberisadmin-yesxmcx" onclick="checkAdmin(xmcx,true);" name="memberisadminxmcx">
+                            Sim </span>
+                    <input type="hidden" name="memberisactivexmcx" id="memberisactivexmcx" value="False">
+                </div>
+            </li>
+        </ul>
+    </li></div><span class="giftlistmember-add" style="display: inline-block; overflow: hidden;"><a href="#" id="giftlistmember-add">Incluir Participante</a></span>
+<div id="admin-select" class="isadmin-info admin-select" onmouseover="AdminInfoOver(true);" onmouseout="AdminInfoOut(false);" style="display:none;"><p>Cada participante selecionado receberá um e-mail de confirmação com um link para aceitar a participação nesta Lista.</p><p>Será preciso estar cadastrado em nosso site para aceitar o convite e concluir o processo de verificação.<br>Após verificado o cadastro, esta pessoa poderá editar informações desta Lista e incluir produtos, mas <strong>só você</strong> terá permissão para alterar informações dos participantes ou <strong>desativar</strong> a Lista<br>Você poderá retirar o privilégio de administrador de qualquer participante desta Lista a qualquer momento.</p><p>O administrador também poderá desistir deste privilégio, tornando-se apenas mais um participante da Lista. Neste caso, será preciso um novo convite para reaver seu status.</p></div>
+</div>
+<div class="address address-component" style="overflow: hidden; display: block;">
+<h2>Endereço de entrega</h2>
+
+<script type="text/javascript" language="javascript">window.giftList='0'; window.addressBaseUrl='';</script>
+<div class="address-component-layover" style="overflow: hidden; display: none;">
+carregando endereços...
+</div>
+<div id="addresscomponent" class="placeholder-component-address-book"><div class="shipping-data address-book"><h3 class="address-book-title">Endereço de entrega</h3><div class="address-book-body"><div class="address-form"><h4>Cadastrar Novo endereço</h4><p class="cancel-address-form"><a href="javascript:void(0);">cancelar</a></p>	<div class="address-form-new box-new" data-parsley-validate="true" parsley-bind="true"><fieldset class="address-data"><input type="hidden" name="addressId" value="-1494114223328"><p class="ship-country input"><input type="hidden" name="country" value="BRA"></p><p class="ship-postal-code required input text mask"><label for="ship-postal-code">CEP <span class="item-required">*</span></label><input type="text" autocomplete="off" id="ship-postal-code" tabindex="221" class="ship-postal-code postal-code postal-code-cep input-small" value="" name="postalCode"><small><a href="" id="dont-know-postal-code" target="_blank">Não sei meu CEP</a></small></p><div class="box-delivery"><p class="ship-street required input text"><label for="ship-street"><span>Rua</span> <span class="item-required">*</span></label><input type="text" tabindex="222" id="ship-street" class="input-xlarge required parsley-validated" data-regexp="" value="" name="street"></p><p class="ship-number required input text"><label for="ship-number"><span>Número</span> <span class="item-required">*</span></label><input type="text" tabindex="223" id="ship-number" class="input-mini required parsley-validated" data-type="alphanum" value="" name="number"></p><p class="ship-more-info input text"><label for="ship-more-info"><span>Complemento</span></label><input type="text" tabindex="224" id="ship-more-info" class="input-medium" data-regexp="" placeholder="(opcional)" value="" name="complement"></p><p class="ship-reference input text hide"><label for="ship-reference"><span>Ponto de referência</span></label><input type="text" tabindex="225" id="ship-reference" class="input-xlarge" data-regexp="" value="" name="reference"></p><p class="ship-neighborhood required input text"><label for="ship-neighborhood"><span>Bairro</span> <span class="item-required">*</span></label><input type="text" tabindex="226" id="ship-neighborhood" class="input-large required parsley-validated" data-regexp="" value="" name="neighborhood"></p><p class="ship-city required input text"><label for="ship-city"><span>Cidade</span> <span class="item-required">*</span></label><input type="text" tabindex="227" id="ship-city" class="input-large required parsley-validated" data-regexp="" value="" name="city"></p><p class="ship-state required input text"><label for="ship-state"><span>Estado</span> <span class="item-required">*</span></label><select id="ship-state" tabindex="228" class="input-mini required parsley-validated" name="state"><option value="AC">AC</option><option value="AL">AL</option><option value="AM">AM</option><option value="AP">AP</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option><option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RO">RO</option><option value="RS">RS</option><option value="RR">RR</option><option value="SC">SC</option><option value="SE">SE</option><option value="SP">SP</option><option value="TO">TO</option></select></p><p class="ship-commercial input checkbox"><label for="ship-commercial"><input type="checkbox" id="ship-commercial" name="addressTypeCommercial" value="true"><span>Endereço comercial</span></label></p><p class="ship-name required input text separate"><label for="ship-name"><span>Quem receberá</span>  <span class="item-required">*</span></label><input type="text" tabindex="229" id="ship-name" class="input-xlarge required parsley-validated" data-regexp="" name="receiverName" value=""></p></div><p class="cancel-address-form"><a href="javascript:void(0);">cancelar</a></p><p class="submit btn-submit-wrapper" data-bind="fadeVisible: showContinueButton"><button type="submit" class="submit btn btn-large btn-success save-address" data-bind="attr: { 'disabled': disableContinueButton }" tabindex="350">Cadastrar</button></p>			</fieldset></div></div></div></div></div>
+
+<!--[if lt IE 9]>
+<script src='//io.vtex.com.br/front-libs/libs/es5-shim/es5-shim.js'></script>
+<script src='//io.vtex.com.br/front-libs/libs/es5-shim/es5-sham.js'></script>
+<![endif]-->
+<div class="component-address-book-debug" style="display: none !important;"></div>
+</div>
+<div class="therms-area">
+<h2>Regulamento</h2>
+<div class="therms-text">
+Regulamento da Lista</div>
+<div id="therms-accept" class="therms-accept">
+<input type="checkbox" name="giftlistaccept" id="giftlistaccept">
+<label for="giftlistaccept">Li e estou de acordo com o regulamento</label>
+</div>
+</div>
+<div class="action-area">
+<ul class="form-action">
+<li class="cancel">
+<input type="hidden" name="giftlistv2cancelmessage" id="giftlistv2cancelmessage" value="Deseja realmente abandonar esta página? Todas as alterações não salvas serão perdidas.">
+<input type="button" name="giftlistv2cancel" id="giftlistv2cancel" title="Cancelar" value="Cancelar" class="button giftlistv2cancel">
+</li>
+<li class="save">
+<input type="button" name="giftlistv2save" id="giftlistv2save" title="Salvar" value="Salvar" class="button giftlistv2save">
+</li>
+</ul>
+</div>
+</form>
+</div>
